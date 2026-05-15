@@ -1,0 +1,154 @@
+{
+  "projectName": "hotel-maa-sharda-palace",
+  "category": "hotel",
+  "preparedDate": "2026-04-04",
+  "designerNotes": "Excellent image quality throughout. Hero shot is a stunning dusk exterior with lotus fountain and elephant statues — world-class curb appeal. Indoor pool with green living wall is unique differentiator. Suite room has premium coffered LED ceiling — use prominently. All images enhanced: resized, brightness/saturation optimized, progressive JPEG.",
+
+  "logo": {
+    "type": "image",
+    "path": "/images/logo.jpg",
+    "originalFile": "LOGO_page-0001.jpg",
+    "notes": "Black & white ornate circular logo on white background. Use on dark backgrounds with CSS invert filter or white version. Elegant, traditional design."
+  },
+
+  "imageSlots": {
+    "hero_bg": {
+      "status": "ready",
+      "path": "/images/hero_bg.jpg",
+      "originalFile": "HD/Front View/IMG_3882.jpg",
+      "description": "Hotel exterior at dusk — 4-story building with lit lotus fountain, elephant statues, warm golden lighting. Stunning curb appeal.",
+      "quality": "excellent",
+      "notes": "Use as hero background with dark gradient overlay for text readability. This is the money shot."
+    },
+    "hero_bg_2": {
+      "status": "ready",
+      "path": "/images/hero_bg_2.jpg",
+      "originalFile": "HD/Front View/IMG_3883.jpg",
+      "description": "Same dusk exterior, slightly different angle — more sky visible.",
+      "quality": "excellent",
+      "notes": "Use in About page or as hero slideshow second slide."
+    },
+    "lobby": {
+      "status": "ready",
+      "path": "/images/lobby.jpg",
+      "originalFile": "HD/IMG_3835.jpg",
+      "description": "Elegant lobby seating area — two beige curved sofas, geometric glass coffee table, palm trees visible through glass.",
+      "quality": "good",
+      "notes": "Warm, welcoming feel. Good for About/Welcome section."
+    },
+    "lobby_2": {
+      "status": "ready",
+      "path": "/images/lobby_2.jpg",
+      "originalFile": "HD/IMG_3836.jpg",
+      "description": "Lobby alternate angle — similar beige sofas, hotel ambiance.",
+      "quality": "good",
+      "notes": "Gallery use."
+    },
+    "reception": {
+      "status": "ready",
+      "path": "/images/reception.jpg",
+      "originalFile": "HD/IMG_3828.jpg",
+      "description": "Reception desk with warm pendant lighting, textured wall, 'Reception' signage visible.",
+      "quality": "good",
+      "notes": "Use in contact/about section."
+    },
+    "reception_2": {
+      "status": "ready",
+      "path": "/images/reception_2.jpg",
+      "originalFile": "HD/IMG_3830.jpg",
+      "description": "Reception alternate angle.",
+      "quality": "good",
+      "notes": "Gallery use."
+    },
+    "pool": {
+      "status": "ready",
+      "path": "/images/pool.jpg",
+      "originalFile": "HD/Pool/IMG_3822.jpg",
+      "description": "Indoor swimming pool — blue mosaic tiles, wooden ceiling with spotlights, green living wall feature, steel entry rails.",
+      "quality": "excellent",
+      "notes": "UNIQUE DIFFERENTIATOR — indoor pool is rare in Ujjain. Feature prominently in amenities and hero area. Living green wall makes it luxurious."
+    },
+    "pool_2": { "status": "ready", "path": "/images/pool_2.jpg", "originalFile": "HD/Pool/IMG_3823.jpg", "quality": "good" },
+    "pool_3": { "status": "ready", "path": "/images/pool_3.jpg", "originalFile": "HD/Pool/IMG_3824.jpg", "quality": "good" },
+    "pool_4": { "status": "ready", "path": "/images/pool_4.jpg", "originalFile": "HD/Pool/IMG_3825.jpg", "quality": "good" },
+    "banquet_1": {
+      "status": "ready",
+      "path": "/images/banquet_1.jpg",
+      "originalFile": "Banquet 1/IMG_5399.jpg",
+      "description": "Large banquet hall with stage, balloon arch decor, rows of sofa seating, marble floor.",
+      "quality": "good",
+      "notes": "Highlight 3 banquet halls as key selling point for weddings/events. Bright up with brightness 1.18."
+    },
+    "banquet_2": { "status": "ready", "path": "/images/banquet_2.jpg", "originalFile": "Banquet 1/IMG_5400.jpg", "quality": "good" },
+    "banquet_3": { "status": "ready", "path": "/images/banquet_3.jpg", "originalFile": "Banquet 1/IMG_5415.jpg", "quality": "good" },
+    "banquet_4": { "status": "ready", "path": "/images/banquet_4.jpg", "originalFile": "Banquet 1/IMG_5420.jpg", "quality": "good" },
+    "banquet_5": { "status": "ready", "path": "/images/banquet_5.jpg", "originalFile": "Banquet 1/IMG_5421.jpg", "quality": "good" },
+    "banquet_6": { "status": "ready", "path": "/images/banquet_6.jpg", "originalFile": "Banquet 1/IMG_5422.jpg", "quality": "good" },
+    "room_deluxe": {
+      "status": "ready",
+      "path": "/images/room_deluxe.jpg",
+      "originalFile": "HD/IMG_3694.jpg",
+      "description": "Deluxe room — wood-paneled king bed headboard, tray ceiling, TV, warm lighting.",
+      "quality": "good",
+      "notes": "Map to Deluxe (₹3000) room type."
+    },
+    "room_deluxe_2": { "status": "ready", "path": "/images/room_deluxe_2.jpg", "originalFile": "HD/IMG_3695.jpg", "quality": "good" },
+    "room_super_deluxe": {
+      "status": "ready",
+      "path": "/images/room_super_deluxe.jpg",
+      "originalFile": "HD/IMG_3697.jpg",
+      "description": "Super Deluxe room — AC, king bed with hotel-branded linen, wooden furniture, clean modern finish.",
+      "quality": "good",
+      "notes": "Map to Super Deluxe (₹4000)."
+    },
+    "room_super_deluxe_2": { "status": "ready", "path": "/images/room_super_deluxe_2.jpg", "originalFile": "HD/IMG_3715.jpg", "quality": "good" },
+    "room_executive": {
+      "status": "ready",
+      "path": "/images/room_executive.jpg",
+      "originalFile": "HD/IMG_3749.jpg",
+      "description": "Executive room — spacious with two queen beds, textured grey walls, cove lighting, mood illumination.",
+      "quality": "excellent",
+      "notes": "Map to Executive (₹5000). Two-bed layout appeals to families."
+    },
+    "room_executive_2": { "status": "ready", "path": "/images/room_executive_2.jpg", "originalFile": "HD/IMG_3750.jpg", "quality": "good" },
+    "room_executive_3": { "status": "ready", "path": "/images/room_executive_3.jpg", "originalFile": "HD/IMG_3751.jpg", "quality": "good" },
+    "room_super_executive": {
+      "status": "ready",
+      "path": "/images/room_super_executive.jpg",
+      "originalFile": "HD/IMG_3809.jpg",
+      "description": "Super Executive suite — coffered tray ceiling with LED cove lighting, lounge sofa, king bed with gold embroidered runner, full-length mirror, wooden wardrobe, kettle station.",
+      "quality": "excellent",
+      "notes": "FLAGSHIP ROOM — Map to Super Executive (₹6000). Premium finish rivals 5-star properties. Feature prominently."
+    },
+    "room_super_executive_2": { "status": "ready", "path": "/images/room_super_executive_2.jpg", "originalFile": "HD/IMG_3810.jpg", "quality": "excellent" },
+    "room_super_executive_3": { "status": "ready", "path": "/images/room_super_executive_3.jpg", "originalFile": "HD/IMG_3811.jpg", "quality": "good" }
+  },
+
+  "colorPalette": {
+    "dominantColor": "#1a1a2e",
+    "accentSuggestion": "#C9A84C",
+    "heroGradient": "linear-gradient(to bottom, rgba(10,10,30,0.3) 0%, rgba(10,10,30,0.65) 100%)",
+    "note": "Navy/midnight + gold — extracted from dusk exterior. Hotel has warm golden lighting throughout. Navy+Gold theme confirmed optimal."
+  },
+
+  "designRecommendations": [
+    "Hero: Use IMG_3882 (dusk exterior) full-bleed with dark gradient overlay — no text box needed, just overlay text",
+    "Indoor pool (living green wall) is the #1 unique selling point — give it a dedicated hero section, not just gallery",
+    "Suite room LED ceiling is premium quality — use as 'Super Executive' feature card with large image",
+    "Logo is B&W — use CSS filter: invert(1) on dark backgrounds to show white logo",
+    "Banquet halls: Show capacity + 3 hall USP prominently — many Ujjain hotels lack proper event facilities",
+    "All room photos have hotel-branded linen (embroidered logo) — this signals quality without needing text",
+    "Lobby palm trees through glass = tropical/resort vibe — use in 'Experience' section"
+  ],
+
+  "galleryCategories": {
+    "rooms": ["room_deluxe", "room_deluxe_2", "room_super_deluxe", "room_super_deluxe_2", "room_executive", "room_executive_2", "room_executive_3", "room_super_executive", "room_super_executive_2", "room_super_executive_3"],
+    "pool": ["pool", "pool_2", "pool_3", "pool_4"],
+    "banquet": ["banquet_1", "banquet_2", "banquet_3", "banquet_4", "banquet_5", "banquet_6"],
+    "lobby": ["lobby", "lobby_2", "reception", "reception_2"],
+    "exterior": ["hero_bg", "hero_bg_2"]
+  },
+
+  "missingSlots": ["gym", "restaurant", "party_hall"],
+  "readySlots": ["hero_bg", "hero_bg_2", "lobby", "lobby_2", "reception", "reception_2", "pool", "pool_2", "pool_3", "pool_4", "banquet_1", "banquet_2", "banquet_3", "banquet_4", "banquet_5", "banquet_6", "room_deluxe", "room_deluxe_2", "room_super_deluxe", "room_super_deluxe_2", "room_executive", "room_executive_2", "room_executive_3", "room_super_executive", "room_super_executive_2", "room_super_executive_3"]
+}

@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Archives
+*.zip
+*.tar.gz
+*.tar
+*.7z
+*.rar
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# PHP backend runtime data (production-only — never overwrite live server data)
+public/api/config.php
+public/api/site-config.json
+public/api/posts/index.json
+public/api/posts/*.json
+!public/api/posts/.gitkeep
+
+# Uploaded media (per-deployment, never overwrite on server)
+public/images/raw/
+public/images/uploads/
+
+# Raw source photo bank (too large for git, kept locally only)
+Complete Photo/
+Complete-Photo/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Local-only build artifacts
+vite.log
