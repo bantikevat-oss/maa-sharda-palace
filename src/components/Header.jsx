@@ -143,7 +143,7 @@ export default function Header() {
 
             {/* Nav Links */}
             <nav className="px-3 py-3">
-              <div className="grid grid-cols-2 gap-1.5">
+              <div className="flex flex-col gap-1">
                 {navLinks.map(link => (
                   <NavLink key={link.to} to={link.to} end={link.to === '/'} onClick={() => setMenuOpen(false)}
                     className={({ isActive }) =>

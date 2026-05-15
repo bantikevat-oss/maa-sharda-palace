@@ -21,6 +21,7 @@ import Terms from './pages/Terms'
 import Dining from './pages/Dining'
 import Wedding from './pages/Wedding'
 import UjjainDarshan from './pages/UjjainDarshan'
+import NotFound from './pages/NotFound'
 
 // Amenities
 import Pool from './pages/amenities/Pool'
@@ -99,6 +100,9 @@ export default function App() {
         <Route path="/blog" element={<PublicLayout><BlogHome /></PublicLayout>} />
         <Route path="/blog/category/:cat" element={<PublicLayout><BlogCategory /></PublicLayout>} />
         <Route path="/blog/:slug" element={<PublicLayout><BlogPost /></PublicLayout>} />
+
+        {/* 404 */}
+        <Route path="*" element={<NotFound />} />
 
         {/* Admin */}
         <Route path="/admin/login" element={<AdminLogin />} />
