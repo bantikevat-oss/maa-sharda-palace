@@ -58,7 +58,7 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-accent mb-5 uppercase tracking-wider text-sm">Quick Links</h3>
             <ul className="space-y-2">
-              {[['/', 'Home'], ['/rooms', 'Rooms'], ['/dining', 'Dining'], ['/amenities/banquet', 'Banquet Hall'], ['/ujjain-darshan', 'Ujjain Darshan'], ['/gallery', 'Gallery'], ['/about', 'About Us'], ['/faq', 'FAQ'], ['/blog', 'Blog'], ['/contact', 'Contact']].map(([to, label]) => (
+              {[['/', 'Home'], ['/rooms', 'Rooms'], ['/dining', 'Dining'], ['/wedding', 'Wedding'], ['/amenities/banquet', 'Banquet Hall'], ['/ujjain-darshan', 'Ujjain Darshan'], ['/gallery', 'Gallery'], ['/about', 'About Us'], ['/faq', 'FAQ'], ['/blog', 'Blog'], ['/contact', 'Contact']].map(([to, label]) => (
                 <li key={to}><Link to={to} className="text-white/60 hover:text-accent transition-colors text-sm">{label}</Link></li>
               ))}
             </ul>

@@ -19,6 +19,7 @@ import FAQ from './pages/FAQ'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Terms from './pages/Terms'
 import Dining from './pages/Dining'
+import Wedding from './pages/Wedding'
 import UjjainDarshan from './pages/UjjainDarshan'
 
 // Amenities
@@ -81,6 +82,7 @@ export default function App() {
         <Route path="/rooms" element={<PublicLayout><Rooms /></PublicLayout>} />
         <Route path="/rooms/:slug" element={<PublicLayout><RoomPage /></PublicLayout>} />
         <Route path="/dining" element={<PublicLayout><Dining /></PublicLayout>} />
+        <Route path="/wedding" element={<PublicLayout><Wedding /></PublicLayout>} />
         <Route path="/ujjain-darshan" element={<PublicLayout><UjjainDarshan /></PublicLayout>} />
         <Route path="/faq" element={<PublicLayout><FAQ /></PublicLayout>} />
         <Route path="/privacy-policy" element={<PublicLayout><PrivacyPolicy /></PublicLayout>} />

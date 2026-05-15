@@ -32,6 +32,7 @@ export default function Header() {
     { to: '/rooms', label: 'Rooms' },
     { to: '/dining', label: 'Dining' },
     { to: '/amenities/banquet', label: 'Banquet' },
+    { to: '/wedding', label: 'Wedding' },
     { to: '/amenities', label: 'Amenities' },
     { to: '/ujjain-darshan', label: 'Ujjain Darshan' },
     { to: '/gallery', label: 'Gallery' },
@@ -125,30 +126,62 @@ export default function Header() {
       {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-primary/98 backdrop-blur-md border-t border-white/10">
-            <nav className="px-4 py-4 space-y-1">
-              {navLinks.map(link => (
-                <NavLink key={link.to} to={link.to} end={link.to === '/'} onClick={() => setMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive ? 'text-accent bg-white/10' : 'text-white/80 hover:text-accent hover:bg-white/5'}`
-                  }>
-                  {link.label}
-                </NavLink>
-              ))}
-              <div className="pt-3 flex flex-col gap-2">
-                <a href={`tel:${phone}`} className="block text-center bg-yellow-400 text-primary px-4 py-2.5 rounded-lg text-sm font-bold">
-                  📞 {phone}
-                </a>
-                <a href={`tel:${phone2}`} className="block text-center bg-red-500 text-white px-4 py-2.5 rounded-lg text-sm font-bold">
-                  📞 {phone2}
-                </a>
-                <a href={bookingUrl} target="_blank" rel="noopener noreferrer"
-                  className="block text-center bg-accent text-primary px-4 py-2.5 rounded-lg text-sm font-bold">
-                  BOOK NOW
-                </a>
+          <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="lg:hidden bg-primary backdrop-blur-md border-t border-white/10 max-h-[85vh] overflow-y-auto">
+
+            {/* Menu Header */}
+            <div className="px-4 pt-4 pb-2 flex items-center justify-between border-b border-white/10">
+              <div>
+                <p className="text-white font-semibold text-sm" style={{ fontFamily: 'Playfair Display, serif' }}>{businessName}</p>
+                <p className="text-accent text-xs">Luxury Hotel · Ujjain</p>
+              </div>
+              <button onClick={() => setMenuOpen(false)} className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 text-white text-lg hover:bg-white/20 transition-colors">
+                ✕
+              </button>
+            </div>
+
+            {/* Nav Links */}
+            <nav className="px-3 py-3">
+              <div className="grid grid-cols-2 gap-1.5">
+                {navLinks.map(link => (
+                  <NavLink key={link.to} to={link.to} end={link.to === '/'} onClick={() => setMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-center px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${isActive ? 'text-accent bg-accent/15 border border-accent/30' : 'text-white/80 hover:text-accent hover:bg-white/5 border border-transparent'}`
+                    }>
+                    {link.label}
+                  </NavLink>
+                ))}
               </div>
             </nav>
+
+            {/* Divider */}
+            <div className="mx-4 border-t border-white/10" />
+
+            {/* CTA Buttons */}
+            <div className="px-4 py-3 flex flex-col gap-2">
+              <div className="grid grid-cols-2 gap-2">
+                <a href={`tel:${phone}`} className="flex items-center justify-center gap-1.5 bg-yellow-400 text-primary px-3 py-2.5 rounded-xl text-xs font-bold hover:bg-yellow-300 transition-colors">
+                  📞 {phone}
+                </a>
+                <a href={`tel:${phone2}`} className="flex items-center justify-center gap-1.5 bg-red-500 text-white px-3 py-2.5 rounded-xl text-xs font-bold hover:bg-red-400 transition-colors">
+                  📞 {phone2}
+                </a>
+              </div>
+              <a href={bookingUrl} target="_blank" rel="noopener noreferrer"
+                className="block text-center bg-accent text-primary px-4 py-3 rounded-xl text-sm font-bold hover:bg-yellow-400 transition-colors tracking-wide">
+                🏨 BOOK NOW
+              </a>
+            </div>
+
+            {/* Social + Address */}
+            <div className="px-4 pb-4 flex items-center justify-between">
+              <p className="text-white/40 text-xs">📍 Ujjain Indore Road</p>
+              <div className="flex gap-2">
+                {instagram && <a href={instagram} target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-accent transition-colors text-xs">📸 IG</a>}
+                {facebook && <a href={facebook} target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-accent transition-colors text-xs">👍 FB</a>}
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
