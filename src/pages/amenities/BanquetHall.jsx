@@ -30,8 +30,6 @@ export default function BanquetHall() {
   const phone = config?.phone || SITE_DEFAULTS.phone
   const phone2 = config?.phone2 || SITE_DEFAULTS.phone2
   const whatsapp = config?.whatsapp || SITE_DEFAULTS.whatsapp
-  const videoUrl = config?.banquet_video_url || ''
-
   useSEO({
     title: config.seo_banquet?.title || 'Banquet Hall | Hotel Maa Sharda Palace Ujjain',
     description: config.seo_banquet?.description || 'Grand banquet halls for weddings, receptions and events at Hotel Maa Sharda Palace Ujjain. Capacity 100-150 guests.',
@@ -44,32 +42,70 @@ export default function BanquetHall() {
   ].filter(Boolean)
 
   return (
-    <main className="pt-24">
+    <main className="pt-0">
 
-      {/* Hero */}
-      <section className="relative h-96 bg-primary overflow-hidden">
-        <img src={config.img_banquet_1} alt="Banquet Hall"
-          className="absolute inset-0 w-full h-full object-cover opacity-45" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-primary/20" />
-        <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">
+      {/* Hero — Full-screen YouTube video */}
+      <section className="relative w-full overflow-hidden" style={{ height: '100dvh' }}>
+
+        {/* YouTube iframe */}
+        <div className="absolute inset-0 pointer-events-none">
+          <iframe
+            src={`https://www.youtube.com/embed/8IPnLZpV3CU?autoplay=1&mute=1&loop=1&playlist=8IPnLZpV3CU&controls=0&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&disablekb=1&start=35`}
+            title="Banquet Hall Tour"
+            frameBorder="0"
+            allow="autoplay; encrypted-media; fullscreen"
+            allowFullScreen
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            style={{ width: '100vw', height: '56.25vw', minWidth: '177.78vh', minHeight: '100vh' }}
+          />
+        </div>
+
+        {/* Overlays */}
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/75" />
+
+        {/* Content */}
+        <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4 pt-20">
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
+            className="text-amber-300 text-xs font-semibold uppercase tracking-[0.3em] mb-5">
             Events & Celebrations
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold font-display mb-3">
-            Banquet Hall <GradientText>Ujjain</GradientText>
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.8 }}
+            className="font-display font-bold leading-tight mb-4"
+            style={{ fontSize: 'clamp(2.2rem, 6vw, 5rem)' }}>
+            Grand <GradientText>Banquet Hall</GradientText>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-            className="text-white/70 max-w-xl text-sm">
-            Stylish Décor &nbsp;|&nbsp; Grand Stage &nbsp;|&nbsp; Premium Sound Experience
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
+            className="text-white/75 text-base md:text-lg max-w-xl mb-8">
+            Stylish Décor &nbsp;·&nbsp; Grand Stage &nbsp;·&nbsp; Premium Sound &nbsp;·&nbsp; 100–150 Guests
           </motion.p>
-          <nav className="text-sm text-white/60 mt-4">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }}
+            className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href={`tel:${phone}`}
+              className="bg-amber-400 text-gray-900 px-7 py-3.5 rounded-full font-bold text-sm hover:brightness-110 transition shadow-lg">
+              📞 Book Banquet — {phone}
+            </a>
+            <a href={`https://wa.me/91${whatsapp.replace(/\D/g,'').replace(/^0+/,'')}?text=Hi, I'd like to enquire about the Banquet Hall.`}
+              target="_blank" rel="noopener noreferrer"
+              className="bg-green-500 text-white px-7 py-3.5 rounded-full font-bold text-sm hover:bg-green-600 transition shadow-lg">
+              💬 WhatsApp Enquiry
+            </a>
+          </motion.div>
+          <motion.nav initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
+            className="text-xs text-white/40 mt-6">
             <Link to="/" className="hover:text-accent">Home</Link>
             <span className="mx-2">/</span>
-            <span className="text-white">Banquet</span>
-          </nav>
+            <span className="text-white/60">Banquet Hall</span>
+          </motion.nav>
         </div>
+
+        {/* Scroll cue */}
+        <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2.5 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          <div className="w-5 h-8 border border-white/30 rounded-full flex items-start justify-center pt-1.5">
+            <div className="w-1 h-1.5 bg-amber-400 rounded-full animate-bounce" />
+          </div>
+        </motion.div>
       </section>
 
       {/* Banquet Description + Capacity */}
@@ -155,37 +191,6 @@ export default function BanquetHall() {
             <img src={config.img_banquet_3 || config.img_banquet_1} alt="Wedding Decoration"
               className="rounded-2xl w-full h-64 object-cover" />
           </div>
-        </div>
-      </section>
-
-      {/* Video Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-10">
-            <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-2">Virtual Tour</p>
-            <h2 className="text-4xl font-bold text-primary font-display">See Our <GradientText>Banquet Hall</GradientText></h2>
-            <p className="text-gray-500 mt-3 text-sm">Take a virtual tour of our grand banquet hall and event spaces</p>
-          </motion.div>
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            {videoUrl ? (
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ paddingTop: '56.25%' }}>
-                <iframe
-                  src={videoUrl}
-                  title="Banquet Hall Video Tour"
-                  className="absolute inset-0 w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            ) : (
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gray-100 h-80 flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
-                <div className="text-6xl mb-4">🎬</div>
-                <p className="text-gray-500 font-medium">Banquet Hall Video Tour</p>
-                <p className="text-gray-400 text-sm mt-1">Video will appear here once uploaded</p>
-                <p className="text-xs text-gray-400 mt-3">Admin panel se video URL add karein</p>
-              </div>
-            )}
-          </motion.div>
         </div>
       </section>
 

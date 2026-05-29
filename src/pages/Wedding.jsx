@@ -232,7 +232,7 @@ export default function Wedding() {
       {/* ══════════════════════════════════════
           VENUE SHOWCASE
       ══════════════════════════════════════ */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -244,17 +244,17 @@ export default function Wedding() {
                 <img src="/images/banquet_grand.jpg" alt="Wedding Hall" className="w-full h-[480px] object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
-              {/* Small overlay image */}
-              <div className="absolute -bottom-8 -right-8 w-44 h-36 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+              {/* Small overlay image — hidden on mobile to prevent overflow */}
+              <div className="hidden lg:block absolute -bottom-8 -right-8 w-44 h-36 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
                 <img src="/images/banquet_4.jpg" alt="Wedding Stage" className="w-full h-full object-cover" />
               </div>
-              {/* Rating badge */}
-              <div className="absolute -top-5 -left-5 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl shadow-xl p-4 text-gray-900">
+              {/* Rating badge — hidden on mobile to prevent overflow */}
+              <div className="hidden lg:block absolute -top-5 -left-5 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl shadow-xl p-4 text-gray-900">
                 <p className="font-bold text-xl leading-none">⭐ 5.0</p>
                 <p className="text-xs font-semibold opacity-80 mt-1">Couples Rating</p>
               </div>
-              {/* Weddings badge */}
-              <div className="absolute bottom-20 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-yellow-100">
+              {/* Weddings badge — hidden on mobile to prevent overflow */}
+              <div className="hidden lg:flex absolute bottom-20 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-yellow-100">
                 <div className="flex items-center gap-3">
                   <div className="w-11 h-11 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center text-xl shrink-0">💍</div>
                   <div>

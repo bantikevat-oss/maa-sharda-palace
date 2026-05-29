@@ -16,15 +16,6 @@ const AMENITIES = [
     link: '/amenities/pool',
   },
   {
-    icon: '💪',
-    title: 'Gymnasium',
-    desc: 'Modern fitness center with advanced equipment, cardio zone and personal training support.',
-    timings: 'Morning: 6–10 AM | Evening: 5–8 PM',
-    badge: 'Coming Soon',
-    badgeColor: 'bg-yellow-500',
-    link: '/amenities/gym',
-  },
-  {
     icon: '🎪',
     title: 'Banquet Hall',
     desc: 'Grand banquet hall for weddings, receptions and corporate events. Capacity 100–150 guests.',
@@ -87,7 +78,7 @@ export default function Amenities() {
 
   useSEO({
     title: 'Amenities | Hotel Maa Sharda Palace Ujjain',
-    description: 'Explore all amenities at Hotel Maa Sharda Palace — Swimming Pool, Gymnasium, Banquet Hall, Valet Parking, Wi-Fi, Room Service and more.',
+    description: 'Explore all amenities at Hotel Maa Sharda Palace — Swimming Pool, Banquet Hall, Party Hall, Valet Parking, Wi-Fi, Room Service and more.',
     image: config.img_pool,
   })
 
@@ -156,7 +147,6 @@ export default function Amenities() {
             className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { icon: '🏊', label: 'Indoor Pool', sub: 'Temp Controlled' },
-              { icon: '💪', label: 'Gym', sub: 'Coming Soon' },
               { icon: '🚘', label: 'Valet Parking', sub: '24/7 Service' },
               { icon: '🛎️', label: 'Room Service', sub: '24/7 Available' },
             ].map((w, i) => (

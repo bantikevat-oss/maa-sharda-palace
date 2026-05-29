@@ -25,7 +25,6 @@ import NotFound from './pages/NotFound'
 
 // Amenities
 import Pool from './pages/amenities/Pool'
-import Gym from './pages/amenities/Gym'
 import BanquetHall from './pages/amenities/BanquetHall'
 import PartyHall from './pages/amenities/PartyHall'
 import Amenities from './pages/amenities/Amenities'
@@ -92,7 +91,6 @@ export default function App() {
         {/* Amenities */}
         <Route path="/amenities" element={<PublicLayout><Amenities /></PublicLayout>} />
         <Route path="/amenities/pool" element={<PublicLayout><Pool /></PublicLayout>} />
-        <Route path="/amenities/gym" element={<PublicLayout><Gym /></PublicLayout>} />
         <Route path="/amenities/banquet" element={<PublicLayout><BanquetHall /></PublicLayout>} />
         <Route path="/amenities/party-hall" element={<PublicLayout><PartyHall /></PublicLayout>} />
 

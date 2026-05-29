@@ -122,5 +122,6 @@ export default defineConfig({
       }
     }
   ],
+  base: './',
   server: { port: parseInt(process.env.PORT || '5200') }
 })

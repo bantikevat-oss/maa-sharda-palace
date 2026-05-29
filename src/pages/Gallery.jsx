@@ -20,28 +20,30 @@ export default function Gallery() {
   })
 
   const allPhotos = [
-    { src: config.img_hero_bg, alt: 'Hotel Exterior', cat: 'Exterior' },
-    { src: config.img_hero_bg_2, alt: 'Hotel Front View', cat: 'Exterior' },
-    { src: config.img_lobby, alt: 'Hotel Lobby', cat: 'Lobby' },
-    { src: '/images/lobby_2.jpg', alt: 'Lobby Area', cat: 'Lobby' },
-    { src: config.img_reception, alt: 'Reception Desk', cat: 'Lobby' },
+    // Exterior
+    { src: '/images/hotel_front.jpg', alt: 'Hotel Exterior', cat: 'Exterior' },
+    { src: '/images/hero_bg_2.jpg', alt: 'Hotel Front View', cat: 'Exterior' },
+    // Lobby & Reception
+    { src: '/images/hotel_corridor.jpg', alt: 'Hotel Corridor', cat: 'Lobby' },
+    { src: '/images/lobby.jpg', alt: 'Hotel Lobby', cat: 'Lobby' },
     { src: '/images/reception_2.jpg', alt: 'Reception Area', cat: 'Lobby' },
-    { src: config.img_room_deluxe, alt: 'Superior Room', cat: 'Rooms' },
-    { src: config.img_room_super_deluxe, alt: 'Superior Deluxe Room', cat: 'Rooms' },
-    { src: config.img_room_executive, alt: 'Executive Room', cat: 'Rooms' },
-    { src: '/images/room_super_executive.jpg', alt: 'Executive Deluxe Room', cat: 'Rooms' },
-    { src: '/images/room_deluxe_2.jpg', alt: 'Superior Room View', cat: 'Rooms' },
-    { src: '/images/room_executive_2.jpg', alt: 'Executive Room View', cat: 'Rooms' },
-    { src: config.img_pool, alt: 'Indoor Swimming Pool', cat: 'Pool' },
-    { src: config.img_pool_2, alt: 'Pool Area', cat: 'Pool' },
-    { src: '/images/pool_3.jpg', alt: 'Pool Lounge', cat: 'Pool' },
-    { src: '/images/pool_4.jpg', alt: 'Pool Side View', cat: 'Pool' },
-    { src: config.img_banquet_1, alt: 'Grand Banquet Hall', cat: 'Banquet' },
-    { src: config.img_banquet_2, alt: 'Banquet Hall Setup', cat: 'Banquet' },
+    // Rooms
+    { src: '/images/room_deluxe_new.jpg', alt: 'Superior Room', cat: 'Rooms' },
+    { src: '/images/room_deluxe.jpg', alt: 'Superior Room View', cat: 'Rooms' },
+    { src: '/images/room_super_deluxe.jpg', alt: 'Superior Deluxe Room', cat: 'Rooms' },
+    { src: '/images/room_super_deluxe_2.jpg', alt: 'Superior Deluxe View', cat: 'Rooms' },
+    { src: '/images/room_executive_suite.jpg', alt: 'Executive Suite', cat: 'Rooms' },
+    { src: '/images/room_executive.jpg', alt: 'Executive Room', cat: 'Rooms' },
+    { src: '/images/room_super_executive_2.jpg', alt: 'Executive Deluxe View', cat: 'Rooms' },
+    { src: '/images/room_super_executive_3.jpg', alt: 'Executive Deluxe Interior', cat: 'Rooms' },
+    // Pool
+    { src: '/images/pool_indoor.jpg', alt: 'Indoor Swimming Pool', cat: 'Pool' },
+    { src: '/images/pool_4.jpg', alt: 'Pool Lounge', cat: 'Pool' },
+    // Banquet
+    { src: '/images/banquet_grand.jpg', alt: 'Grand Banquet Hall', cat: 'Banquet' },
+    { src: '/images/banquet_1.jpg', alt: 'Banquet Hall', cat: 'Banquet' },
+    { src: '/images/banquet_2.jpg', alt: 'Banquet Setup', cat: 'Banquet' },
     { src: '/images/banquet_3.jpg', alt: 'Banquet Decor', cat: 'Banquet' },
-    { src: '/images/banquet_4.jpg', alt: 'Banquet Stage', cat: 'Banquet' },
-    { src: '/images/banquet_5.jpg', alt: 'Banquet Lighting', cat: 'Banquet' },
-    { src: '/images/banquet_6.jpg', alt: 'Banquet Hall View', cat: 'Banquet' },
   ].filter(p => p.src)
 
   const filtered = active === 'All' ? allPhotos : allPhotos.filter(p => p.cat === active)
