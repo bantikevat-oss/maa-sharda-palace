@@ -58,7 +58,7 @@ export default function About() {
       </section>
 
       {/* Welcome Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div variants={slideLeft} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -190,7 +190,7 @@ export default function About() {
       </section>
 
       {/* Experience True Hospitality */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div variants={slideLeft} initial="hidden" whileInView="visible" viewport={{ once: true }}>

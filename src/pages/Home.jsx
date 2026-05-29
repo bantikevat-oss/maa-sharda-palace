@@ -43,7 +43,6 @@ export default function Home() {
       priceRange: '₹₹',
       amenityFeature: [
         { '@type': 'LocationFeatureSpecification', name: 'Indoor Swimming Pool', value: true },
-        { '@type': 'LocationFeatureSpecification', name: 'Gym', value: true },
         { '@type': 'LocationFeatureSpecification', name: 'Free WiFi', value: true },
         { '@type': 'LocationFeatureSpecification', name: 'Free Parking', value: true },
         { '@type': 'LocationFeatureSpecification', name: 'Banquet Hall', value: true },
@@ -75,7 +74,6 @@ export default function Home() {
 function AmenitiesStrip({ config }) {
   const amenities = [
     { icon: '🏊', label: 'Indoor Pool', link: '/amenities/pool' },
-    { icon: '🏋️', label: 'Gym', link: '/amenities/gym' },
     { icon: '🎪', label: 'Banquet Halls', link: '/amenities/banquet' },
     { icon: '🎉', label: 'Party Hall', link: '/amenities/party-hall' },
     { icon: '🅿️', label: 'Free Parking', link: null },

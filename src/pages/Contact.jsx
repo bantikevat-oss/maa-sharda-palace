@@ -54,7 +54,7 @@ export default function Contact() {
                 <motion.div variants={fadeUp} className="flex gap-4 items-start">
                   <div className="w-12 h-12 bg-yellow-400/20 rounded-xl flex items-center justify-center text-2xl shrink-0">📞</div>
                   <div>
-                    <p className="text-sm text-gray-400 font-medium mb-0.5">Phone (Primary)</p>
+                    <p className="text-sm text-gray-400 font-medium mb-0.5">Phone</p>
                     <a href={`tel:${phone}`} className="text-primary font-bold text-lg hover:text-accent transition">+91 {phone.replace(/^0/, '')}</a>
                   </div>
                 </motion.div>
@@ -63,7 +63,7 @@ export default function Contact() {
                 <motion.div variants={fadeUp} className="flex gap-4 items-start">
                   <div className="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center text-2xl shrink-0">📞</div>
                   <div>
-                    <p className="text-sm text-gray-400 font-medium mb-0.5">Phone (Reception)</p>
+                    <p className="text-sm text-gray-400 font-medium mb-0.5">Phone</p>
                     <a href={`tel:${phone2}`} className="text-primary font-bold text-lg hover:text-accent transition">+91 {phone2.replace(/^0/, '')}</a>
                   </div>
                 </motion.div>
