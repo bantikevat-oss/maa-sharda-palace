@@ -16,7 +16,7 @@ export default function Rooms() {
       price: config?.room_deluxe_price || '₹3,000',
       image: config?.img_room_deluxe || SITE_DEFAULTS.img_room_deluxe,
       badge: 'Popular',
-      features: ['King Bed', 'AC', 'Free WiFi', 'TV', '24/7 Room Service'],
+      features: ['King Bed', 'Couch', 'AC', 'Free WiFi', 'TV', 'Room Service'],
       desc: config?.room_deluxe_desc || 'Comfortable and well-appointed room with warm wooden interiors and modern amenities.',
     },
     {
@@ -34,7 +34,7 @@ export default function Rooms() {
       price: config?.room_exec_price || '₹5,000',
       image: config?.img_room_executive || SITE_DEFAULTS.img_room_executive,
       badge: 'Best Value',
-      features: ['2 Queen Beds', 'AC', 'Free WiFi', 'Smart TV', 'Work Desk', 'Premium Bath'],
+      features: ['King Size Bed + Twin Bed', 'AC', 'Free WiFi', 'Smart TV', 'Work Desk', 'Premium Bath'],
       desc: config?.room_exec_desc || 'Spacious suite-style room with dual beds, perfect for families or extended stays.',
     },
     {
@@ -43,7 +43,7 @@ export default function Rooms() {
       price: config?.room_sexec_price || '₹6,000',
       image: config?.img_room_super_executive || SITE_DEFAULTS.img_room_super_executive,
       badge: 'Premium',
-      features: ['King Bed + Sofa', 'LED Cove Ceiling', 'AC', 'Smart TV', 'Kettle', 'Premium Bath', 'Full Mirror'],
+      features: ['King Bed + King Bed', 'LED Cove Ceiling', 'AC', 'Smart TV', 'Kettle', 'Premium Bath', 'Full Mirror'],
       desc: config?.room_sexec_desc || 'Our finest room — coffered LED ceiling, lounge sofa, and 5-star finishes throughout.',
     },
   ]
@@ -58,7 +58,7 @@ export default function Rooms() {
             Our <GradientText>Luxury Rooms</GradientText>
           </h2>
           <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-6" />
-          <p className="text-gray-500 max-w-xl mx-auto">All tariffs editable — prices shown are per night, inclusive of taxes.</p>
+          <p className="text-gray-500 max-w-xl mx-auto">Request Standard Quote According to Stay</p>
         </motion.div>
 
         <motion.div variants={staggerContainer} initial="hidden" whileInView="visible"
@@ -80,10 +80,6 @@ export default function Rooms() {
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="text-xl font-bold text-primary">{room.name}</h3>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-accent">{room.price}</div>
-                    <div className="text-xs text-gray-400">per night</div>
-                  </div>
                 </div>
                 <p className="text-gray-500 text-sm mb-4 leading-relaxed">{room.desc}</p>
                 <div className="flex flex-wrap gap-1.5 mb-5">
@@ -94,12 +90,8 @@ export default function Rooms() {
                 <div className="flex gap-3">
                   <Link to={`/rooms/${room.id}`}
                     className="flex-1 text-center border-2 border-primary text-primary py-2.5 rounded-xl text-sm font-semibold hover:bg-primary hover:text-white transition-all">
-                    View Details
+                    View Room Details
                   </Link>
-                  <a href={bookingUrl} target="_blank" rel="noopener noreferrer"
-                    className="flex-1 text-center bg-accent text-primary py-2.5 rounded-xl text-sm font-bold hover:shadow-md transition-all">
-                    Book Now
-                  </a>
                 </div>
               </div>
             </motion.div>

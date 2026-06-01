@@ -9,7 +9,7 @@ export const SITE_DEFAULTS = {
   phone2: '8435965777',
   whatsapp: '9109103571',
   email: 'reservations@maashardapalace.com',
-  address: 'Ujjain Indore Highway, Tirupati Vihar, Ujjain, MP 456010',
+  address: 'Ujjain Indore Highway, Tirupati Vihar, Near Shani Mandir, Ujjain, MP 456010',
   tagline: 'Where Comfort Meets Tradition',
   bookingUrl: 'https://maashardapalaceujjain.com',
   instagram: 'https://www.instagram.com/hotelmaashardapalace',
@@ -31,8 +31,8 @@ export const SITE_DEFAULTS = {
   hero_tagline: 'Where Comfort Meets Tradition',
   hero_desc: 'Experience luxury in the heart of Ujjain — prime Indore Road location, indoor pool, and 3 grand banquet halls for every occasion.',
   // Stats (TrustBar)
-  stat_rooms: '65',
-  stat_guests: '50000',
+  stat_rooms: '59',
+  stat_guests: '25000',
   stat_experience: '6',
   stat_banquets: '3',
   // SEO — Homepage

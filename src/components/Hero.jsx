@@ -1,20 +1,18 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAdmin, SITE_DEFAULTS } from '../contexts/AdminContext'
-import FloatingBadge from './ui/FloatingBadge'
 import TextReveal from './ui/TextReveal'
 import ShimmerButton from './ui/ShimmerButton'
 import { fadeIn, fadeUp } from '../animations'
 
 export default function Hero() {
   const { config } = useAdmin()
-  const badge    = config?.hero_badge    || SITE_DEFAULTS.hero_badge
   const h1       = config?.hero_h1       || SITE_DEFAULTS.hero_h1
   const tagline  = config?.hero_tagline  || SITE_DEFAULTS.hero_tagline
   const desc     = config?.hero_desc     || SITE_DEFAULTS.hero_desc
   const phone    = config?.phone         || SITE_DEFAULTS.phone
   const whatsapp = config?.whatsapp      || SITE_DEFAULTS.whatsapp
-  const bookingUrl = config?.bookingUrl  || SITE_DEFAULTS.bookingUrl
+  const waLink   = `https://wa.me/91${whatsapp.replace(/\D/g,'').replace(/^91/,'')}?text=Hi, I'd like to book a room at Hotel Maa Sharda Palace.`
 
   const slides = [
     config?.img_hero_bg    || SITE_DEFAULTS.img_hero_bg,
@@ -62,11 +60,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-32 w-full">
         <div className="max-w-2xl">
-          <motion.div variants={fadeIn} initial="hidden" animate="visible">
-            <FloatingBadge>🏨 {badge}</FloatingBadge>
-          </motion.div>
-
-          <motion.h1 variants={fadeUp} initial="hidden" animate="visible" transition={{ delay: 0.2 }}
+          <motion.h1 variants={fadeUp} initial="hidden" animate="visible" transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl font-bold text-white font-display leading-tight mt-6 mb-4">
             <TextReveal text={h1} />
           </motion.h1>
@@ -83,7 +77,7 @@ export default function Hero() {
 
           <motion.div variants={fadeUp} initial="hidden" animate="visible" transition={{ delay: 0.65 }}
             className="flex flex-wrap gap-4">
-            <ShimmerButton href={bookingUrl} target="_blank" rel="noopener noreferrer" className="text-base px-8 py-4">
+            <ShimmerButton href={waLink} target="_blank" rel="noopener noreferrer" className="text-base px-8 py-4">
               🏨 Book Your Stay
             </ShimmerButton>
             <a href={`tel:${phone}`}
@@ -94,7 +88,7 @@ export default function Hero() {
 
           <motion.div variants={fadeUp} initial="hidden" animate="visible" transition={{ delay: 0.8 }}
             className="mt-8 flex flex-wrap gap-4 text-sm text-white/70">
-            {['✓ Indoor Pool', '✓ Gym', '✓ 3 Banquet Halls', '✓ 65+ Rooms', '✓ Prime Location'].map(f => (
+            {['✓ 59 Rooms', '✓ 3 Banquet Halls', '✓ Indoor Pool', '✓ Gym', '✓ Prime Location'].map(f => (
               <span key={f}>{f}</span>
             ))}
           </motion.div>

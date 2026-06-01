@@ -11,10 +11,10 @@ export default function TrustBar() {
   const banquets = parseInt(config?.stat_banquets || SITE_DEFAULTS.stat_banquets)
 
   const stats = [
-    { value: rooms, suffix: '+', label: 'Luxury Rooms', icon: '🛏️' },
+    { value: rooms, suffix: '+', label: 'Rooms', icon: '🛏️' },
+    { value: banquets, suffix: '', label: 'Banquet Halls', icon: '🎪' },
     { value: guests, suffix: '+', label: 'Happy Guests', icon: '😊' },
     { value: experience, suffix: ' Yrs', label: 'Of Excellence', icon: '🏆' },
-    { value: banquets, suffix: '', label: 'Banquet Halls', icon: '🎪' },
   ]
 
   return (

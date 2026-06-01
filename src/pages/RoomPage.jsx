@@ -10,8 +10,9 @@ const ROOMS_DATA = {
     name: 'Deluxe Room',
     price: '₹3,000',
     tagline: 'Comfortable Stay, Excellent Value',
+    size: '140 sq ft',
     desc: 'Our Deluxe Rooms are designed for travellers who value comfort without compromise. Featuring a plush king-size bed, modern amenities, and a clean, well-appointed bathroom, these rooms are perfect for solo travellers and couples visiting Ujjain.',
-    features: ['King Size Bed', 'Air Conditioning', 'Free WiFi', '24/7 Hot Water', 'LCD TV', '24/7 Room Service', 'Free Parking', 'Daily Housekeeping', 'Intercom', 'Smoke-Free Room'],
+    features: ['King Size Bed', 'Couch', 'Air Conditioning', 'Free WiFi', 'Hot Water', 'LCD TV', 'Room Service', 'Free Parking', 'Daily Housekeeping', 'Intercom', 'Smoke-Free Room'],
     imgKey: 'img_room_deluxe',
     badge: 'Best Value',
     mealKey: 'room_deluxe_meal',
@@ -20,8 +21,9 @@ const ROOMS_DATA = {
     name: 'Super Deluxe Room',
     price: '₹4,000',
     tagline: 'More Space, More Comfort',
+    size: '154 sq ft',
     desc: 'Step up your stay with our Super Deluxe Rooms — offering additional space, a mini fridge, dedicated work desk, and upgraded furnishings. Ideal for business travellers and families who need more room to breathe.',
-    features: ['King Size Bed', 'Air Conditioning', 'Free WiFi', '24/7 Hot Water', 'LCD TV', '24/7 Room Service', 'Free Parking', 'Mini Fridge', 'Work Desk', 'Daily Housekeeping', 'Intercom', 'Tea/Coffee Maker'],
+    features: ['King Size Bed', 'Air Conditioning', 'Free WiFi', 'Hot Water', 'LCD TV', 'Room Service', 'Free Parking', 'Mini Fridge', 'Work Desk', 'Daily Housekeeping', 'Intercom', 'Tea/Coffee Maker'],
     imgKey: 'img_room_super_deluxe',
     badge: 'Most Popular',
     mealKey: 'room_sdlx_meal',
@@ -30,8 +32,9 @@ const ROOMS_DATA = {
     name: 'Executive Room',
     price: '₹5,000',
     tagline: 'Premium Comfort, Thoughtful Touches',
+    size: '168 sq ft',
     desc: 'Our Executive Rooms elevate your stay with a luxurious bathtub, 42" Smart TV, premium toiletries, and carefully curated decor. The perfect choice for guests who want a premium experience at a sensible price.',
-    features: ['King Size Bed', 'Air Conditioning', 'Free WiFi', '24/7 Hot Water', '42" Smart TV', 'Priority Room Service', 'Free Parking', 'Mini Fridge', 'Work Desk', 'Bathtub', 'Premium Toiletries', 'Daily Housekeeping', 'Bathrobe & Slippers'],
+    features: ['King Size Bed + Twin Bed', 'Air Conditioning', 'Free WiFi', 'Hot Water', '42" Smart TV', 'Room Service', 'Free Parking', 'Mini Fridge', 'Work Desk', 'Bathtub', 'Premium Toiletries', 'Daily Housekeeping', 'Bathrobe & Slippers'],
     imgKey: 'img_room_executive',
     badge: 'Premium',
     mealKey: 'room_exec_meal',
@@ -40,8 +43,9 @@ const ROOMS_DATA = {
     name: 'Super Executive Room',
     price: '₹6,000',
     tagline: 'The Ultimate Luxury Experience',
+    size: '192 sq ft',
     desc: 'Experience true luxury in our Super Executive Rooms — the finest accommodation we offer. With a Jacuzzi, 55" Smart TV, private mini bar, and a separate living lounge area, this room redefines comfort in Ujjain. Perfect for honeymoons and special occasions.',
-    features: ['King Size Bed', 'Air Conditioning', 'Free WiFi', '24/7 Hot Water', '55" Smart TV', 'Priority Room Service', 'Free Parking', 'Mini Bar', 'Work Desk', 'Jacuzzi', 'Premium Toiletries', 'Living Lounge Area', 'Welcome Fruit Basket', 'Bathrobe & Slippers', 'Daily Housekeeping', 'Concierge Service'],
+    features: ['King Bed + King Bed', 'Air Conditioning', 'Free WiFi', 'Hot Water', '55" Smart TV', 'Room Service', 'Free Parking', 'Mini Bar', 'Work Desk', 'Jacuzzi', 'Premium Toiletries', 'Living Lounge Area', 'Welcome Fruit Basket', 'Bathrobe & Slippers', 'Daily Housekeeping', 'Concierge Service'],
     imgKey: 'img_room_super_executive',
     badge: 'Luxury',
     mealKey: 'room_sexec_meal',
@@ -144,7 +148,14 @@ export default function RoomPage() {
           <div className="grid md:grid-cols-3 gap-12">
             <div className="md:col-span-2">
               <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                <h2 className="text-2xl font-bold text-primary font-display mb-4">Room Overview</h2>
+                <div className="flex items-center gap-4 mb-4">
+                  <h2 className="text-2xl font-bold text-primary font-display">Room Overview</h2>
+                  {room.size && (
+                    <span className="bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full border border-accent/20">
+                      📐 {room.size}
+                    </span>
+                  )}
+                </div>
                 <p className="text-gray-600 leading-relaxed text-lg mb-8">{room.desc}</p>
                 <h3 className="text-xl font-bold text-primary mb-4">Room Features & Amenities</h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -269,13 +280,13 @@ export default function RoomPage() {
             {Object.entries(ROOMS_DATA).filter(([s]) => s !== slug).map(([s, r]) => (
               <Link key={s} to={`/rooms/${s}`}
                 className="bg-white border border-gray-200 px-6 py-3 rounded-full text-sm font-medium text-primary hover:border-accent hover:text-accent transition">
-                {r.name} · {r.price}
+                {r.name}
               </Link>
             ))}
             {extraRooms.filter(r => r.slug !== slug).map(r => (
               <Link key={r.slug} to={`/rooms/${r.slug}`}
                 className="bg-white border border-gray-200 px-6 py-3 rounded-full text-sm font-medium text-primary hover:border-accent hover:text-accent transition">
-                {r.name} · {r.price}
+                {r.name}
               </Link>
             ))}
           </div>

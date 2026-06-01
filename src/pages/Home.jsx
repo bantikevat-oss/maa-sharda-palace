@@ -66,7 +66,6 @@ export default function Home() {
       <Testimonials />
       <FAQPreview config={config} />
       <BlogPreview />
-      <CallToAction config={config} />
     </main>
   )
 }
@@ -145,28 +144,3 @@ function FAQItem({ item }) {
   )
 }
 
-function CallToAction({ config }) {
-  return (
-    <section className="py-24 bg-gradient-to-br from-primary to-primary/80 text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/images/hero_bg.jpg')] bg-cover bg-center opacity-10" />
-      <div className="relative max-w-4xl mx-auto px-4 text-center">
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <p className="text-accent font-semibold uppercase tracking-widest text-sm mb-3">Book Your Stay</p>
-          <h2 className="text-4xl md:text-5xl font-bold font-display mb-4">Ready for an Unforgettable Stay?</h2>
-          <p className="text-white/70 text-lg mb-8">Call us directly or send a WhatsApp message — we'll confirm your booking instantly.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={`tel:${config.phone}`}
-              className="bg-accent text-primary px-8 py-4 rounded-full font-bold text-lg hover:brightness-110 transition shadow-lg">
-              📞 Call: {config.phone}
-            </a>
-            <a href={`https://wa.me/91${config.whatsapp.replace(/^0+/,'')}?text=Hi, I'd like to book a room at Hotel Maa Sharda Palace.`}
-              target="_blank" rel="noopener"
-              className="bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-green-600 transition shadow-lg">
-              💬 WhatsApp Us
-            </a>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
