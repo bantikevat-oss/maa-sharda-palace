@@ -22,7 +22,7 @@ export const SITE_DEFAULTS = {
   adminPassword: 'msp@admin2024',
   // Hotel specifics
   checkIn: '12:00 PM',
-  checkOut: '11:00 AM',
+  checkOut: '10:00 AM',
   totalRooms: '65+',
   establishedYear: '2018',
   // Hero

@@ -27,9 +27,7 @@ const WEDDING_SERVICES = [
 
 export default function BanquetHall() {
   const { config } = useAdmin()
-  const phone = config?.phone || SITE_DEFAULTS.phone
   const phone2 = config?.phone2 || SITE_DEFAULTS.phone2
-  const whatsapp = config?.whatsapp || SITE_DEFAULTS.whatsapp
   useSEO({
     title: config.seo_banquet?.title || 'Banquet Hall | Hotel Maa Sharda Palace Ujjain',
     description: config.seo_banquet?.description || 'Grand banquet halls for weddings, receptions and events at Hotel Maa Sharda Palace Ujjain. Capacity 100-150 guests.',
@@ -77,15 +75,15 @@ export default function BanquetHall() {
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
             className="text-white/75 text-base md:text-lg max-w-xl mb-8">
-            Stylish Décor &nbsp;·&nbsp; Grand Stage &nbsp;·&nbsp; Premium Sound &nbsp;·&nbsp; 100–150 Guests
+            3 Grand Halls &nbsp;·&nbsp; Capacity up to 400 &nbsp;·&nbsp; Grand Stage &nbsp;·&nbsp; Premium Sound
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }}
             className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={`tel:${phone}`}
+            <a href={`tel:${phone2}`}
               className="bg-amber-400 text-gray-900 px-7 py-3.5 rounded-full font-bold text-sm hover:brightness-110 transition shadow-lg">
-              📞 Book Banquet — {phone}
+              📞 Book Banquet — {phone2}
             </a>
-            <a href={`https://wa.me/91${whatsapp.replace(/\D/g,'').replace(/^0+/,'')}?text=Hi, I'd like to enquire about the Banquet Hall.`}
+            <a href={`https://wa.me/91${phone2.replace(/\D/g,'').replace(/^0+/,'')}?text=Hi, I'd like to enquire about the Banquet Hall.`}
               target="_blank" rel="noopener noreferrer"
               className="bg-green-500 text-white px-7 py-3.5 rounded-full font-bold text-sm hover:bg-green-600 transition shadow-lg">
               💬 WhatsApp Enquiry
@@ -108,37 +106,82 @@ export default function BanquetHall() {
         </motion.div>
       </section>
 
-      {/* Banquet Description + Capacity */}
+      {/* Hall 1 — Grand Banquet Hall */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-14 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-2">Our Banquet</p>
-              <h2 className="text-4xl font-bold text-primary font-display mb-6">
-                Grand Hall for Every <GradientText>Occasion</GradientText>
+              <span className="bg-accent text-primary text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block">Hall 1</span>
+              <h2 className="text-4xl font-bold text-primary font-display mb-4">
+                Grand <GradientText>Banquet Hall</GradientText>
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Our banquet hall is designed to host a wide range of events — from lavish weddings and grand receptions to corporate gatherings and social celebrations.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                With elegant interiors, a grand stage, premium sound system, and experienced event staff, we ensure every event is flawlessly executed and truly unforgettable.
+                Our flagship grand hall — perfect for royal weddings, large receptions and major corporate events. Soaring ceilings, grand stage, and premium décor create an unforgettable atmosphere.
               </p>
               <div className="flex flex-wrap gap-3">
-                <span className="bg-accent/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">
-                  👥 Capacity: 100 – 150 Guests
-                </span>
-                <span className="bg-accent/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">
-                  🎪 Grand Stage
-                </span>
-                <span className="bg-accent/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">
-                  🔊 Premium Sound
-                </span>
+                <span className="bg-accent/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">👥 Capacity: 350–400 Guests</span>
+                <span className="bg-accent/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">🎪 Grand Stage</span>
+                <span className="bg-accent/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">🔊 Premium Sound</span>
               </div>
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <img src={config.img_banquet_1} alt="Banquet Hall — Capacity 100-150 Guests"
+              <img src={config.img_banquet_1} alt="Grand Banquet Hall — 350–400 Guests"
                 className="rounded-3xl w-full h-80 object-cover shadow-xl" />
-              <p className="text-center text-sm text-gray-400 mt-3">Capacity: 100 – 150 Guests</p>
+              <p className="text-center text-sm text-gray-400 mt-3">Capacity: 350–400 Guests</p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hall 2 — Banquet Hall */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-14 items-center">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              <img src={config.img_banquet_2 || config.img_banquet_1} alt="Banquet Hall — 200–250 Guests"
+                className="rounded-3xl w-full h-80 object-cover shadow-xl" />
+              <p className="text-center text-sm text-gray-400 mt-3">Capacity: 200–250 Guests</p>
+            </motion.div>
+            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              <span className="bg-accent text-primary text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block">Hall 2</span>
+              <h2 className="text-4xl font-bold text-primary font-display mb-4">
+                Banquet <GradientText>Hall</GradientText>
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Ideal for receptions, corporate conferences, anniversary celebrations and medium-scale events. Elegant interiors with flexible seating and top-notch AV equipment.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <span className="bg-accent/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">👥 Capacity: 200–250 Guests</span>
+                <span className="bg-accent/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">❄️ Full AC</span>
+                <span className="bg-accent/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">🎤 Stage & Sound</span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hall 3 — Intimate Hall */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-14 items-center">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              <span className="bg-accent text-primary text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block">Hall 3</span>
+              <h2 className="text-4xl font-bold text-primary font-display mb-4">
+                Intimate <GradientText>Hall</GradientText>
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Perfect for intimate gatherings, birthday celebrations, kitty parties and small private functions. A cozy yet stylish space tailored to your vision.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <span className="bg-accent/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">👥 Capacity: 100–150 Guests</span>
+                <span className="bg-accent/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">❄️ Full AC</span>
+                <span className="bg-accent/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">🎨 Custom Décor</span>
+              </div>
+            </motion.div>
+            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              <img src={config.img_banquet_3 || config.img_banquet_1} alt="Intimate Hall — 100–150 Guests"
+                className="rounded-3xl w-full h-80 object-cover shadow-xl" />
+              <p className="text-center text-sm text-gray-400 mt-3">Capacity: 100–150 Guests</p>
             </motion.div>
           </div>
         </div>
@@ -185,12 +228,6 @@ export default function BanquetHall() {
               </motion.div>
             ))}
           </motion.div>
-          <div className="grid md:grid-cols-2 gap-6">
-            <img src={config.img_banquet_2 || config.img_banquet_1} alt="Wedding Setup"
-              className="rounded-2xl w-full h-64 object-cover" />
-            <img src={config.img_banquet_3 || config.img_banquet_1} alt="Wedding Decoration"
-              className="rounded-2xl w-full h-64 object-cover" />
-          </div>
         </div>
       </section>
 
@@ -232,15 +269,11 @@ export default function BanquetHall() {
             </p>
             <p className="font-semibold text-primary mb-6">Get in Touch With Our Events Team</p>
             <div className="flex flex-wrap justify-center gap-3">
-              <a href={`tel:${phone}`}
-                className="bg-yellow-400 text-primary px-7 py-3 rounded-full font-bold hover:brightness-110 transition">
-                📞 {phone}
-              </a>
               <a href={`tel:${phone2}`}
-                className="bg-red-500 text-white px-7 py-3 rounded-full font-bold hover:brightness-110 transition">
+                className="bg-yellow-400 text-primary px-7 py-3 rounded-full font-bold hover:brightness-110 transition">
                 📞 {phone2}
               </a>
-              <a href={`https://wa.me/91${whatsapp.replace(/^0+/, '')}?text=Hi, I'd like to enquire about banquet hall booking.`}
+              <a href={`https://wa.me/91${phone2.replace(/\D/g,'').replace(/^0+/,'')}?text=Hi, I'd like to enquire about banquet hall booking.`}
                 target="_blank" rel="noopener noreferrer"
                 className="bg-green-500 text-white px-7 py-3 rounded-full font-bold hover:bg-green-600 transition">
                 💬 WhatsApp

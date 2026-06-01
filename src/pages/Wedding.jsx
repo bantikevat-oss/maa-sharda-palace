@@ -18,7 +18,7 @@ const SERVICES = [
 ]
 
 const WHY_US = [
-  { icon: '🏛️', title: 'Grand Venue', desc: 'Spacious hall for 100–150 guests with majestic architecture & ambiance.' },
+  { icon: '🏛️', title: 'Grand Venue', desc: 'Spacious halls for 350–450 guests with majestic architecture & ambiance.' },
   { icon: '✨', title: 'Premium Décor', desc: 'Expert decorators bring your vision to life with luxury florals & drapes.' },
   { icon: '🍽️', title: 'Fine Catering', desc: 'Multi-cuisine menu by experienced chefs — Indian & continental spreads.' },
   { icon: '🎬', title: 'Grand Stage', desc: 'LED-lit stage with premium backdrops — every photo picture perfect.' },
@@ -47,14 +47,12 @@ const TESTIMONIALS = [
 
 export default function Wedding() {
   const { config } = useAdmin()
-  const phone = config?.phone || SITE_DEFAULTS.phone
   const phone2 = config?.phone2 || SITE_DEFAULTS.phone2
-  const whatsapp = config?.whatsapp || SITE_DEFAULTS.whatsapp
   const [lightbox, setLightbox] = useState(null)
 
   useSEO({
     title: 'Wedding Venue in Ujjain | Hotel Maa Sharda Palace',
-    description: 'Plan your dream wedding at Hotel Maa Sharda Palace Ujjain. Grand banquet hall, premium décor, fine catering & expert coordination. Capacity 100–150 guests.',
+    description: 'Plan your dream wedding at Hotel Maa Sharda Palace Ujjain. Grand banquet halls, premium décor, fine catering & expert coordination. Capacity up to 400 guests.',
     image: '/images/banquet_grand.jpg',
   })
 
@@ -102,7 +100,7 @@ export default function Wedding() {
           {/* CTAs */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }}
             className="flex flex-wrap gap-4 justify-center mb-16">
-            <a href={`tel:${phone}`}
+            <a href={`tel:${phone2}`}
               className="group relative overflow-hidden bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-8 py-4 rounded-full font-bold text-sm md:text-base hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] transition-all duration-300">
               <span className="relative z-10">📞 Plan Your Wedding</span>
             </a>
@@ -115,7 +113,7 @@ export default function Wedding() {
           {/* Stats bar */}
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10 backdrop-blur-sm">
-            {[['100–150', 'Guest Capacity'], ['3+', 'Banquet Halls'], ['500+', 'Weddings Hosted'], ['24/7', 'Event Support']].map(([val, label], i) => (
+            {[['350–450', 'Guest Capacity'], ['3+', 'Banquet Halls'], ['500+', 'Weddings Hosted'], ['24/7', 'Event Support']].map(([val, label], i) => (
               <div key={i} className="bg-black/20 py-5 px-4 text-center hover:bg-black/10 transition-colors">
                 <div className="text-2xl md:text-3xl font-bold text-yellow-400 mb-1">{val}</div>
                 <div className="text-white/50 text-[10px] md:text-xs uppercase tracking-widest">{label}</div>
@@ -279,7 +277,7 @@ export default function Wedding() {
               {/* Feature grid */}
               <div className="grid grid-cols-2 gap-3 mb-10">
                 {[
-                  ['👥', 'Capacity', '100–150 Guests'],
+                  ['👥', 'Capacity', '350–450 Guests'],
                   ['❄️', 'Climate', 'Full AC'],
                   ['🔊', 'Sound', 'Premium System'],
                   ['💡', 'Lighting', 'Mood + LED'],
@@ -297,17 +295,45 @@ export default function Wedding() {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <a href={`tel:${phone}`}
+                <a href={`tel:${phone2}`}
                   className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-7 py-3.5 rounded-full font-bold hover:brightness-110 hover:shadow-lg hover:shadow-yellow-200 transition-all text-sm">
                   📞 Book Venue
                 </a>
-                <Link to="/amenities/banquet"
-                  className="border-2 border-gray-200 text-gray-700 px-7 py-3.5 rounded-full font-semibold hover:border-yellow-400 hover:text-yellow-700 transition-all text-sm">
-                  View Banquet Hall →
-                </Link>
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          BANQUET HALLS — 3 SECTIONS
+      ══════════════════════════════════════ */}
+      <section className="py-20 bg-[#faf8f3]">
+        <div className="max-w-7xl mx-auto px-4">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-14">
+            <p className="text-yellow-600 text-xs font-semibold uppercase tracking-[0.3em] mb-3">Our Venues</p>
+            <h2 className="text-4xl font-bold font-display text-gray-900">
+              3 Grand <GradientText>Banquet Halls</GradientText>
+            </h2>
+            <p className="text-gray-400 mt-3 text-sm">Choose the perfect hall for your celebration</p>
+          </motion.div>
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
+            className="grid md:grid-cols-3 gap-6">
+            {[
+              { num: 'Hall 1', name: 'Grand Hall', capacity: '350–400 Guests', desc: 'Our flagship grand hall — perfect for royal weddings, large receptions and major celebrations with a majestic atmosphere.', icon: '🏛️' },
+              { num: 'Hall 2', name: 'Banquet Hall', capacity: '200–250 Guests', desc: 'Elegant and versatile — ideal for receptions, anniversaries and medium-scale events with premium AV and flexible seating.', icon: '🎊' },
+              { num: 'Hall 3', name: 'Intimate Hall', capacity: '100–150 Guests', desc: 'A cozy and stylish space for intimate gatherings, private celebrations and smaller wedding functions.', icon: '🌸' },
+            ].map((hall, i) => (
+              <motion.div key={i} variants={fadeUp}
+                className="bg-white rounded-3xl p-8 border border-yellow-100 shadow-sm hover:shadow-xl hover:border-yellow-300 transition-all duration-500 text-center">
+                <div className="text-5xl mb-4">{hall.icon}</div>
+                <span className="text-yellow-600 text-xs font-bold uppercase tracking-widest">{hall.num}</span>
+                <h3 className="text-xl font-bold text-gray-900 font-display my-2">{hall.name}</h3>
+                <p className="text-2xl font-bold text-yellow-500 mb-3">{hall.capacity}</p>
+                <p className="text-gray-500 text-sm leading-relaxed">{hall.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -453,15 +479,11 @@ export default function Wedding() {
               Our dedicated wedding team is ready to turn your vision into reality. Get in touch today for a personalized consultation and exclusive packages.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href={`tel:${phone}`}
-                className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-8 py-4 rounded-full font-bold hover:brightness-110 hover:shadow-[0_0_30px_rgba(234,179,8,0.4)] transition-all text-sm md:text-base">
-                📞 {phone}
-              </a>
               <a href={`tel:${phone2}`}
-                className="bg-white/10 backdrop-blur-sm border border-white/25 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all text-sm md:text-base">
+                className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-8 py-4 rounded-full font-bold hover:brightness-110 hover:shadow-[0_0_30px_rgba(234,179,8,0.4)] transition-all text-sm md:text-base">
                 📞 {phone2}
               </a>
-              <a href={`https://wa.me/91${whatsapp.replace(/^0+/, '')}`}
+              <a href={`https://wa.me/91${phone2.replace(/\D/g,'').replace(/^0+/, '')}`}
                 target="_blank" rel="noopener noreferrer"
                 className="bg-green-500 text-white px-8 py-4 rounded-full font-bold hover:bg-green-600 hover:shadow-lg transition-all text-sm md:text-base">
                 💬 WhatsApp

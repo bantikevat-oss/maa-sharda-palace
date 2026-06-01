@@ -23,10 +23,11 @@ export default function Footer() {
   ]
 
   const amenities = [
+    ['/dining', 'Restaurant (Coming Soon)'],
+    ['/amenities/banquet', 'Banquet Hall'],
     ['/amenities/pool', 'Swimming Pool'],
-    ['/amenities/banquet', 'Banquet Halls'],
-    ['/amenities/party-hall', 'Party Hall'],
-    ['/rooms/super-executive', 'Super Executive Suite'],
+    ['/amenities/pool', 'Gym'],
+    ['/rooms/super-executive', 'Super Suite'],
   ]
 
   return (
@@ -42,7 +43,7 @@ export default function Footer() {
           <div className="flex gap-2">
             <a href={`tel:${phone}`}
               className="bg-amber-400 text-gray-900 px-5 py-2 rounded-full font-bold text-xs hover:brightness-110 transition shadow-md shadow-amber-400/20">
-              📞 {phone}
+              📞 +91 {phone}
             </a>
             <a href={`https://wa.me/91${whatsapp.replace(/\D/g,'').replace(/^0+/,'')}?text=Hi, I'd like to book a room at Hotel Maa Sharda Palace.`}
               target="_blank" rel="noopener noreferrer"
@@ -117,12 +118,6 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-          {/* Divider + Check-in info */}
-          <div className="mt-5 pt-4 border-t border-white/10">
-            <p className="text-[11px] text-amber-400/70 font-semibold uppercase tracking-wider mb-2">Timings</p>
-            <p className="text-white/40 text-xs">Check-in: {config?.checkIn || SITE_DEFAULTS.checkIn}</p>
-            <p className="text-white/40 text-xs">Check-out: {config?.checkOut || SITE_DEFAULTS.checkOut}</p>
-          </div>
         </div>
 
         {/* Contact */}
@@ -131,13 +126,13 @@ export default function Footer() {
           <ul className="space-y-2.5 text-xs">
             <li>
               <a href={`tel:${phone}`} className="flex items-center gap-2 text-white/50 hover:text-amber-400 transition-colors">
-                <span className="text-amber-400/70">📞</span>{phone}
+                <span className="text-amber-400/70">📞</span>+91 {phone}
               </a>
             </li>
             {phone2 && (
               <li>
                 <a href={`tel:${phone2}`} className="flex items-center gap-2 text-white/50 hover:text-amber-400 transition-colors">
-                  <span className="text-amber-400/70">📞</span>{phone2}
+                  <span className="text-amber-400/70">📞</span>+91 {phone2}
                 </a>
               </li>
             )}

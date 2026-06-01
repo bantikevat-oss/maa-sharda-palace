@@ -23,7 +23,7 @@ const FACILITIES = [
   { icon: '💪', text: 'Fitness Center (Coming Soon)' },
   { icon: '🎪', text: 'Conference & Banquet Halls' },
   { icon: '🛎️', text: '24/7 Room Service' },
-  { icon: '🚗', text: 'Airport / Railway Transfers' },
+  { icon: '🚗', text: 'Pickup & Drop Service' },
   { icon: '🅿️', text: 'Secure Parking' },
   { icon: '🚘', text: 'Valet Parking' },
 ]
@@ -78,10 +78,10 @@ export default function About() {
             </motion.div>
             <motion.div variants={slideRight} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <div className="grid grid-cols-2 gap-4">
-                <img src={config.img_lobby} alt="Hotel lobby" className="rounded-2xl h-48 w-full object-cover" />
-                <img src={config.img_lobby_2} alt="Hotel" className="rounded-2xl h-48 w-full object-cover mt-8" />
-                <img src={config.img_reception} alt="Reception" className="rounded-2xl h-48 w-full object-cover -mt-4" />
-                <img src={config.img_pool} alt="Pool" className="rounded-2xl h-48 w-full object-cover mt-4" />
+                <img src={config.img_hero_bg || config.img_lobby} alt="Hotel front" className="rounded-2xl h-48 w-full object-cover" />
+                <img src={config.img_banquet_1} alt="Banquet hall" className="rounded-2xl h-48 w-full object-cover mt-8" />
+                <img src={config.img_pool} alt="Swimming pool" className="rounded-2xl h-48 w-full object-cover -mt-4" />
+                <img src={config.img_gym || config.img_pool_2 || config.img_pool} alt="Gym" className="rounded-2xl h-48 w-full object-cover mt-4" />
               </div>
             </motion.div>
           </div>
@@ -118,7 +118,7 @@ export default function About() {
             <h2 className="text-4xl font-bold text-primary font-display">A Legacy of Warm Hospitality</h2>
           </motion.div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-8">
+            className="grid md:grid-cols-3 gap-8 items-stretch">
             {[
               {
                 title: 'Our Story',
@@ -136,10 +136,10 @@ export default function About() {
                 text: 'To become one of the most trusted and preferred hospitality destinations known for excellence, comfort, and world-class guest satisfaction.',
               },
             ].map((item, i) => (
-              <motion.div key={i} variants={fadeUp} className="bg-white rounded-2xl p-8 shadow-sm text-center">
+              <motion.div key={i} variants={fadeUp} className="bg-white rounded-2xl p-8 shadow-sm text-center flex flex-col">
                 <div className="text-4xl mb-4">{item.icon}</div>
                 <h3 className="text-xl font-bold text-primary font-display mb-3">{item.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.text}</p>
+                <p className="text-gray-600 text-sm leading-relaxed flex-1">{item.text}</p>
               </motion.div>
             ))}
           </motion.div>

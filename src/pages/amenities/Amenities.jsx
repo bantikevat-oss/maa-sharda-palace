@@ -73,8 +73,6 @@ const AMENITIES = [
 
 export default function Amenities() {
   const { config } = useAdmin()
-  const phone = config?.phone || SITE_DEFAULTS.phone
-  const phone2 = config?.phone2 || SITE_DEFAULTS.phone2
 
   useSEO({
     title: 'Amenities | Hotel Maa Sharda Palace Ujjain',
@@ -161,29 +159,6 @@ export default function Amenities() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-accent/5 text-center border-t border-accent/20">
-        <div className="max-w-2xl mx-auto px-4">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <h2 className="text-3xl font-bold text-primary font-display mb-4">Book Your Stay Today</h2>
-            <p className="text-gray-500 mb-8 text-sm">Enjoy all amenities with every room booking. Call us to reserve your room.</p>
-            <div className="flex flex-wrap justify-center gap-3">
-              <a href={`tel:${phone}`}
-                className="bg-yellow-400 text-primary px-7 py-3 rounded-full font-bold hover:brightness-110 transition">
-                📞 {phone}
-              </a>
-              <a href={`tel:${phone2}`}
-                className="bg-red-500 text-white px-7 py-3 rounded-full font-bold hover:brightness-110 transition">
-                📞 {phone2}
-              </a>
-              <Link to="/rooms"
-                className="bg-primary text-white px-7 py-3 rounded-full font-bold hover:brightness-110 transition">
-                View Rooms
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </main>
   )
 }
