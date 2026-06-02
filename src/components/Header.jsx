@@ -109,12 +109,12 @@ export default function Header() {
           {/* Right CTAs */}
           <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
             <a href={`tel:${phone}`}
-              className="bg-yellow-400 text-primary px-3 py-1.5 rounded text-xs font-bold hover:bg-yellow-300 transition-colors whitespace-nowrap">
+              className="bg-accent/30 text-accent border border-accent/40 px-3 py-1.5 rounded text-xs font-semibold hover:bg-accent/40 transition-colors whitespace-nowrap">
               📞 {phone}
             </a>
             <a href={`https://wa.me/91${whatsapp.replace(/\D/g,'').replace(/^91/,'')}?text=Hi, I'd like to book a room at Hotel Maa Sharda Palace.`}
               target="_blank" rel="noopener noreferrer"
-              className="relative bg-accent text-primary px-5 py-2 rounded text-xs font-bold transition-all whitespace-nowrap shadow-lg shadow-accent/40 ring-2 ring-accent/60 hover:brightness-110 animate-pulse-slow">
+              className="bg-accent text-primary px-6 py-2.5 rounded-full text-sm font-bold transition-all whitespace-nowrap shadow-xl shadow-accent/50 ring-2 ring-white/30 hover:brightness-110 hover:scale-105">
               🏨 BOOK NOW
             </a>
           </div>
