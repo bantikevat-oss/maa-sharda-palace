@@ -80,6 +80,7 @@ export const SITE_DEFAULTS = {
   img_reception: '/images/reception.jpg',
   img_pool: '/images/pool_indoor.jpg',
   img_pool_2: '/images/pool_2.jpg',
+  img_gym: '/images/gym.jpg',
   img_banquet_1: '/images/banquet_grand.jpg',
   img_banquet_2: '/images/banquet_2.jpg',
   img_room_deluxe: '/images/room_deluxe_new.jpg',

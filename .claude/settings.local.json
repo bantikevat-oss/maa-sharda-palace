@@ -3,7 +3,8 @@
     "allow": [
       "Bash(Get-ChildItem -Path \"C:\\\\Claude\\\\msp-main\" -Recurse -Force)",
       "Bash(Select-Object -Property FullName, PSIsContainer)",
-      "Bash(ConvertTo-Json -Depth 100)"
+      "Bash(ConvertTo-Json -Depth 100)",
+      "WebFetch(domain:en.wikipedia.org)"
     ]
   }
 }

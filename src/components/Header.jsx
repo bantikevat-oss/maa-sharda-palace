@@ -50,6 +50,10 @@ export default function Header() {
             <span>{address}</span>
           </div>
           <div className="flex items-center gap-3">
+            <Link to="/gallery" className="flex items-center gap-1.5 text-accent font-semibold hover:text-yellow-300 transition-colors text-xs">
+              🎥 Virtual Tour
+            </Link>
+            <span className="text-white/20">|</span>
             <a href={`mailto:${email}`} className="hover:text-accent transition-colors" title={email}>
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             </a>
@@ -104,18 +108,14 @@ export default function Header() {
 
           {/* Right CTAs */}
           <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
-            <Link to="/gallery"
-              className="bg-white/10 text-white px-3 py-1.5 rounded text-xs font-medium hover:bg-white/20 transition-colors whitespace-nowrap border border-white/20">
-              🎥 Virtual Tour
-            </Link>
             <a href={`tel:${phone}`}
               className="bg-yellow-400 text-primary px-3 py-1.5 rounded text-xs font-bold hover:bg-yellow-300 transition-colors whitespace-nowrap">
               📞 {phone}
             </a>
             <a href={`https://wa.me/91${whatsapp.replace(/\D/g,'').replace(/^91/,'')}?text=Hi, I'd like to book a room at Hotel Maa Sharda Palace.`}
               target="_blank" rel="noopener noreferrer"
-              className="bg-accent text-primary px-4 py-1.5 rounded text-xs font-bold hover:shadow-lg hover:shadow-accent/30 transition-all whitespace-nowrap">
-              BOOK NOW
+              className="relative bg-accent text-primary px-5 py-2 rounded text-xs font-bold transition-all whitespace-nowrap shadow-lg shadow-accent/40 ring-2 ring-accent/60 hover:brightness-110 animate-pulse-slow">
+              🏨 BOOK NOW
             </a>
           </div>
 

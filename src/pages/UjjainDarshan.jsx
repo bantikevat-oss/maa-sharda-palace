@@ -11,6 +11,7 @@ const PLACES = [
     id: 1,
     name: 'Mahakaleshwar Jyotirlinga',
     subtitle: 'One of the 12 Sacred Jyotirlingas of India',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Mahakaleshwar_Temple.jpg/480px-Mahakaleshwar_Temple.jpg',
     icon: '🕉️',
     short: 'The most sacred temple of Ujjain, dedicated to Lord Shiva. One of the 12 Jyotirlingas in India and the only south-facing Shiva lingam.',
     details: `Mahakaleshwar Temple is one of the most sacred Hindu temples in India, dedicated to Lord Shiva. Located in the ancient city of Ujjain, Madhya Pradesh, it is one of the twelve Jyotirlingas — the most sacred abodes of Shiva.
@@ -29,6 +30,7 @@ The famous Bhasma Aarti (ash ritual) performed every morning before sunrise is o
     id: 2,
     name: 'Mahakal Lok',
     subtitle: 'Grand Spiritual Corridor of Ujjain',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mahakal_Lok_Ujjain.jpg/480px-Mahakal_Lok_Ujjain.jpg',
     icon: '🏛️',
     short: 'A grand 900-meter spiritual corridor connecting Rudra Sagar to Mahakaleshwar Temple, featuring 190+ sculptures and statues depicting scenes from Shiva Purana.',
     details: `Mahakal Lok is a magnificent spiritual corridor developed by the Government of Madhya Pradesh to enhance the religious experience of pilgrims visiting the Mahakaleshwar Temple.
@@ -51,6 +53,7 @@ The corridor connects Rudra Sagar Lake to the Mahakaleshwar Temple and features:
     id: 3,
     name: 'Kal Bhairav Temple',
     subtitle: 'Ancient Temple of the Guardian of Ujjain',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Kal_bhairav_temple_ujjain.jpg/480px-Kal_bhairav_temple_ujjain.jpg',
     icon: '🔱',
     short: 'An ancient and mysterious temple dedicated to Kal Bhairav, the guardian deity of Ujjain. Famous for the unique prasad offering of liquor to the deity.',
     details: `Kal Bhairav Temple is one of the most ancient and mystical temples of Ujjain. Kal Bhairav is considered the guardian deity (Kotwal) of Ujjain and is a fierce manifestation of Lord Shiva.
@@ -74,6 +77,7 @@ The temple dates back to the time of King Chandapradeep, and finds mention in th
     id: 4,
     name: 'Mangalnath Temple',
     subtitle: 'The Birthplace of Mars (Mangal Grah)',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Mangalnath_temple_ujjain.jpg/480px-Mangalnath_temple_ujjain.jpg',
     icon: '🪐',
     short: 'According to ancient scriptures, Mars (Mangal Grah) was born in Ujjain. This temple is considered the birthplace of the planet Mars and is significant for Navgrah worship.',
     details: `Mangalnath Temple, situated on the banks of the Shipra River, is one of the most important astrological sites in India. According to the ancient text Matsya Purana, Mars (Mangal Grah) was born from the earth in Ujjain, making this city the birthplace of the planet.
@@ -96,6 +100,7 @@ The temple sits on a hill and offers a panoramic view of the city and the Shipra
     id: 5,
     name: 'Navgrah Shani Mandir',
     subtitle: 'Temple of the Nine Planets',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Navgrah_mandir_ujjain.jpg/480px-Navgrah_mandir_ujjain.jpg',
     icon: '⭐',
     short: 'A famous temple dedicated to all nine planets (Navgrahas), especially Lord Shani (Saturn). Located very close to our hotel, it is one of Ujjain\'s most visited temples.',
     details: `The Navgrah Shani Mandir in Ujjain is one of the most revered temples dedicated to the nine planets (Navgrahas), with special emphasis on Lord Shani (Saturn). Ujjain has been considered the center of astrological studies since ancient times, and this temple holds immense importance.
@@ -119,6 +124,7 @@ Conveniently located very close to Hotel Maa Sharda Palace, this temple draws th
     id: 6,
     name: 'Harsiddhi Temple',
     subtitle: 'One of the 51 Shakti Peethas of India',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Harsiddhi_temple_ujjain.jpg/480px-Harsiddhi_temple_ujjain.jpg',
     icon: '🌺',
     short: 'An important Shakti Peetha and one of the 51 sacred sites of Goddess Shakti. The temple is known for its two giant lamps that are lit during Navratri.',
     details: `Harsiddhi Temple is one of the most important Shakti Peethas in India. According to Hindu mythology, when Lord Shiva was carrying the body of Goddess Sati, her elbow fell at this spot in Ujjain. This makes it one of the 51 Shakti Peethas — sacred sites where parts of Goddess Sati's body fell.
@@ -141,6 +147,7 @@ The presiding deity is Goddess Harsiddhi, considered the patron goddess of the l
     id: 7,
     name: 'ISKCON Temple',
     subtitle: 'International Society for Krishna Consciousness',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/ISKCON_Ujjain.jpg/480px-ISKCON_Ujjain.jpg',
     icon: '🪷',
     short: 'A beautiful and serene temple of the International Society for Krishna Consciousness (ISKCON), dedicated to Lord Krishna and Radha. Known for its cleanliness and spiritual atmosphere.',
     details: `The ISKCON Temple in Ujjain is a beautiful and peaceful temple dedicated to Radha-Madanmohan (Lord Krishna). Built by the International Society for Krishna Consciousness, the temple is known for its stunning architecture, cleanliness, and serene spiritual atmosphere.
@@ -164,6 +171,7 @@ The temple complex features beautifully decorated deities, daily bhajans and kir
     id: 8,
     name: 'Sandipani Ashram',
     subtitle: 'Gurukul of Lord Krishna and Sudama',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Sandipani_ashram_ujjain.jpg/480px-Sandipani_ashram_ujjain.jpg',
     icon: '📚',
     short: 'The ancient ashram where Lord Krishna, Balrama, and Sudama received their education from Guru Sandipani. A place of immense historical and religious significance.',
     details: `Sandipani Ashram is one of the most historically significant sites in Ujjain. This is the sacred gurukul (school) where Lord Krishna, Balarama, and their dear friend Sudama received their education from their guru, Sandipani Muni.
@@ -187,6 +195,7 @@ The ashram is maintained in the same spirit as an ancient gurukul and is an impo
     id: 9,
     name: 'Chintaman Ganesh Temple',
     subtitle: 'Swayambhu Ganesh — The Wish Fulfilling God',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Chintaman_Ganesh_Temple_Ujjain.jpg/480px-Chintaman_Ganesh_Temple_Ujjain.jpg',
     icon: '🐘',
     short: 'One of the most ancient Ganesh temples in India. The idol here is Swayambhu (self-manifested) and is believed to fulfill all wishes of sincere devotees.',
     details: `Chintaman Ganesh Temple is one of the most revered and ancient Ganesh temples in India, located in Ujjain. The word "Chintaman" means "one who removes all worries and fulfills wishes," and devotees believe that sincere prayers here are always answered.
@@ -210,6 +219,7 @@ The idol of Lord Ganesha here is Swayambhu (self-manifested), meaning it was not
     id: 10,
     name: 'Gopal Mandir',
     subtitle: 'The Grand Temple of Lord Krishna in the Heart of Ujjain',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Gopal_Mandir_Ujjain.jpg/480px-Gopal_Mandir_Ujjain.jpg',
     icon: '🌼',
     short: 'A magnificent 19th-century temple dedicated to Lord Krishna, built by the Maratha Queen Bayajibai Shinde. Known for its stunning silver-plated entrance doors.',
     details: `Gopal Mandir, also known as Dwarkadheesh Temple, is one of the largest and most beautiful temples in Ujjain. Built in the 19th century by Maratha Queen Bayajibai Shinde, the temple is dedicated to Lord Krishna and is a fine example of Maratha temple architecture.
@@ -237,17 +247,39 @@ function PlaceCard({ place, index }) {
   return (
     <motion.div variants={fadeUp}
       className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all overflow-hidden">
+      {/* Temple Image */}
+      {place.image && (
+        <div className="relative h-44 overflow-hidden bg-gray-100">
+          <img
+            src={place.image}
+            alt={place.name}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+            onError={e => { e.target.style.display = 'none'; e.target.parentElement.style.display = 'none' }}
+          />
+          <span className="absolute top-3 left-3 bg-black/50 text-white text-xs font-bold px-2.5 py-1 rounded-full backdrop-blur-sm">
+            #{index + 1}
+          </span>
+          <span className="absolute top-3 right-3 text-2xl">
+            {place.icon}
+          </span>
+        </div>
+      )}
       <div className="p-6">
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">
-            {place.icon}
-          </div>
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="bg-accent/10 text-accent text-xs font-bold px-2 py-0.5 rounded-full">
-                #{index + 1}
-              </span>
+          {!place.image && (
+            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">
+              {place.icon}
             </div>
+          )}
+          <div className="flex-1 min-w-0">
+            {!place.image && (
+              <div className="flex items-center gap-2 mb-1">
+                <span className="bg-accent/10 text-accent text-xs font-bold px-2 py-0.5 rounded-full">
+                  #{index + 1}
+                </span>
+              </div>
+            )}
             <h3 className="text-lg font-bold text-primary font-display leading-tight">{place.name}</h3>
             <p className="text-accent text-xs font-medium mt-0.5">{place.subtitle}</p>
           </div>

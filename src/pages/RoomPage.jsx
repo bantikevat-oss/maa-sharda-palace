@@ -226,9 +226,7 @@ export default function RoomPage() {
             <div>
               <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 className="bg-primary text-white rounded-3xl p-8 sticky top-24">
-                <p className="text-white/60 text-sm mb-1">Starting from</p>
-                <div className="text-4xl font-bold text-accent font-display mb-1">{room.price}</div>
-                <p className="text-white/60 text-sm mb-6">per night</p>
+                <p className="text-accent font-bold text-lg mb-6">📞 Call for Best Rates</p>
                 <div className="space-y-3 mb-6 text-sm">
                   <div className="flex justify-between">
                     <span className="text-white/60">Check-In</span>
