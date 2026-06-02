@@ -10,28 +10,28 @@ const ROOM_DATA = {
     size: '28 m²',
     guests: '2 Adults',
     bed: 'King Bed',
-    features: ['King Bed', 'Work Desk', 'Premium Toiletries', 'Free Wi-Fi', 'Air Conditioning', 'Room Service 24/7', 'LCD TV', 'Hot Water'],
+    features: ['King Bed', 'Work Desk', 'Premium Toiletries', 'Free Wi-Fi', 'Air Conditioning', 'Room Service', 'LCD TV', 'Hot Water'],
     badge: 'Best Value',
   },
   sdlx: {
     size: '32 m²',
     guests: '2 Adults',
     bed: 'King Bed',
-    features: ['King Bed', 'Work Desk', 'Premium Toiletries', 'Free Wi-Fi', 'Air Conditioning', 'Room Service 24/7', 'Smart TV', 'Mini Fridge'],
+    features: ['King Bed', 'Work Desk', 'Premium Toiletries', 'Free Wi-Fi', 'Air Conditioning', 'Room Service', 'Smart TV', 'Mini Fridge'],
     badge: 'Popular',
   },
   exec: {
     size: '38 m²',
     guests: '2 Adults',
     bed: 'King Bed',
-    features: ['King Bed', 'Work Desk', 'Premium Toiletries', 'Free Wi-Fi', 'Air Conditioning', 'Room Service 24/7', '42" Smart TV', 'Bathtub'],
+    features: ['King Bed', 'Work Desk', 'Premium Toiletries', 'Free Wi-Fi', 'Air Conditioning', 'Room Service', '42" Smart TV', 'Bathtub'],
     badge: 'Premium',
   },
   sexec: {
     size: '48 m²',
     guests: '2 Adults + 1 Child',
     bed: 'King Bed',
-    features: ['King Bed', 'Work Desk', 'Premium Toiletries', 'Free Wi-Fi', 'Air Conditioning', 'Room Service 24/7', '55" Smart TV', 'Jacuzzi', 'Mini Bar', 'Living Lounge'],
+    features: ['King Bed', 'Work Desk', 'Premium Toiletries', 'Free Wi-Fi', 'Air Conditioning', 'Room Service', '55" Smart TV', 'Jacuzzi', 'Mini Bar', 'Living Lounge'],
     badge: 'Luxury',
   },
 }
@@ -138,13 +138,6 @@ export default function Rooms() {
 
                   {/* Card Body */}
                   <div className="p-6">
-                    {/* Price */}
-                    <div className="flex items-baseline gap-2 mb-3">
-                      <span className="text-3xl font-bold text-accent">{room.price}</span>
-                      <span className="text-gray-400 text-sm">/night</span>
-                      <span className="ml-auto text-xs text-gray-500 bg-gray-50 px-2 py-1 rounded">{room.meal}</span>
-                    </div>
-
                     {/* Quick Info */}
                     <div className="flex gap-4 mb-4 text-sm text-gray-600 border-b border-gray-100 pb-4">
                       <span className="flex items-center gap-1.5">
@@ -172,13 +165,9 @@ export default function Rooms() {
 
                     {/* Buttons */}
                     <div className="flex gap-3">
-                      <a href={`tel:${config.phone || SITE_DEFAULTS.phone}`}
-                        className="flex-1 bg-accent text-primary text-center py-3 rounded-lg font-bold text-sm hover:brightness-105 transition">
-                        Book This Room
-                      </a>
                       <Link to={`/rooms/${room.slug}`}
                         className="flex-1 border-2 border-primary text-primary text-center py-3 rounded-lg font-semibold text-sm hover:bg-primary hover:text-white transition">
-                        View Details
+                        View Room Details
                       </Link>
                     </div>
                   </div>
@@ -199,9 +188,10 @@ export default function Rooms() {
               className="bg-yellow-400 text-primary px-8 py-3 rounded-full font-bold hover:brightness-110 transition">
               📞 {config.phone || SITE_DEFAULTS.phone}
             </a>
-            <a href={`tel:${config.phone2 || SITE_DEFAULTS.phone2}`}
-              className="bg-red-500 text-white px-8 py-3 rounded-full font-bold hover:brightness-110 transition">
-              📞 {config.phone2 || SITE_DEFAULTS.phone2}
+            <a href={`https://wa.me/91${(config.whatsapp || SITE_DEFAULTS.whatsapp).replace(/\D/g,'').replace(/^91/,'')}?text=Hi, I'd like to know about room availability.`}
+              target="_blank" rel="noopener noreferrer"
+              className="bg-green-500 text-white px-8 py-3 rounded-full font-bold hover:bg-green-600 transition">
+              💬 WhatsApp
             </a>
           </div>
         </div>
