@@ -16,16 +16,14 @@ const WHY_CHOOSE = [
 ]
 
 const FACILITIES = [
-  { icon: '🏨', text: 'Luxury Rooms & Suites' },
-  { icon: '📶', text: 'Free High-Speed Wi-Fi' },
-  { icon: '🍽️', text: 'Multi-cuisine Restaurant (Coming Soon)' },
-  { icon: '🏊', text: 'Swimming Pool' },
-  { icon: '💪', text: 'Fitness Center (Coming Soon)' },
-  { icon: '🎪', text: 'Conference & Banquet Halls' },
+  { icon: '❄️', text: 'AC Rooms' },
+  { icon: '🎪', text: 'Banquet Halls' },
+  { icon: '🏊', text: 'Indoor Pool' },
+  { icon: '🍽️', text: 'Restaurant (Coming Soon)' },
+  { icon: '💪', text: 'Gym' },
+  { icon: '🅿️', text: 'Free Parking' },
+  { icon: '📶', text: 'Free WiFi' },
   { icon: '🛎️', text: '24/7 Room Service' },
-  { icon: '🚗', text: 'Pickup & Drop Service' },
-  { icon: '🅿️', text: 'Secure Parking' },
-  { icon: '🚘', text: 'Valet Parking' },
 ]
 
 export default function About() {
@@ -42,11 +40,14 @@ export default function About() {
   return (
     <main className="pt-24">
       {/* Hero Banner */}
-      <section className="relative h-64 md:h-80 bg-primary overflow-hidden">
-        <img src={config.img_lobby} alt="Hotel lobby" className="absolute inset-0 w-full h-full object-cover opacity-30" />
+      <section className="relative h-72 md:h-96 bg-primary overflow-hidden">
+        <img src="/images/hotel_front_hero.jpg" alt="Hotel Maa Sharda Palace — front view at sunset"
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => { e.currentTarget.src = '/images/hotel_front.jpg' }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/40 to-primary/30" />
         <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold font-display mb-3">
+            className="text-4xl md:text-5xl font-bold font-display mb-3 drop-shadow-lg">
             About <GradientText>Our Hotel</GradientText>
           </motion.h1>
           <nav className="text-sm text-white/60">
@@ -78,10 +79,10 @@ export default function About() {
             </motion.div>
             <motion.div variants={slideRight} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <div className="grid grid-cols-2 gap-4">
-                <img src={config.img_hero_bg || config.img_lobby} alt="Hotel front" className="rounded-2xl h-48 w-full object-cover" />
-                <img src={config.img_banquet_1} alt="Banquet hall" className="rounded-2xl h-48 w-full object-cover mt-8" />
-                <img src={config.img_pool} alt="Swimming pool" className="rounded-2xl h-48 w-full object-cover -mt-4" />
-                <img src={config.img_gym || config.img_pool_2 || config.img_pool} alt="Gym" className="rounded-2xl h-48 w-full object-cover mt-4" />
+                <img src="/images/hotel_front.jpg" alt="Hotel front view" className="rounded-2xl h-48 w-full object-cover" />
+                <img src="/images/banquet_hall_1.jpg" alt="Banquet hall" className="rounded-2xl h-48 w-full object-cover mt-8" />
+                <img src={config.img_pool || '/images/pool_indoor.jpg'} alt="Swimming pool" className="rounded-2xl h-48 w-full object-cover -mt-4" />
+                <img src="/images/gym.jpg" alt="Gym" className="rounded-2xl h-48 w-full object-cover mt-4" />
               </div>
             </motion.div>
           </div>
@@ -111,7 +112,7 @@ export default function About() {
       </section>
 
       {/* Our Story */}
-      <section className="py-20 bg-gray-50">
+      <section className="pt-20 pb-12 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-12">
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-2">Our Story</p>
@@ -123,23 +124,23 @@ export default function About() {
               {
                 title: 'Our Story',
                 icon: '📖',
-                text: `Founded with a passion for hospitality, ${businessName} was created to offer guests a unique experience that combines luxury, comfort, and local culture. Over the years, we have proudly welcomed travelers from around the world and built a reputation for exceptional service and unforgettable stays.`,
+                text: `Founded with a passion for hospitality, ${businessName} was created to offer guests a unique experience that combines luxury, comfort, and local culture. We have proudly welcomed travelers from around the world and built a reputation for exceptional service and unforgettable stays.`,
               },
               {
                 title: 'Our Mission',
                 icon: '🎯',
-                text: 'Our mission is to provide outstanding hospitality through personalized service, comfortable accommodations, and memorable guest experiences. We strive to create a welcoming environment where every guest feels valued, relaxed, and cared for.',
+                text: 'To provide outstanding hospitality through personalized service, comfortable accommodations, and memorable guest experiences. We create a welcoming environment where every guest feels valued, relaxed, and truly cared for at every step.',
               },
               {
                 title: 'Our Vision',
                 icon: '🌟',
-                text: 'To become one of the most trusted and preferred hospitality destinations known for excellence, comfort, and world-class guest satisfaction.',
+                text: 'To become one of the most trusted and preferred hospitality destinations in Ujjain — known for excellence, comfort, and world-class guest satisfaction. A name guests remember and recommend with pride.',
               },
             ].map((item, i) => (
-              <motion.div key={i} variants={fadeUp} className="bg-white rounded-2xl p-8 shadow-sm text-center flex flex-col">
+              <motion.div key={i} variants={fadeUp} className="bg-white rounded-2xl p-8 shadow-sm text-center flex flex-col h-full">
                 <div className="text-4xl mb-4">{item.icon}</div>
                 <h3 className="text-xl font-bold text-primary font-display mb-3">{item.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed flex-1">{item.text}</p>
+                <p className="text-gray-600 text-sm leading-relaxed flex-1 text-justify [text-align-last:center]">{item.text}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -147,7 +148,7 @@ export default function About() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-white">
+      <section className="pt-12 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-12">
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-2">Why Us</p>
@@ -177,7 +178,7 @@ export default function About() {
             </p>
           </motion.div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {FACILITIES.map((f, i) => (
               <motion.div key={i} variants={fadeUp}
                 className="bg-white/10 rounded-xl p-5 text-center hover:bg-white/20 transition-colors">

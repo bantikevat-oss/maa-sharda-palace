@@ -34,11 +34,6 @@ export default function BanquetHall() {
     image: config.img_banquet_1,
   })
 
-  const photos = [
-    config.img_banquet_1, config.img_banquet_2, config.img_banquet_3,
-    config.img_banquet_4, config.img_banquet_5, config.img_banquet_6,
-  ].filter(Boolean)
-
   return (
     <main className="pt-0">
 
@@ -125,8 +120,14 @@ export default function BanquetHall() {
               </div>
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <img src={config.img_banquet_1} alt="Grand Banquet Hall — 350–400 Guests"
-                className="rounded-3xl w-full h-80 object-cover shadow-xl" />
+              <div className="grid grid-cols-2 gap-3">
+                <img src={config.img_banquet_1 || '/images/banquet_hall_1.jpg'} alt="Grand Banquet Hall — main view"
+                  className="col-span-2 rounded-2xl w-full h-56 object-cover shadow-lg" />
+                <img src="/images/banquet_hall_1_2.jpg" alt="Grand Banquet Hall — view 2"
+                  className="rounded-2xl w-full h-32 object-cover shadow-md" />
+                <img src="/images/banquet_hall_1_3.jpg" alt="Grand Banquet Hall — view 3"
+                  className="rounded-2xl w-full h-32 object-cover shadow-md" />
+              </div>
               <p className="text-center text-sm text-gray-400 mt-3">Capacity: 350–400 Guests</p>
             </motion.div>
           </div>
@@ -138,8 +139,14 @@ export default function BanquetHall() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-14 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <img src={config.img_banquet_2 || config.img_banquet_1} alt="Banquet Hall — 200–250 Guests"
-                className="rounded-3xl w-full h-80 object-cover shadow-xl" />
+              <div className="grid grid-cols-2 gap-3">
+                <img src={config.img_banquet_2 || '/images/banquet_hall_2.jpg'} alt="Banquet Hall — main view"
+                  className="col-span-2 rounded-2xl w-full h-56 object-cover shadow-lg" />
+                <img src="/images/banquet_hall_2_2.jpg" alt="Banquet Hall — view 2"
+                  className="rounded-2xl w-full h-32 object-cover shadow-md" />
+                <img src="/images/banquet_hall_2_3.jpg" alt="Banquet Hall — view 3"
+                  className="rounded-2xl w-full h-32 object-cover shadow-md" />
+              </div>
               <p className="text-center text-sm text-gray-400 mt-3">Capacity: 200–250 Guests</p>
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -179,8 +186,12 @@ export default function BanquetHall() {
               </div>
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <img src={config.img_banquet_3 || config.img_banquet_1} alt="Intimate Hall — 100–150 Guests"
-                className="rounded-3xl w-full h-80 object-cover shadow-xl" />
+              <div className="grid grid-cols-2 gap-3">
+                <img src={config.img_banquet_3 || '/images/banquet_hall_3.jpg'} alt="Intimate Hall — main view"
+                  className="col-span-2 rounded-2xl w-full h-56 object-cover shadow-lg" />
+                <img src="/images/banquet_hall_3_2.jpg" alt="Intimate Hall — view 2"
+                  className="col-span-2 rounded-2xl w-full h-40 object-cover shadow-md" />
+              </div>
               <p className="text-center text-sm text-gray-400 mt-3">Capacity: 100–150 Guests</p>
             </motion.div>
           </div>
@@ -228,32 +239,6 @@ export default function BanquetHall() {
               </motion.div>
             ))}
           </motion.div>
-        </div>
-      </section>
-
-      {/* Photo Gallery */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-10">
-            <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-2">Gallery</p>
-            <h2 className="text-4xl font-bold text-primary font-display">Banquet <GradientText>Photos</GradientText></h2>
-          </motion.div>
-          {photos.length > 0 ? (
-            <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
-              className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {photos.map((src, i) => (
-                <motion.div key={i} variants={fadeUp} className="overflow-hidden rounded-2xl group">
-                  <img src={src} alt={`Banquet ${i + 1}`}
-                    className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                </motion.div>
-              ))}
-            </motion.div>
-          ) : (
-            <div className="text-center py-16 text-gray-400">
-              <div className="text-5xl mb-3">📷</div>
-              <p>Photos coming soon — upload from Admin Panel</p>
-            </div>
-          )}
         </div>
       </section>
 

@@ -8,66 +8,30 @@ import GradientText from '../../components/ui/GradientText'
 const AMENITIES = [
   {
     icon: '🏊',
-    title: 'Swimming Pool',
-    desc: 'Indoor temperature-controlled pool. Morning & afternoon sessions. Closed Tuesday for maintenance.',
+    title: 'Indoor Swimming Pool',
+    desc: 'Indoor temperature-controlled pool with a relaxing ambience. Perfect for guests of all ages. Morning & afternoon sessions available.',
     timings: 'Morning: 7–10 AM | Afternoon: 2–5 PM',
     badge: 'Available',
     badgeColor: 'bg-green-500',
     link: '/amenities/pool',
+    main: '/images/pool_indoor.jpg',
+    thumbs: ['/images/pool_2.jpg', '/images/pool_3.jpg'],
+    highlights: ['💧 Temp Controlled', '👨‍👩‍👧 Family Friendly', '🛟 Lifeguard On Duty'],
   },
   {
-    icon: '🎪',
-    title: 'Banquet Hall',
-    desc: 'Grand banquet hall for weddings, receptions and corporate events. Capacity 100–150 guests.',
-    timings: 'Stylish Décor | Grand Stage | Premium Sound',
+    icon: '💪',
+    title: 'Modern Gymnasium',
+    desc: 'Fully equipped modern fitness centre with cardio and strength training equipment. Designed for guests who want to stay active during their stay.',
+    timings: 'Morning: 6–10 AM | Evening: 4–8 PM',
     badge: 'Available',
     badgeColor: 'bg-green-500',
-    link: '/amenities/banquet',
-  },
-  {
-    icon: '🎉',
-    title: 'Party Hall',
-    desc: 'Perfect venue for birthdays, kitty parties, small gatherings and private celebrations.',
-    timings: 'Book in Advance',
-    badge: 'Available',
-    badgeColor: 'bg-green-500',
-    link: '/amenities/party-hall',
-  },
-  {
-    icon: '🚘',
-    title: 'Valet Parking',
-    desc: 'Hassle-free valet parking service for all guests. Safe and secure parking area.',
-    timings: '24/7 Available',
-    badge: 'Available',
-    badgeColor: 'bg-green-500',
-    link: null,
-  },
-  {
-    icon: '📶',
-    title: 'Free High-Speed Wi-Fi',
-    desc: 'Complimentary high-speed Wi-Fi throughout the hotel — in rooms, lobby and common areas.',
-    timings: '24/7 Available',
-    badge: 'Available',
-    badgeColor: 'bg-green-500',
-    link: null,
-  },
-  {
-    icon: '🛎️',
-    title: '24/7 Room Service',
-    desc: 'Round-the-clock room service for food, beverages and any assistance you need.',
-    timings: 'Always Available',
-    badge: 'Available',
-    badgeColor: 'bg-green-500',
-    link: null,
-  },
-  {
-    icon: '🚗',
-    title: 'Airport / Railway Transfer',
-    desc: 'Convenient pickup and drop service from Ujjain Railway Station and nearby areas.',
-    timings: 'Pre-booking Required',
-    badge: 'Available',
-    badgeColor: 'bg-green-500',
-    link: null,
+    link: '/amenities/gym',
+    main: '/images/gym.jpg',
+    thumbs: [
+      'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&q=80&auto=format&fit=crop',
+    ],
+    highlights: ['🏋️ Cardio + Strength', '❄️ Fully AC', '👨‍🏫 Trainer On Request'],
   },
 ]
 
@@ -76,7 +40,7 @@ export default function Amenities() {
 
   useSEO({
     title: 'Amenities | Hotel Maa Sharda Palace Ujjain',
-    description: 'Explore all amenities at Hotel Maa Sharda Palace — Swimming Pool, Banquet Hall, Party Hall, Valet Parking, Wi-Fi, Room Service and more.',
+    description: 'Explore amenities at Hotel Maa Sharda Palace — Indoor Swimming Pool and fully equipped Gym for a comfortable stay in Ujjain.',
     image: config.img_pool,
   })
 
@@ -118,17 +82,9 @@ export default function Amenities() {
           </motion.div>
 
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            className="space-y-16">
             {AMENITIES.map((a, i) => (
-              <motion.div key={i} variants={fadeUp}>
-                {a.link ? (
-                  <Link to={a.link} className="block h-full group">
-                    <AmenityCard item={a} linked />
-                  </Link>
-                ) : (
-                  <AmenityCard item={a} />
-                )}
-              </motion.div>
+              <AmenityRow key={i} item={a} reverse={i % 2 === 1} />
             ))}
           </motion.div>
         </div>
@@ -142,11 +98,13 @@ export default function Amenities() {
             <p className="text-white/60 mt-3 text-sm">Your comfort and well-being is our priority</p>
           </motion.div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 max-w-4xl mx-auto">
             {[
               { icon: '🏊', label: 'Indoor Pool', sub: 'Temp Controlled' },
-              { icon: '🚘', label: 'Valet Parking', sub: '24/7 Service' },
-              { icon: '🛎️', label: 'Room Service', sub: '24/7 Available' },
+              { icon: '💪', label: 'Gym', sub: 'Fully Equipped' },
+              { icon: '🎪', label: 'Banquet Halls', sub: '3 Grand Halls' },
+              { icon: '🛎️', label: 'Room Service', sub: '24/7 Availability' },
+              { icon: '🅿️', label: 'Free Parking', sub: 'Secure & Spacious' },
             ].map((w, i) => (
               <motion.div key={i} variants={fadeUp}
                 className="bg-white/10 rounded-xl p-5 text-center hover:bg-white/20 transition-colors">
@@ -163,21 +121,51 @@ export default function Amenities() {
   )
 }
 
-function AmenityCard({ item, linked }) {
+function AmenityRow({ item, reverse }) {
   return (
-    <div className={`bg-white rounded-2xl p-6 border border-gray-100 shadow-sm h-full transition-all ${linked ? 'group-hover:shadow-lg group-hover:border-accent/30' : ''}`}>
-      <div className="flex items-start justify-between mb-4">
-        <div className="text-4xl">{item.icon}</div>
-        <span className={`${item.badgeColor} text-white text-xs font-bold px-2.5 py-1 rounded-full`}>
-          {item.badge}
-        </span>
+    <motion.div variants={fadeUp}
+      className={`grid md:grid-cols-2 gap-10 items-center ${reverse ? 'md:[&>*:first-child]:order-2' : ''}`}>
+      {/* Image collage — main + 2 thumbs */}
+      <div className="grid grid-cols-2 gap-3">
+        <img src={item.main} alt={item.title}
+          className="col-span-2 rounded-2xl w-full h-64 object-cover shadow-lg" />
+        {item.thumbs?.map((t, i) => (
+          <img key={i} src={t} alt={`${item.title} view ${i + 2}`} loading="lazy"
+            className="rounded-2xl w-full h-32 object-cover shadow-md" />
+        ))}
       </div>
-      <h3 className="font-bold text-primary mb-2 text-base">{item.title}</h3>
-      <p className="text-gray-500 text-sm leading-relaxed mb-3">{item.desc}</p>
-      <p className="text-xs text-accent font-medium">{item.timings}</p>
-      {linked && (
-        <p className="text-xs text-primary/50 mt-3 font-medium">Click to learn more →</p>
-      )}
-    </div>
+
+      {/* Content */}
+      <div>
+        <div className="flex items-center gap-3 mb-3">
+          <div className="text-4xl">{item.icon}</div>
+          <span className={`${item.badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide`}>
+            {item.badge}
+          </span>
+        </div>
+        <h3 className="text-2xl md:text-3xl font-bold text-primary font-display mb-3">{item.title}</h3>
+        <p className="text-gray-600 leading-relaxed text-sm mb-5">{item.desc}</p>
+
+        {item.highlights && (
+          <div className="flex flex-wrap gap-2 mb-5">
+            {item.highlights.map((h, i) => (
+              <span key={i} className="bg-accent/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full border border-accent/20">
+                {h}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <p className="text-sm text-accent font-medium mb-5">🕐 {item.timings}</p>
+
+        {item.link && (
+          <Link to={item.link}
+            className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-primary/90 transition-colors">
+            View Full Details
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </Link>
+        )}
+      </div>
+    </motion.div>
   )
 }

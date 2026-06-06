@@ -125,14 +125,17 @@ export default function Rooms() {
                   className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
 
                   {/* Image */}
-                  <div className="relative overflow-hidden h-64">
+                  <div className="relative overflow-hidden h-72 group">
                     <img src={room.img} alt={room.name}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-accent text-primary text-xs font-bold px-3 py-1.5 rounded-full">{data.badge}</span>
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-                      <p className="text-white font-bold text-xl font-display">{room.name}</p>
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <span className="absolute top-4 left-4 bg-accent text-primary text-xs font-bold px-3 py-1 rounded-full shadow-md z-10">
+                      {data.badge}
+                    </span>
+                    {/* Black transparent name strip with white text — matches home page */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm py-3 px-4 z-10">
+                      <h3 className="text-white text-lg md:text-xl font-bold text-center font-display tracking-wide">
+                        {room.name}
+                      </h3>
                     </div>
                   </div>
 

@@ -11,7 +11,7 @@ const PLACES = [
     id: 1,
     name: 'Mahakaleshwar Jyotirlinga',
     subtitle: 'One of the 12 Sacred Jyotirlingas of India',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Mahakaleshwar_Temple%2C_Ujjain.jpg/800px-Mahakaleshwar_Temple%2C_Ujjain.jpg',
+    image: '/images/mahakaleshwar.jpg',
     icon: '🕉️',
     short: 'The most sacred temple of Ujjain, dedicated to Lord Shiva. One of the 12 Jyotirlingas in India and the only south-facing Shiva lingam.',
     details: `Mahakaleshwar Temple is one of the most sacred Hindu temples in India, dedicated to Lord Shiva. Located in the ancient city of Ujjain, Madhya Pradesh, it is one of the twelve Jyotirlingas — the most sacred abodes of Shiva.
@@ -30,7 +30,7 @@ The famous Bhasma Aarti (ash ritual) performed every morning before sunrise is o
     id: 2,
     name: 'Mahakal Lok',
     subtitle: 'Grand Spiritual Corridor of Ujjain',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Mahakal_Lok_ujjain.jpg/800px-Mahakal_Lok_ujjain.jpg',
+    image: '/images/mahakal_lok.jpg',
     icon: '🏛️',
     short: 'A grand 900-meter spiritual corridor connecting Rudra Sagar to Mahakaleshwar Temple, featuring 190+ sculptures and statues depicting scenes from Shiva Purana.',
     details: `Mahakal Lok is a magnificent spiritual corridor developed by the Government of Madhya Pradesh to enhance the religious experience of pilgrims visiting the Mahakaleshwar Temple.
@@ -53,7 +53,7 @@ The corridor connects Rudra Sagar Lake to the Mahakaleshwar Temple and features:
     id: 3,
     name: 'Kal Bhairav Temple',
     subtitle: 'Ancient Temple of the Guardian of Ujjain',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Kal_Bhairav_temple_Ujjain.jpg/800px-Kal_Bhairav_temple_Ujjain.jpg',
+    image: '/images/kal_bhairav.jpg',
     icon: '🔱',
     short: 'An ancient and mysterious temple dedicated to Kal Bhairav, the guardian deity of Ujjain. Famous for the unique prasad offering of liquor to the deity.',
     details: `Kal Bhairav Temple is one of the most ancient and mystical temples of Ujjain. Kal Bhairav is considered the guardian deity (Kotwal) of Ujjain and is a fierce manifestation of Lord Shiva.
@@ -77,7 +77,7 @@ The temple dates back to the time of King Chandapradeep, and finds mention in th
     id: 4,
     name: 'Mangalnath Temple',
     subtitle: 'The Birthplace of Mars (Mangal Grah)',
-    image: 'https://cdn.s3waas.gov.in/s3ab817c9349cf9c4f6877e1894a1faa00/uploads/2019/07/2019072682.jpg',
+    image: '/images/Mangalnath.jpg',
     icon: '🪐',
     short: 'According to ancient scriptures, Mars (Mangal Grah) was born in Ujjain. This temple is considered the birthplace of the planet Mars and is significant for Navgrah worship.',
     details: `Mangalnath Temple, situated on the banks of the Shipra River, is one of the most important astrological sites in India. According to the ancient text Matsya Purana, Mars (Mangal Grah) was born from the earth in Ujjain, making this city the birthplace of the planet.
@@ -100,7 +100,7 @@ The temple sits on a hill and offers a panoramic view of the city and the Shipra
     id: 5,
     name: 'Navgrah Shani Mandir',
     subtitle: 'Temple of the Nine Planets',
-    image: 'https://cdn.s3waas.gov.in/s3ab817c9349cf9c4f6877e1894a1faa00/uploads/2019/07/2019072673.jpg',
+    image: '/images/navgrah_shani.jpg',
     icon: '⭐',
     short: 'A famous temple dedicated to all nine planets (Navgrahas), especially Lord Shani (Saturn). Located very close to our hotel, it is one of Ujjain\'s most visited temples.',
     details: `The Navgrah Shani Mandir in Ujjain is one of the most revered temples dedicated to the nine planets (Navgrahas), with special emphasis on Lord Shani (Saturn). Ujjain has been considered the center of astrological studies since ancient times, and this temple holds immense importance.
@@ -124,7 +124,7 @@ Conveniently located very close to Hotel Maa Sharda Palace, this temple draws th
     id: 6,
     name: 'Harsiddhi Temple',
     subtitle: 'One of the 51 Shakti Peethas of India',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Harsiddhi_Temple%2C_Ujjain_01.jpg/800px-Harsiddhi_Temple%2C_Ujjain_01.jpg',
+    image: '/images/Harsiddhii.webp',
     icon: '🌺',
     short: 'An important Shakti Peetha and one of the 51 sacred sites of Goddess Shakti. The temple is known for its two giant lamps that are lit during Navratri.',
     details: `Harsiddhi Temple is one of the most important Shakti Peethas in India. According to Hindu mythology, when Lord Shiva was carrying the body of Goddess Sati, her elbow fell at this spot in Ujjain. This makes it one of the 51 Shakti Peethas — sacred sites where parts of Goddess Sati's body fell.
@@ -147,7 +147,7 @@ The presiding deity is Goddess Harsiddhi, considered the patron goddess of the l
     id: 7,
     name: 'ISKCON Temple',
     subtitle: 'International Society for Krishna Consciousness',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/2/29/ISKCON_Temple_Ujjain.jpg',
+    image: '/images/ISKCON.jpg',
     icon: '🪷',
     short: 'A beautiful and serene temple of the International Society for Krishna Consciousness (ISKCON), dedicated to Lord Krishna and Radha. Known for its cleanliness and spiritual atmosphere.',
     details: `The ISKCON Temple in Ujjain is a beautiful and peaceful temple dedicated to Radha-Madanmohan (Lord Krishna). Built by the International Society for Krishna Consciousness, the temple is known for its stunning architecture, cleanliness, and serene spiritual atmosphere.
@@ -171,7 +171,7 @@ The temple complex features beautifully decorated deities, daily bhajans and kir
     id: 8,
     name: 'Sandipani Ashram',
     subtitle: 'Gurukul of Lord Krishna and Sudama',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Krishna_and_Balarama_Studying_with_the_Brahman_Sandipani_%281525-1550_CE%29.jpg/800px-Krishna_and_Balarama_Studying_with_the_Brahman_Sandipani_%281525-1550_CE%29.jpg',
+    image: '/images/sandipani_ashram.jpg',
     icon: '📚',
     short: 'The ancient ashram where Lord Krishna, Balrama, and Sudama received their education from Guru Sandipani. A place of immense historical and religious significance.',
     details: `Sandipani Ashram is one of the most historically significant sites in Ujjain. This is the sacred gurukul (school) where Lord Krishna, Balarama, and their dear friend Sudama received their education from their guru, Sandipani Muni.
@@ -195,7 +195,7 @@ The ashram is maintained in the same spirit as an ancient gurukul and is an impo
     id: 9,
     name: 'Chintaman Ganesh Temple',
     subtitle: 'Swayambhu Ganesh — The Wish Fulfilling God',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/5/58/Chintamann_Ganesh_Temple_Ujjain_-_panoramio.jpg',
+    image: '/images/chintaman_ganesh.webp',
     icon: '🐘',
     short: 'One of the most ancient Ganesh temples in India. The idol here is Swayambhu (self-manifested) and is believed to fulfill all wishes of sincere devotees.',
     details: `Chintaman Ganesh Temple is one of the most revered and ancient Ganesh temples in India, located in Ujjain. The word "Chintaman" means "one who removes all worries and fulfills wishes," and devotees believe that sincere prayers here are always answered.
@@ -219,7 +219,7 @@ The idol of Lord Ganesha here is Swayambhu (self-manifested), meaning it was not
     id: 10,
     name: 'Gopal Mandir',
     subtitle: 'The Grand Temple of Lord Krishna in the Heart of Ujjain',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/8/88/Shikhara_of_Shri_Dwarkadhish_Gopal_Mandir.jpg',
+    image: '/images/gopal_mandir.jpg',
     icon: '🌼',
     short: 'A magnificent 19th-century temple dedicated to Lord Krishna, built by the Maratha Queen Bayajibai Shinde. Known for its stunning silver-plated entrance doors.',
     details: `Gopal Mandir, also known as Dwarkadheesh Temple, is one of the largest and most beautiful temples in Ujjain. Built in the 19th century by Maratha Queen Bayajibai Shinde, the temple is dedicated to Lord Krishna and is a fine example of Maratha temple architecture.
@@ -248,44 +248,53 @@ function PlaceCard({ place, index }) {
     <motion.div variants={fadeUp}
       className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all overflow-hidden">
       {/* Temple Image */}
-      {place.image && (
-        <div className="relative h-44 overflow-hidden bg-gray-100">
-          <img
-            src={place.image}
-            alt={place.name}
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-            loading="lazy"
-            onError={e => { e.target.style.display = 'none'; e.target.parentElement.style.display = 'none' }}
-          />
-          <span className="absolute top-3 left-3 bg-black/50 text-white text-xs font-bold px-2.5 py-1 rounded-full backdrop-blur-sm">
-            #{index + 1}
-          </span>
-          <span className="absolute top-3 right-3 text-2xl">
-            {place.icon}
-          </span>
+      <div className="relative overflow-hidden bg-gray-900" style={{ height: '360px' }}>
+        {place.image ? (
+          <>
+            {/* Blurred backdrop — same image scaled & blurred to fill space */}
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${place.image})`,
+                filter: 'blur(24px) brightness(0.45) saturate(1.2)',
+                transform: 'scale(1.15)'
+              }}
+            />
+            {/* Foreground full image — NO crop, NO cut */}
+            <img
+              src={place.image}
+              alt={place.name}
+              className="relative z-10 w-full h-full object-contain object-center hover:scale-[1.03] transition-transform duration-700"
+              loading="lazy"
+              onError={e => {
+                e.target.style.display = 'none';
+                e.target.nextSibling && (e.target.nextSibling.style.display = 'flex');
+              }}
+            />
+          </>
+        ) : null}
+        {/* Fallback if image fails */}
+        <div className="hidden w-full h-full items-center justify-center text-6xl bg-primary/10">
+          {place.icon}
         </div>
-      )}
-      <div className="p-6">
-        <div className="flex items-start gap-4">
-          {!place.image && (
-            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">
-              {place.icon}
-            </div>
-          )}
-          <div className="flex-1 min-w-0">
-            {!place.image && (
-              <div className="flex items-center gap-2 mb-1">
-                <span className="bg-accent/10 text-accent text-xs font-bold px-2 py-0.5 rounded-full">
-                  #{index + 1}
-                </span>
-              </div>
-            )}
-            <h3 className="text-lg font-bold text-primary font-display leading-tight">{place.name}</h3>
-            <p className="text-accent text-xs font-medium mt-0.5">{place.subtitle}</p>
-          </div>
+        {/* Gradient overlay bottom */}
+        <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/70 via-transparent to-black/20 pointer-events-none" />
+        {/* Number badge */}
+        <span className="absolute top-3 left-3 z-30 bg-black/60 text-white text-xs font-bold px-2.5 py-1 rounded-full backdrop-blur-sm">
+          #{index + 1}
+        </span>
+        {/* Icon badge */}
+        <span className="absolute top-3 right-3 z-30 text-2xl drop-shadow-lg">
+          {place.icon}
+        </span>
+        {/* Temple name on image */}
+        <div className="absolute bottom-0 left-0 right-0 z-30 p-4">
+          <p className="text-white font-bold text-lg font-display leading-tight drop-shadow-lg">{place.name}</p>
+          <p className="text-amber-300 text-xs mt-0.5 drop-shadow">{place.subtitle}</p>
         </div>
-
-        <p className="text-gray-600 text-sm leading-relaxed mt-4">{place.short}</p>
+      </div>
+      <div className="p-5">
+        <p className="text-gray-600 text-sm leading-relaxed">{place.short}</p>
 
         <div className="flex items-center gap-4 mt-4 text-xs text-gray-400">
           <span>🕐 {place.timing}</span>
@@ -347,29 +356,65 @@ export default function UjjainDarshan() {
 
   return (
     <main className="pt-24">
-      {/* Hero */}
-      <section className="relative h-72 bg-primary overflow-hidden">
-        <img src={config?.img_lobby || '/images/lobby.jpg'} alt="Ujjain Darshan"
-          className="absolute inset-0 w-full h-full object-cover opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-primary/40" />
-        <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">
-            Explore Ujjain
+      {/* Hero — Branded with Mahakaleshwar */}
+      <section className="relative h-[420px] md:h-[480px] bg-primary overflow-hidden">
+        {/* Background image - Mahakaleshwar temple */}
+        <img src="/images/mahakaleshwarr.jpg" alt="Mahakaleshwar Temple Ujjain"
+          className="absolute inset-0 w-full h-full object-cover" style={{ filter: 'brightness(0.55)' }} />
+
+        {/* Brand gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-primary/30 to-primary/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-transparent to-primary/60" />
+
+        {/* Decorative gold orb (left) */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-accent/15 blur-[100px] rounded-full pointer-events-none" />
+        {/* Decorative gold orb (right) */}
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-96 h-96 bg-accent/10 blur-[100px] rounded-full pointer-events-none" />
+
+        {/* Top gold accent line */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-60" />
+        {/* Bottom gold accent line */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-60" />
+
+        <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4 z-10">
+          {/* Ornament — gold lines with Om */}
+          <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }}
+            className="flex items-center justify-center gap-4 mb-5">
+            <div className="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-accent" />
+            <span className="text-accent text-3xl md:text-4xl drop-shadow-[0_0_20px_rgba(201,168,76,0.6)]">🕉</span>
+            <div className="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-accent" />
+          </motion.div>
+
+          <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+            className="text-accent text-xs md:text-sm font-semibold uppercase tracking-[0.35em] mb-4">
+            Explore the Sacred City
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold font-display mb-3">
+
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }}
+            className="font-display font-bold leading-tight mb-4"
+            style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)' }}>
             <GradientText>Ujjain Darshan</GradientText>
           </motion.h1>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-            className="text-white/70 text-sm max-w-xl">
-            Discover the sacred temples and spiritual destinations of Ujjain — the City of Lord Mahakal
+
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
+            className="text-white/85 text-sm md:text-base max-w-2xl leading-relaxed font-light">
+            Discover the sacred temples and spiritual destinations of Ujjain — <span className="text-accent font-medium">the City of Lord Mahakal</span>
           </motion.p>
-          <nav className="text-sm text-white/60 mt-4">
-            <Link to="/" className="hover:text-accent">Home</Link>
+
+          {/* Quick stats badges */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
+            className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mt-7">
+            <span className="bg-white/10 backdrop-blur-sm border border-white/15 text-white text-xs px-4 py-1.5 rounded-full">🛕 10 Sacred Temples</span>
+            <span className="bg-white/10 backdrop-blur-sm border border-white/15 text-white text-xs px-4 py-1.5 rounded-full">📍 Near Our Hotel</span>
+            <span className="bg-accent/20 backdrop-blur-sm border border-accent/40 text-accent text-xs px-4 py-1.5 rounded-full font-semibold">✨ Bhasma Aarti</span>
+          </motion.div>
+
+          <motion.nav initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}
+            className="text-xs text-white/50 mt-6">
+            <Link to="/" className="hover:text-accent transition-colors">Home</Link>
             <span className="mx-2">/</span>
-            <span className="text-white">Ujjain Darshan</span>
-          </nav>
+            <span className="text-white/80">Ujjain Darshan</span>
+          </motion.nav>
         </div>
       </section>
 
@@ -406,27 +451,44 @@ export default function UjjainDarshan() {
         </div>
       </section>
 
-      {/* Travel Tips */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-primary font-display">Travel <GradientText>Tips</GradientText></h2>
+      {/* Travel Tips — colorful redesigned */}
+      <section className="py-20 bg-gradient-to-b from-accent/5 via-white to-accent/5 relative overflow-hidden">
+        {/* Decorative orbs */}
+        <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-accent/10 blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-72 h-72 rounded-full bg-primary/10 blur-[100px] pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-12">
+            <p className="text-accent text-xs font-semibold uppercase tracking-[0.3em] mb-3">Helpful Guide</p>
+            <h2 className="text-4xl font-bold text-primary font-display">Travel <GradientText>Tips</GradientText></h2>
+            <p className="text-gray-500 mt-3 text-sm">Make your darshan experience smooth and memorable</p>
           </motion.div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-5">
+            className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {[
-              { icon: '👕', tip: 'Dress Code', desc: 'Wear modest, traditional clothing while visiting temples. Avoid shorts and sleeveless tops.' },
-              { icon: '🥿', tip: 'Footwear', desc: 'Remove footwear before entering all temple premises. Carry a bag for your shoes.' },
-              { icon: '📷', tip: 'Photography', desc: 'Photography may be restricted inside the main shrines. Always ask before clicking photos.' },
-              { icon: '⏰', tip: 'Best Time', desc: 'Visit temples early morning for a peaceful darshan experience and shorter queues.' },
-              { icon: '💧', tip: 'Stay Hydrated', desc: 'Carry water especially during summers. Ujjain can be very hot from April to June.' },
-              { icon: '🚗', tip: 'Transport', desc: 'Our hotel offers pickup and drop services. Auto rickshaws are also easily available.' },
+              { icon: '👕', tip: 'Dress Code', desc: 'Wear modest, traditional clothing while visiting temples. Avoid shorts and sleeveless tops.',
+                from: 'from-pink-400', to: 'to-rose-500', bg: 'bg-rose-50', ring: 'ring-rose-100' },
+              { icon: '🥿', tip: 'Footwear', desc: 'Remove footwear before entering all temple premises. Carry a bag for your shoes.',
+                from: 'from-amber-400', to: 'to-orange-500', bg: 'bg-amber-50', ring: 'ring-amber-100' },
+              { icon: '📷', tip: 'Photography', desc: 'Photography may be restricted inside main shrines. Always ask before clicking photos.',
+                from: 'from-purple-400', to: 'to-indigo-500', bg: 'bg-purple-50', ring: 'ring-purple-100' },
+              { icon: '⏰', tip: 'Best Time', desc: 'Visit temples early morning for a peaceful darshan experience and shorter queues.',
+                from: 'from-sky-400', to: 'to-blue-500', bg: 'bg-sky-50', ring: 'ring-sky-100' },
+              { icon: '💧', tip: 'Stay Hydrated', desc: 'Carry water especially during summers. Ujjain can be very hot from April to June.',
+                from: 'from-cyan-400', to: 'to-teal-500', bg: 'bg-cyan-50', ring: 'ring-cyan-100' },
+              { icon: '🚗', tip: 'Transport', desc: 'Our hotel offers pickup & drop services. Auto rickshaws are also easily available.',
+                from: 'from-emerald-400', to: 'to-green-500', bg: 'bg-emerald-50', ring: 'ring-emerald-100' },
             ].map((t, i) => (
               <motion.div key={i} variants={fadeUp}
-                className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-                <div className="text-3xl mb-3">{t.icon}</div>
-                <h3 className="font-bold text-primary mb-1 text-sm">{t.tip}</h3>
-                <p className="text-gray-500 text-xs leading-relaxed">{t.desc}</p>
+                className={`group ${t.bg} rounded-3xl p-6 shadow-sm hover:shadow-xl ring-1 ${t.ring} hover:scale-[1.03] transition-all duration-300 border border-white relative overflow-hidden`}>
+                {/* Decorative gradient blob */}
+                <div className={`absolute -top-8 -right-8 w-32 h-32 rounded-full bg-gradient-to-br ${t.from} ${t.to} opacity-20 group-hover:opacity-30 transition-opacity blur-2xl`} />
+                {/* Icon circle */}
+                <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${t.from} ${t.to} flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 mb-4`}>
+                  <span className="drop-shadow-md">{t.icon}</span>
+                </div>
+                <h3 className="font-bold text-primary mb-2 text-base font-display">{t.tip}</h3>
+                <p className="text-gray-600 text-xs leading-relaxed">{t.desc}</p>
               </motion.div>
             ))}
           </motion.div>

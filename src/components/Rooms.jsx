@@ -16,7 +16,7 @@ export default function Rooms() {
       price: config?.room_deluxe_price || '₹3,000',
       image: config?.img_room_deluxe || SITE_DEFAULTS.img_room_deluxe,
       badge: 'Popular',
-      features: ['King Bed', 'Couch', 'AC', 'Free WiFi', 'TV', 'Room Service'],
+      features: ['King Bed', 'AC', 'Free WiFi', 'TV', 'Room Service'],
       desc: config?.room_deluxe_desc || 'Comfortable and well-appointed room with warm wooden interiors and modern amenities.',
     },
     {
@@ -25,7 +25,7 @@ export default function Rooms() {
       price: config?.room_sdlx_price || '₹4,000',
       image: config?.img_room_super_deluxe || SITE_DEFAULTS.img_room_super_deluxe,
       badge: '',
-      features: ['King Bed', 'AC', 'Free WiFi', 'Smart TV', 'Mini Fridge', 'Room Service'],
+      features: ['King Bed', 'Couch', 'AC', 'Free WiFi', 'Smart TV', 'Mini Fridge', 'Room Service'],
       desc: config?.room_sdlx_desc || 'Upgraded comfort with premium furnishings and extra space for a relaxed stay.',
     },
     {
@@ -34,7 +34,7 @@ export default function Rooms() {
       price: config?.room_exec_price || '₹5,000',
       image: config?.img_room_executive || SITE_DEFAULTS.img_room_executive,
       badge: 'Best Value',
-      features: ['King Size Bed + Twin Bed', 'AC', 'Free WiFi', 'Smart TV', 'Work Desk', 'Premium Bath'],
+      features: ['King Bed + Twin Bed', 'AC', 'Free WiFi', 'Smart TV', 'Work Desk', 'Premium Bath'],
       desc: config?.room_exec_desc || 'Spacious suite-style room with dual beds, perfect for families or extended stays.',
     },
     {
@@ -68,19 +68,24 @@ export default function Rooms() {
             <motion.div key={room.id} variants={fadeUp}
               whileHover={{ y: -6 }} transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
-              <div className="relative overflow-hidden h-56">
-                <img src={room.image} alt={room.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+              <div className="relative overflow-hidden h-72">
+                {/* Main image — fills card edge to edge */}
+                <img src={room.image} alt={room.name}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy" />
                 {room.badge && (
-                  <span className="absolute top-4 left-4 bg-accent text-primary text-xs font-bold px-3 py-1 rounded-full">
+                  <span className="absolute top-4 left-4 bg-accent text-primary text-xs font-bold px-3 py-1 rounded-full shadow-md z-10">
                     {room.badge}
                   </span>
                 )}
-                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent" />
+                {/* Black transparent name strip with white text */}
+                <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm py-3 px-4 z-10">
+                  <h3 className="text-white text-lg md:text-xl font-bold text-center font-display tracking-wide">
+                    {room.name}
+                  </h3>
+                </div>
               </div>
               <div className="p-6">
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-primary">{room.name}</h3>
-                </div>
                 <p className="text-gray-500 text-sm mb-4 leading-relaxed">{room.desc}</p>
                 <div className="flex flex-wrap gap-1.5 mb-5">
                   {room.features.map(f => (

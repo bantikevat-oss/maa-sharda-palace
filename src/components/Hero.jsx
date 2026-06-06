@@ -39,10 +39,10 @@ export default function Hero() {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             transition={{ duration: 1.2, ease: 'easeInOut' }}
             className="absolute inset-0 bg-primary">
-            <img src={src} alt="" className="w-full h-full object-cover object-center scale-105"
-              style={{ animation: 'slowZoom 10s ease-in-out infinite alternate' }} />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/60 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent" />
+            <img src={src} alt="" className="w-full h-full object-cover object-center" />
+            {/* Lighter overlays — keeps text readable but image stays clearly visible */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent" />
           </motion.div>
         ))}
       </AnimatePresence>
@@ -95,16 +95,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div className="absolute bottom-10 right-8 flex flex-col items-center gap-2 z-10"
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}>
-        <span className="text-white/40 text-xs tracking-widest rotate-90 origin-center">SCROLL</span>
-        <div className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent" />
-      </motion.div>
 
-      <style>{`
-        @keyframes slowZoom { from { transform: scale(1.05); } to { transform: scale(1.12); } }
-      `}</style>
     </section>
   )
 }

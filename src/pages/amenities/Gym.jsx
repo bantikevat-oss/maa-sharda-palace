@@ -19,7 +19,8 @@ export default function Gym() {
     <main className="pt-24">
       {/* Hero */}
       <section className="relative h-80 bg-primary overflow-hidden">
-        <img src={config.img_lobby} alt="Gym" className="absolute inset-0 w-full h-full object-cover opacity-30" />
+        <img src="/images/gym.jpg" alt="Gymnasium at Hotel Maa Sharda Palace"
+          className="absolute inset-0 w-full h-full object-cover opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
         <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}
@@ -58,6 +59,37 @@ export default function Gym() {
               <p className="text-accent font-bold text-lg">🚀 Coming Soon</p>
               <p className="text-white/70 text-sm mt-1">We are working hard to bring you the best fitness experience</p>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Photo Gallery */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-10">
+            <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-2">Preview Glimpse</p>
+            <h2 className="text-3xl font-bold text-primary font-display">A Look Into Our <GradientText>Upcoming Gym</GradientText></h2>
+            <p className="text-gray-500 mt-3 text-sm max-w-xl mx-auto">
+              Reference visuals of the modern fitness setup we are bringing to {SITE_DEFAULTS.businessName}.
+            </p>
+          </motion.div>
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
+            className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              { src: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80&auto=format&fit=crop', alt: 'Modern gym interior' },
+              { src: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=900&q=80&auto=format&fit=crop', alt: 'Treadmill cardio zone' },
+              { src: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=900&q=80&auto=format&fit=crop', alt: 'Free weights area' },
+              { src: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=900&q=80&auto=format&fit=crop', alt: 'Dumbbells rack' },
+              { src: 'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=900&q=80&auto=format&fit=crop', alt: 'Strength training zone' },
+              { src: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=900&q=80&auto=format&fit=crop', alt: 'Kettlebells and accessories' },
+            ].map((img, i) => (
+              <motion.div key={i} variants={fadeUp}
+                className="relative overflow-hidden rounded-2xl shadow-md group h-52">
+                <img src={img.src} alt={img.alt} loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>

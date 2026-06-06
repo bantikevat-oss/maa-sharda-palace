@@ -26,17 +26,34 @@ const WHY_US = [
   { icon: '🤝', title: 'Personal Coordinator', desc: 'Dedicated coordinator handling every detail so you enjoy your day.' },
 ]
 
-// Gallery with VARIED photos — no duplicates, different categories
+// Gallery — sequence: Property → Hotel → Gym → Pool → Banquets → Rooms → Interiors
 const GALLERY = [
-  { src: '/images/banquet_grand.jpg', alt: 'Grand Banquet Hall', span: 'large' },
-  { src: '/images/hotel_front.jpg', alt: 'Hotel Exterior', span: 'normal' },
-  { src: '/images/banquet_3.jpg', alt: 'Wedding Décor', span: 'normal' },
-  { src: '/images/pool_indoor.jpg', alt: 'Indoor Pool', span: 'normal' },
-  { src: '/images/banquet_4.jpg', alt: 'Wedding Stage', span: 'normal' },
-  { src: '/images/room_executive_suite.jpg', alt: 'Luxury Suite', span: 'normal' },
-  { src: '/images/banquet_5.jpg', alt: 'Wedding Lighting', span: 'normal' },
-  { src: '/images/hotel_corridor.jpg', alt: 'Hotel Corridor', span: 'normal' },
-  { src: '/images/banquet_6.jpg', alt: 'Banquet View', span: 'normal' },
+  // Property & Hotel
+  { src: '/images/hotel_front.jpg', alt: 'Property — Hotel Front' },
+  { src: '/images/hotel_entrance.jpg', alt: 'Hotel Entrance' },
+  { src: '/images/hotel_corridor.jpg', alt: 'Hotel Corridor' },
+  // Wellness
+  { src: '/images/gym.jpg', alt: 'Gymnasium' },
+  { src: '/images/pool_indoor.jpg', alt: 'Indoor Swimming Pool' },
+  { src: '/images/pool_3.jpg', alt: 'Pool Area' },
+  // Banquets — all 3 halls with extra views
+  { src: '/images/banquet_hall_1.jpg', alt: 'Grand Banquet Hall' },
+  { src: '/images/banquet_hall_1_2.jpg', alt: 'Grand Banquet — Setup' },
+  { src: '/images/banquet_hall_1_3.jpg', alt: 'Grand Banquet — Stage' },
+  { src: '/images/banquet_hall_2.jpg', alt: 'Banquet Hall' },
+  { src: '/images/banquet_hall_2_2.jpg', alt: 'Banquet Hall — Setup' },
+  { src: '/images/banquet_hall_3.jpg', alt: 'Intimate Hall' },
+  { src: '/images/banquet_hall_3_2.jpg', alt: 'Intimate Hall — Decor' },
+  // Rooms — top picks
+  { src: '/images/room_super_executive.jpg', alt: 'Executive Deluxe Room' },
+  { src: '/images/room_super_executive_2.jpg', alt: 'Executive Deluxe — Interior' },
+  { src: '/images/room_executive.jpg', alt: 'Executive Room' },
+  { src: '/images/room_super_deluxe.jpg', alt: 'Superior Deluxe Room' },
+  { src: '/images/room_deluxe.jpg', alt: 'Superior Room' },
+  // Public spaces
+  { src: '/images/lobby.jpg', alt: 'Hotel Lobby' },
+  { src: '/images/reception.jpg', alt: 'Reception' },
+  { src: '/images/reception_2.jpg', alt: 'Reception Area' },
 ]
 
 const TESTIMONIALS = [
@@ -53,7 +70,7 @@ export default function Wedding() {
   useSEO({
     title: 'Wedding Venue in Ujjain | Hotel Maa Sharda Palace',
     description: 'Plan your dream wedding at Hotel Maa Sharda Palace Ujjain. Grand banquet halls, premium décor, fine catering & expert coordination. Capacity up to 400 guests.',
-    image: '/images/banquet_grand.jpg',
+    image: '/images/banquet_hall_1.jpg',
   })
 
   return (
@@ -63,7 +80,7 @@ export default function Wedding() {
           HERO — CINEMATIC FULL SCREEN
       ══════════════════════════════════════ */}
       <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-        <img src="/images/banquet_grand.jpg" alt="Wedding Venue"
+        <img src="/images/banquet_hall_1.jpg" alt="Wedding Venue"
           className="absolute inset-0 w-full h-full object-cover scale-105" />
         {/* Multi-layer overlay for depth */}
         <div className="absolute inset-0 bg-black/60" />
@@ -239,12 +256,12 @@ export default function Wedding() {
               className="relative order-2 lg:order-1">
               {/* Main image */}
               <div className="rounded-3xl overflow-hidden shadow-2xl shadow-gray-200 relative">
-                <img src="/images/banquet_grand.jpg" alt="Wedding Hall" className="w-full h-[480px] object-cover" />
+                <img src="/images/banquet_hall_1.jpg" alt="Wedding Hall" className="w-full h-[480px] object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
               {/* Small overlay image — hidden on mobile to prevent overflow */}
               <div className="hidden lg:block absolute -bottom-8 -right-8 w-44 h-36 rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-                <img src="/images/banquet_4.jpg" alt="Wedding Stage" className="w-full h-full object-cover" />
+                <img src="/images/banquet_hall_3.jpg" alt="Wedding Stage" className="w-full h-full object-cover" />
               </div>
               {/* Rating badge — hidden on mobile to prevent overflow */}
               <div className="hidden lg:block absolute -top-5 -left-5 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl shadow-xl p-4 text-gray-900">
@@ -294,12 +311,6 @@ export default function Wedding() {
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-3">
-                <a href={`tel:${phone2}`}
-                  className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-7 py-3.5 rounded-full font-bold hover:brightness-110 hover:shadow-lg hover:shadow-yellow-200 transition-all text-sm">
-                  📞 Book Venue
-                </a>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -350,61 +361,20 @@ export default function Wedding() {
             <p className="text-gray-400 mt-3 text-sm">A glimpse of the magic we create</p>
           </motion.div>
 
-          {/* Masonry-style grid with varied sizes */}
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-
-            {/* Row 1 — 1 big + 2 small */}
-            <div className="grid grid-cols-3 gap-4 mb-4">
-              <motion.div variants={fadeUp} className="col-span-2 relative overflow-hidden rounded-2xl cursor-pointer group h-72"
-                onClick={() => setLightbox(GALLERY[0])}>
-                <img src={GALLERY[0].src} alt={GALLERY[0].alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-all duration-300 flex items-end p-5">
-                  <span className="text-white font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">{GALLERY[0].alt}</span>
+          {/* Clean uniform grid — every image equal, proper spacing, fully visible */}
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {GALLERY.map((img, i) => (
+              <motion.div key={i} variants={fadeUp}
+                className="relative overflow-hidden rounded-2xl cursor-pointer group bg-gray-900 aspect-[4/3] shadow-md hover:shadow-xl transition-shadow"
+                onClick={() => setLightbox(img)}>
+                <img src={img.src} alt={img.alt} loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <span className="text-white text-sm font-semibold tracking-wide">{img.alt}</span>
                 </div>
               </motion.div>
-              <div className="flex flex-col gap-4">
-                {[GALLERY[1], GALLERY[2]].map((img, i) => (
-                  <motion.div key={i} variants={fadeUp} className="flex-1 relative overflow-hidden rounded-2xl cursor-pointer group"
-                    onClick={() => setLightbox(img)}>
-                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-all duration-300" />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Row 2 — 3 equal */}
-            <div className="grid grid-cols-3 gap-4 mb-4">
-              {[GALLERY[3], GALLERY[4], GALLERY[5]].map((img, i) => (
-                <motion.div key={i} variants={fadeUp} className="relative overflow-hidden rounded-2xl cursor-pointer group h-56"
-                  onClick={() => setLightbox(img)}>
-                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-all duration-300 flex items-end p-4">
-                    <span className="text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">{img.alt}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Row 3 — 2 small + 1 big */}
-            <div className="grid grid-cols-3 gap-4">
-              <div className="flex flex-col gap-4">
-                {[GALLERY[6], GALLERY[7]].map((img, i) => (
-                  <motion.div key={i} variants={fadeUp} className="flex-1 relative overflow-hidden rounded-2xl cursor-pointer group h-32"
-                    onClick={() => setLightbox(img)}>
-                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-all duration-300" />
-                  </motion.div>
-                ))}
-              </div>
-              <motion.div variants={fadeUp} className="col-span-2 relative overflow-hidden rounded-2xl cursor-pointer group h-72"
-                onClick={() => setLightbox(GALLERY[8])}>
-                <img src={GALLERY[8].src} alt={GALLERY[8].alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-all duration-300 flex items-end p-5">
-                  <span className="text-white font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity">{GALLERY[8].alt}</span>
-                </div>
-              </motion.div>
-            </div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -452,7 +422,7 @@ export default function Wedding() {
           LUXURY CTA
       ══════════════════════════════════════ */}
       <section className="py-28 relative overflow-hidden">
-        <img src="/images/banquet_5.jpg" alt="Wedding"
+        <img src="/images/hero_slide_1.jpg" alt="Wedding at Hotel Maa Sharda Palace"
           className="absolute inset-0 w-full h-full object-cover scale-105" />
         <div className="absolute inset-0 bg-black/75" />
         <div className="absolute inset-0 bg-gradient-to-r from-yellow-900/20 via-transparent to-yellow-900/20" />

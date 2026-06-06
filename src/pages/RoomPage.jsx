@@ -12,7 +12,7 @@ const ROOMS_DATA = {
     tagline: 'Comfortable Stay, Excellent Value',
     size: '140 sq ft',
     desc: 'Our Deluxe Rooms are designed for travellers who value comfort without compromise. Featuring a plush king-size bed, modern amenities, and a clean, well-appointed bathroom, these rooms are perfect for solo travellers and couples visiting Ujjain.',
-    features: ['King Size Bed', 'Couch', 'Air Conditioning', 'Free WiFi', 'Hot Water', 'LCD TV', 'Room Service', 'Free Parking', 'Daily Housekeeping', 'Intercom', 'Smoke-Free Room'],
+    features: ['King Bed', 'Air Conditioning', 'Free WiFi', 'Hot Water', 'LCD TV', 'Room Service', 'Free Parking', 'Daily Housekeeping', 'Intercom', 'Smoke-Free Room'],
     imgKey: 'img_room_deluxe',
     badge: 'Best Value',
     mealKey: 'room_deluxe_meal',
@@ -23,7 +23,7 @@ const ROOMS_DATA = {
     tagline: 'More Space, More Comfort',
     size: '154 sq ft',
     desc: 'Step up your stay with our Super Deluxe Rooms — offering additional space, a mini fridge, dedicated work desk, and upgraded furnishings. Ideal for business travellers and families who need more room to breathe.',
-    features: ['King Size Bed', 'Air Conditioning', 'Free WiFi', 'Hot Water', 'LCD TV', 'Room Service', 'Free Parking', 'Mini Fridge', 'Work Desk', 'Daily Housekeeping', 'Intercom', 'Tea/Coffee Maker'],
+    features: ['King Bed', 'Couch', 'Air Conditioning', 'Free WiFi', 'Hot Water', 'LCD TV', 'Room Service', 'Free Parking', 'Mini Fridge', 'Work Desk', 'Daily Housekeeping', 'Intercom', 'Tea/Coffee Maker'],
     imgKey: 'img_room_super_deluxe',
     badge: 'Most Popular',
     mealKey: 'room_sdlx_meal',
@@ -34,7 +34,7 @@ const ROOMS_DATA = {
     tagline: 'Premium Comfort, Thoughtful Touches',
     size: '168 sq ft',
     desc: 'Our Executive Rooms elevate your stay with a luxurious bathtub, 42" Smart TV, premium toiletries, and carefully curated decor. The perfect choice for guests who want a premium experience at a sensible price.',
-    features: ['King Size Bed + Twin Bed', 'Air Conditioning', 'Free WiFi', 'Hot Water', '42" Smart TV', 'Room Service', 'Free Parking', 'Mini Fridge', 'Work Desk', 'Bathtub', 'Premium Toiletries', 'Daily Housekeeping', 'Bathrobe & Slippers'],
+    features: ['King Bed + Twin Bed', 'Air Conditioning', 'Free WiFi', 'Hot Water', '42" Smart TV', 'Room Service', 'Free Parking', 'Mini Fridge', 'Work Desk', 'Bathtub', 'Premium Toiletries', 'Daily Housekeeping', 'Bathrobe & Slippers'],
     imgKey: 'img_room_executive',
     badge: 'Premium',
     mealKey: 'room_exec_meal',
@@ -61,11 +61,11 @@ const CONFIG_KEYS = {
 
 const NEARBY = [
   { place: 'Navgrah Shani Mandir', dist: 'Steps away', icon: '🛕' },
-  { place: 'Mahakaleshwar Temple', dist: '~3.5 km', icon: '🛕' },
-  { place: 'Kal Bhairav Temple', dist: '~4 km', icon: '🛕' },
-  { place: 'Ujjain Railway Station', dist: '~10 min drive', icon: '🚉' },
-  { place: 'Ram Ghat', dist: '~5 km', icon: '🌊' },
-  { place: 'Indore Airport', dist: '~60 min drive', icon: '✈️' },
+  { place: 'Mahakaleshwar Temple', dist: '~8 km', icon: '🛕' },
+  { place: 'Kal Bhairav Temple', dist: '~15 km', icon: '🛕' },
+  { place: 'Ram Ghat', dist: '~8 km', icon: '🌊' },
+  { place: 'Ujjain Railway Station', dist: '~8.5 km', icon: '🚉' },
+  { place: 'Indore Airport', dist: '~50 km', icon: '✈️' },
 ]
 
 const POLICIES = [
@@ -130,6 +130,37 @@ export default function RoomPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Photo Gallery — show extra photos for rooms that have them */}
+      {(() => {
+        const galleryKeys = [room.imgKey, `${room.imgKey}_2`, `${room.imgKey}_3`]
+        const gallery = galleryKeys
+          .map(k => config[k] || SITE_DEFAULTS[k])
+          .filter(Boolean)
+        if (gallery.length < 2) return null
+        return (
+          <section className="py-12 bg-white">
+            <div className="max-w-6xl mx-auto px-4">
+              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-8">
+                <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-2">Photo Gallery</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-primary font-display">{room.name} — Inside View</h2>
+              </motion.div>
+              <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
+                className={`grid gap-4 ${gallery.length === 2 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 md:grid-cols-3'}`}>
+                {gallery.map((src, i) => (
+                  <motion.div key={i} variants={fadeUp}
+                    className="relative overflow-hidden rounded-2xl shadow-md bg-gray-900 h-64">
+                    <img src={src} alt="" aria-hidden="true"
+                      className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-60" />
+                    <img src={src} alt={`${room.name} view ${i + 1}`} loading="lazy"
+                      className="relative w-full h-full object-contain" />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </section>
+        )
+      })()}
 
       {/* Breadcrumb */}
       <div className="bg-gray-50 py-3 border-b">

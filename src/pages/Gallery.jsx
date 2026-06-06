@@ -40,10 +40,10 @@ export default function Gallery() {
     { src: '/images/pool_indoor.jpg', alt: 'Indoor Swimming Pool', cat: 'Pool' },
     { src: '/images/pool_4.jpg', alt: 'Pool Lounge', cat: 'Pool' },
     // Banquet
-    { src: '/images/banquet_grand.jpg', alt: 'Grand Banquet Hall', cat: 'Banquet' },
-    { src: '/images/banquet_1.jpg', alt: 'Banquet Hall', cat: 'Banquet' },
-    { src: '/images/banquet_2.jpg', alt: 'Banquet Setup', cat: 'Banquet' },
-    { src: '/images/banquet_3.jpg', alt: 'Banquet Decor', cat: 'Banquet' },
+    { src: '/images/banquet_hall_1.jpg', alt: 'Grand Banquet Hall', cat: 'Banquet' },
+    { src: '/images/banquet_hall_2.jpg', alt: 'Banquet Hall', cat: 'Banquet' },
+    { src: '/images/banquet_hall_3.jpg', alt: 'Banquet Setup', cat: 'Banquet' },
+    { src: '/images/banquet_hall_4.jpg', alt: 'Banquet Decor', cat: 'Banquet' },
   ].filter(p => p.src)
 
   const filtered = active === 'All' ? allPhotos : allPhotos.filter(p => p.cat === active)

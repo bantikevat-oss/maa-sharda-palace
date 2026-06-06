@@ -72,13 +72,14 @@ export default function Home() {
 
 function AmenitiesStrip({ config }) {
   const amenities = [
-    { icon: '🏊', label: 'Indoor Pool', link: '/amenities/pool' },
+    { icon: '❄️', label: 'AC Rooms', link: null },
     { icon: '🎪', label: 'Banquet Halls', link: '/amenities/banquet' },
-    { icon: '🎉', label: 'Party Hall', link: '/amenities/party-hall' },
+    { icon: '🏊', label: 'Indoor Pool', link: '/amenities/pool' },
+    { icon: '🍽️', label: 'Restaurant (Coming Soon)', link: null },
+    { icon: '💪', label: 'Gym', link: '/amenities' },
     { icon: '🅿️', label: 'Free Parking', link: null },
     { icon: '📶', label: 'Free WiFi', link: null },
     { icon: '🛎️', label: '24/7 Room Service', link: null },
-    { icon: '❄️', label: 'AC Rooms', link: null },
   ]
   return (
     <section className="py-12 bg-primary text-white">

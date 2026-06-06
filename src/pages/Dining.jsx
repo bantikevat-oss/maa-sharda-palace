@@ -28,8 +28,8 @@ export default function Dining() {
     <main className="pt-24">
       {/* Hero Banner */}
       <section className="relative h-72 bg-primary overflow-hidden">
-        <img src={config?.img_lobby || '/images/lobby.jpg'} alt="Dining"
-          className="absolute inset-0 w-full h-full object-cover opacity-25" />
+        <img src="/images/banquet_hall_2.jpg" alt="Dining at Hotel Maa Sharda Palace"
+          className="absolute inset-0 w-full h-full object-cover opacity-35" />
         <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-3">Restaurant</p>
@@ -61,15 +61,40 @@ export default function Dining() {
               Our restaurant is set to redefine dining with exquisite cuisine, sophisticated interiors,
               and unforgettable experiences.
             </p>
-            <p className="text-gray-500 text-base mb-10">
+            <p className="text-gray-500 text-base mb-4">
               Stay tuned for our grand opening.
             </p>
+          </motion.div>
+        </div>
+      </section>
 
-            {/* Countdown style badge */}
-            <div className="inline-block bg-primary text-white px-8 py-4 rounded-2xl mb-12">
-              <p className="text-accent font-bold text-lg">🚀 Coming Soon</p>
-              <p className="text-white/70 text-sm mt-1">We are working hard to bring you the best dining experience</p>
-            </div>
+      {/* Restaurant Photo Gallery */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-10">
+            <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-2">Preview Glimpse</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary font-display">A Look Into Our <GradientText>Upcoming Restaurant</GradientText></h2>
+            <p className="text-gray-500 mt-3 text-sm max-w-xl mx-auto">
+              Reference visuals of the refined dining experience we are bringing to {SITE_DEFAULTS.businessName}.
+            </p>
+          </motion.div>
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              { src: '/images/banquet_hall_2.jpg', alt: 'Banquet Hall — dining space view 1' },
+              { src: '/images/banquet_hall_2_2.jpg', alt: 'Banquet Hall — dining space view 2' },
+              { src: '/images/banquet_hall_2_3.jpg', alt: 'Banquet Hall — dining space view 3' },
+            ].map((img, i) => (
+              <motion.div key={i} variants={fadeUp}
+                className="relative overflow-hidden rounded-2xl shadow-md group h-64">
+                <img src={img.src} alt={img.alt} loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+                <span className="absolute top-3 left-3 bg-accent text-primary text-[11px] font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wide">
+                  Coming Soon
+                </span>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>

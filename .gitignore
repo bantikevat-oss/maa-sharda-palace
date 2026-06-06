@@ -34,6 +34,19 @@ public/images/uploads/
 Complete Photo/
 Complete-Photo/
 
+# Raw uploaded source files (HEIC iPhone format, large PNG uploads, videos)
+# Converted .jpg versions are committed instead
+public/images/*.HEIC
+public/images/*.heic
+public/images/*.MOV
+public/images/*.mov
+public/images/*.mp4
+public/images/hiro*.png
+public/images/Banquet*.HEIC
+public/images/Banquet*.png
+public/images/Executive*.HEIC
+public/images/Superior*.HEIC
+
 # IDE / OS
 .vscode/
 .idea/
