@@ -90,6 +90,54 @@ export default function Amenities() {
         </div>
       </section>
 
+      {/* Nearby Temples / Mandir Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-12">
+            <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-2">Spiritual Tourism</p>
+            <h2 className="text-4xl font-bold text-primary font-display">
+              Nearby <GradientText>Mandir & Temples</GradientText>
+            </h2>
+            <p className="text-gray-500 mt-3 text-sm max-w-xl mx-auto">
+              Ujjain — the spiritual capital of India. Explore sacred temples just a short drive from our hotel.
+            </p>
+          </motion.div>
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+            {[
+              { icon: '🛕', name: 'Navgrah Shani Mandir', dist: 'Steps Away', img: '/images/navgrah_shani.jpg' },
+              { icon: '🕉️', name: 'Mahakaleshwar Temple', dist: '~8 km', img: '/images/mahakaleshwarr.jpg' },
+              { icon: '🛕', name: 'Kal Bhairav Temple', dist: '~15 km', img: '/images/kal_bhairav.jpg' },
+              { icon: '🌊', name: 'Ram Ghat (Shipra)', dist: '~8 km', img: '/images/mahakal_lok.jpg' },
+              { icon: '🛕', name: 'Harsiddhi Mata Temple', dist: '~9 km', img: '/images/Harsiddhii.webp' },
+              { icon: '🛕', name: 'Chintaman Ganesh', dist: '~10 km', img: '/images/chintaman_ganesh.webp' },
+            ].map((t, i) => (
+              <motion.div key={i} variants={fadeUp}
+                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+                <div className="relative h-44 overflow-hidden bg-gray-900">
+                  <img src={t.img} alt={t.name} loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-3 right-3 bg-accent text-primary text-[11px] font-bold px-3 py-1 rounded-full shadow-md">
+                    {t.dist}
+                  </div>
+                </div>
+                <div className="p-4 text-center">
+                  <div className="text-2xl mb-1">{t.icon}</div>
+                  <h3 className="font-bold text-primary text-sm font-display">{t.name}</h3>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+          <div className="text-center mt-10">
+            <Link to="/ujjain-darshan"
+              className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3 rounded-full font-semibold text-sm hover:bg-primary/90 transition-colors">
+              Explore Ujjain Darshan
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Wellness Section */}
       <section className="py-16 bg-primary text-white">
         <div className="max-w-5xl mx-auto px-4">
