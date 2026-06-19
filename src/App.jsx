@@ -28,6 +28,7 @@ import Pool from './pages/amenities/Pool'
 import BanquetHall from './pages/amenities/BanquetHall'
 import PartyHall from './pages/amenities/PartyHall'
 import Gym from './pages/amenities/Gym'
+import Temple from './pages/amenities/Temple'
 import Amenities from './pages/amenities/Amenities'
 
 // Blog
@@ -95,6 +96,7 @@ export default function App() {
         <Route path="/amenities/banquet" element={<PublicLayout><BanquetHall /></PublicLayout>} />
         <Route path="/amenities/party-hall" element={<PublicLayout><PartyHall /></PublicLayout>} />
         <Route path="/amenities/gym" element={<PublicLayout><Gym /></PublicLayout>} />
+        <Route path="/amenities/mandir" element={<PublicLayout><Temple /></PublicLayout>} />
 
         {/* Blog */}
         <Route path="/blog" element={<PublicLayout><BlogHome /></PublicLayout>} />

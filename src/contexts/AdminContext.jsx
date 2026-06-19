@@ -45,6 +45,7 @@ export const SITE_DEFAULTS = {
   seo_about: { title: 'About Us | Hotel Maa Sharda Palace Ujjain', description: 'Learn about Hotel Maa Sharda Palace — Ujjain\'s premier hotel on Indore Road. Our story, amenities, and commitment to excellence.' },
   seo_contact: { title: 'Contact Us | Hotel Maa Sharda Palace Ujjain', description: 'Contact Hotel Maa Sharda Palace. Phone: 9109103571. Address: Indore Rd, near Navgrah Shani Mandir, Ujjain.' },
   seo_pool: { title: 'Indoor Swimming Pool | Hotel Maa Sharda Palace Ujjain', description: 'Relax in our stunning indoor swimming pool with living green wall. Exclusive for hotel guests. Book your stay: 9109103571.' },
+  seo_mandir: { title: 'In-House Temple (Mandir) | Hotel Maa Sharda Palace Ujjain', description: 'Begin your day with darshan at our serene in-house Shiv-Parvati temple. Daily morning & evening aarti for guests at Hotel Maa Sharda Palace, Ujjain.' },
   seo_banquet: { title: 'Banquet Halls in Ujjain | Hotel Maa Sharda Palace', description: '3 grand banquet halls for weddings, conferences & events in Ujjain. Prime Indore Road location. Enquire: 9109103571.' },
   seo_faq: { title: 'FAQ | Hotel Maa Sharda Palace Ujjain', description: 'Frequently asked questions about Hotel Maa Sharda Palace — check-in time, room amenities, pool access, banquet booking and more.' },
   // Room config keys (editable via AdminRooms)
@@ -81,6 +82,9 @@ export const SITE_DEFAULTS = {
   img_pool: '/images/pool_indoor.jpg',
   img_pool_2: '/images/pool_2.jpg',
   img_gym: '/images/gym.jpg',
+  img_mandir: '/images/mandir_main.jpg',
+  img_mandir_2: '/images/mandir_deity.jpg',
+  img_mandir_3: '/images/mandir_2.jpg',
   img_banquet_1: '/images/banquet_hall_1.jpg',
   img_banquet_2: '/images/banquet_hall_2.jpg',
   img_banquet_3: '/images/banquet_hall_3.jpg',

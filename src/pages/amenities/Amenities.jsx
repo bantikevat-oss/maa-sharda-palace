@@ -33,6 +33,18 @@ const AMENITIES = [
     ],
     highlights: ['🏋️ Cardio + Strength', '❄️ Fully AC', '👨‍🏫 Trainer On Request'],
   },
+  {
+    icon: '🛕',
+    title: 'In-House Temple (Mandir)',
+    desc: 'A serene Shiv-Parvati temple within our premises, set against a tranquil Kailash backdrop. Guests can begin their day with peaceful darshan and seek blessings before heading out for Ujjain temple tours.',
+    timings: 'Open daily for guest darshan',
+    badge: 'Sacred Space',
+    badgeColor: 'bg-amber-600',
+    link: '/amenities/mandir',
+    main: '/images/mandir_main.jpg',
+    thumbs: ['/images/mandir_deity.jpg', '/images/mandir_2.jpg'],
+    highlights: ['🙏 Daily Aarti', '🕉️ Shiv-Parvati Darshan', '🧘 Peaceful Ambience'],
+  },
 ]
 
 export default function Amenities() {
@@ -150,6 +162,7 @@ export default function Amenities() {
             {[
               { icon: '🏊', label: 'Indoor Pool', sub: 'Temp Controlled' },
               { icon: '💪', label: 'Gym', sub: 'Fully Equipped' },
+              { icon: '🛕', label: 'In-House Temple', sub: 'Daily Aarti' },
               { icon: '🎪', label: 'Banquet Halls', sub: '3 Grand Halls' },
               { icon: '🛎️', label: 'Room Service', sub: '24/7 Availability' },
               { icon: '🅿️', label: 'Free Parking', sub: 'Secure & Spacious' },

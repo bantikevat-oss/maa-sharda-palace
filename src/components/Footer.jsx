@@ -26,6 +26,7 @@ export default function Footer() {
     ['/rooms', 'AC Rooms'],
     ['/amenities/banquet', 'Banquet Halls'],
     ['/amenities/pool', 'Indoor Pool'],
+    ['/amenities/mandir', 'In-House Temple'],
     ['/dining', 'Restaurant (Coming Soon)'],
     ['/amenities/gym', 'Gym'],
   ]
