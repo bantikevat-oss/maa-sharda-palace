@@ -2,10 +2,11 @@
 // Uses Node's built-in zlib + a hand-rolled ZIP writer to avoid extra dependencies.
 import { readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { deflateRawSync, crc32 } from 'node:zlib'
 
-const SRC = new URL('../dist/', import.meta.url).pathname.replace(/^\//, '')
-const OUT = new URL('../dist_upload_latest.zip', import.meta.url).pathname.replace(/^\//, '')
+const SRC = fileURLToPath(new URL('../dist/', import.meta.url))
+const OUT = fileURLToPath(new URL('../dist_upload_latest.zip', import.meta.url))
 
 function walk(dir, base = dir) {
   const out = []

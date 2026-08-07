@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { useAdmin } from '../../contexts/AdminContext'
+import { useSite } from '../../hooks/useSite'
 import { useSEO } from '../../hooks/useSEO'
 import { useBlogList } from '../../hooks/useBlog'
 import { motion } from 'framer-motion'
@@ -7,21 +7,21 @@ import { fadeUp, staggerContainer } from '../../animations'
 
 export default function BlogCategory() {
   const { cat } = useParams()
-  const { config } = useAdmin()
+  const { v } = useSite()
   const { posts, loading } = useBlogList()
 
   const filtered = posts.filter(p => p.category?.toLowerCase() === cat?.toLowerCase())
 
   useSEO({
-    title: `${cat} Articles | ${config.businessName} Blog`,
-    description: `Read our ${cat} blog posts — travel tips, hotel guides, and more from ${config.businessName}.`,
-    image: config.img_hero_bg,
+    title: `${cat} Articles | ${v('businessName')} Blog`,
+    description: `Read our ${cat} blog posts — travel tips, hotel guides, and more from ${v('businessName')}.`,
+    ogImage: v('blog_hero_img'),
   })
 
   return (
     <main className="pt-20">
       <section className="relative h-48 bg-primary overflow-hidden">
-        <img src={config.img_hero_bg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" />
+        <img src={v('blog_hero_img')} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" />
         <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">
           <h1 className="text-3xl font-bold font-display capitalize">{cat}</h1>
           <nav className="text-sm text-white/60 mt-2">

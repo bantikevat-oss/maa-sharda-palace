@@ -1,21 +1,21 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { useAdmin } from '../../contexts/AdminContext'
+import { useSite } from '../../hooks/useSite'
 import { useSEO } from '../../hooks/useSEO'
 import { useBlogList } from '../../hooks/useBlog'
 import { fadeUp, staggerContainer } from '../../animations'
 import GradientText from '../../components/ui/GradientText'
 
 export default function BlogHome() {
-  const { config } = useAdmin()
+  const { v } = useSite()
   const { posts, loading } = useBlogList()
   const [activeCategory, setActiveCategory] = useState('All')
 
   useSEO({
-    title: `Travel Blog & Hotel Tips | ${config.businessName}`,
-    description: `Explore travel tips, things to do in Ujjain, temple guides, and hotel insights from ${config.businessName}.`,
-    image: config.img_hero_bg,
+    title: `${v('blog_hero_title')} | ${v('businessName')}`,
+    description: `${v('blog_hero_desc')} — ${v('businessName')}, Ujjain.`,
+    ogImage: v('blog_hero_img'),
   })
 
   const categories = ['All', ...new Set(posts.map(p => p.category).filter(Boolean))]
@@ -25,12 +25,12 @@ export default function BlogHome() {
   return (
     <main className="pt-20">
       <section className="relative h-64 bg-primary overflow-hidden">
-        <img src={config.img_hero_bg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" />
+        <img src={v('blog_hero_img')} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" />
         <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-4xl md:text-5xl font-bold font-display mb-2">
-            Travel <GradientText>Blog</GradientText>
+            <GradientText>{v('blog_hero_title')}</GradientText>
           </motion.h1>
-          <p className="text-white/60 text-sm">Ujjain travel tips, temple guides, hotel news & more</p>
+          <p className="text-white/60 text-sm">{v('blog_hero_desc')}</p>
           <nav className="text-sm text-white/60 mt-3">
             <Link to="/" className="hover:text-accent">Home</Link>
             <span className="mx-2">/</span>
@@ -59,7 +59,7 @@ export default function BlogHome() {
             <div className="text-center py-24 text-gray-400">Loading posts...</div>
           )}
           {!loading && !filtered.length && (
-            <div className="text-center py-24 text-gray-400">No posts yet. Check back soon!</div>
+            <div className="text-center py-24 text-gray-400">{v('blog_empty_text')}</div>
           )}
           {!loading && featured && (
             <>

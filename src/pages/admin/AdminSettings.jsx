@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useAdmin, SITE_DEFAULTS } from '../../contexts/AdminContext'
+import PasswordField from '../../components/ui/PasswordField'
 
 export default function AdminSettings() {
   const { config, updateConfig } = useAdmin()
@@ -80,21 +81,12 @@ export default function AdminSettings() {
       <div className="bg-white rounded-2xl p-6 shadow-sm max-w-md">
         <h2 className="font-bold text-gray-800 mb-4 pb-3 border-b">Change Admin Password</h2>
         <form onSubmit={changePassword} className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
-            <input type="password" value={oldPassword} onChange={e => { setOldPassword(e.target.value); setPwError('') }}
-              className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">New Password</label>
-            <input type="password" value={newPassword} onChange={e => { setNewPassword(e.target.value); setPwError('') }}
-              className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Confirm New Password</label>
-            <input type="password" value={confirmPassword} onChange={e => { setConfirmPassword(e.target.value); setPwError('') }}
-              className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
-          </div>
+          <PasswordField label="Current Password" value={oldPassword} autoComplete="current-password"
+            onChange={e => { setOldPassword(e.target.value); setPwError('') }} />
+          <PasswordField label="New Password" value={newPassword} autoComplete="new-password"
+            onChange={e => { setNewPassword(e.target.value); setPwError('') }} />
+          <PasswordField label="Confirm New Password" value={confirmPassword} autoComplete="new-password"
+            onChange={e => { setConfirmPassword(e.target.value); setPwError('') }} />
           {pwError && <p className="text-red-500 text-sm">{pwError}</p>}
           {pwSaved && <p className="text-green-600 text-sm font-medium">✅ Password changed successfully!</p>}
           <button type="submit" className="w-full bg-primary text-white py-2.5 rounded-xl font-semibold hover:opacity-90 transition text-sm">

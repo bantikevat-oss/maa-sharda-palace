@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { AdminProvider } from './contexts/AdminContext'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -40,9 +40,9 @@ import BlogCategory from './pages/blog/BlogCategory'
 const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'))
 const AdminLayout = lazy(() => import('./pages/admin/AdminLayout'))
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'))
-const AdminContent = lazy(() => import('./pages/admin/AdminContent'))
-const AdminRooms = lazy(() => import('./pages/admin/AdminRooms'))
-const AdminImages = lazy(() => import('./pages/admin/AdminImages'))
+const AdminPages = lazy(() => import('./pages/admin/AdminPages'))
+const AdminPageEditor = lazy(() => import('./pages/admin/AdminPageEditor'))
+const AdminMedia = lazy(() => import('./pages/admin/AdminMedia'))
 const AdminSEO = lazy(() => import('./pages/admin/AdminSEO'))
 const AdminGTM = lazy(() => import('./pages/admin/AdminGTM'))
 const AdminSettings = lazy(() => import('./pages/admin/AdminSettings'))
@@ -110,10 +110,14 @@ export default function App() {
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
-          <Route path="content" element={<AdminContent />} />
-          <Route path="rooms" element={<AdminRooms />} />
-          <Route path="images" element={<AdminImages />} />
+          <Route path="pages" element={<AdminPages />} />
+          <Route path="pages/:pageId" element={<AdminPageEditor />} />
+          <Route path="media" element={<AdminMedia />} />
           <Route path="seo" element={<AdminSEO />} />
+          {/* Old bookmarks keep working */}
+          <Route path="content" element={<Navigate to="/admin/pages/global" replace />} />
+          <Route path="rooms" element={<Navigate to="/admin/pages/rooms" replace />} />
+          <Route path="images" element={<Navigate to="/admin/media" replace />} />
           <Route path="gtm" element={<AdminGTM />} />
           <Route path="settings" element={<AdminSettings />} />
           <Route path="blog" element={<AdminBlog />} />

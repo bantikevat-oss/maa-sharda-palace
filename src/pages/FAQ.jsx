@@ -1,24 +1,24 @@
 import { useState } from 'react'
-import { useAdmin } from '../contexts/AdminContext'
-import { useSEO } from '../hooks/useSEO'
-import { motion, AnimatePresence } from 'framer-motion'
-import { fadeUp, staggerContainer } from '../animations'
 import { Link } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useSite } from '../hooks/useSite'
+import { useSEO } from '../hooks/useSEO'
+import { fadeUp, staggerContainer } from '../animations'
 import GradientText from '../components/ui/GradientText'
 
 export default function FAQ() {
-  const { config } = useAdmin()
+  const { v, list, wa } = useSite()
   const [open, setOpen] = useState(null)
 
   useSEO({
-    title: config.seo_faq?.title,
-    description: config.seo_faq?.description,
-    image: config.img_hero_bg,
+    title: v('seo_faq_title'),
+    description: v('seo_faq_desc'),
+    ogImage: v('faq_hero_img'),
   })
 
-  const faqs = config.faq_items || []
+  const faqs = list('faq_items')
+  const phone = v('phone')
 
-  // JSON-LD FAQ Schema
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -31,15 +31,16 @@ export default function FAQ() {
 
   return (
     <main className="pt-20">
-      {/* JSON-LD */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       {/* Banner */}
       <section className="relative h-64 bg-primary overflow-hidden">
-        <img src={config.img_hero_bg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" />
+        {v('faq_hero_img') && (
+          <img src={v('faq_hero_img')} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" />
+        )}
         <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-4xl md:text-5xl font-bold font-display mb-3">
-            Frequently Asked <GradientText>Questions</GradientText>
+            <GradientText>{v('faq_hero_title')}</GradientText>
           </motion.h1>
           <nav className="text-sm text-white/60">
             <Link to="/" className="hover:text-accent">Home</Link>
@@ -84,14 +85,14 @@ export default function FAQ() {
         </div>
       </section>
 
-      {/* Still have questions CTA */}
+      {/* CTA */}
       <section className="py-16 bg-gray-50 text-center">
         <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-primary font-display mb-3">Still Have Questions?</h2>
-          <p className="text-gray-600 mb-6">Our team is available 24/7 to help you with anything you need.</p>
+          <h2 className="text-2xl font-bold text-primary font-display mb-3">{v('faq_cta_title')}</h2>
+          <p className="text-gray-600 mb-6">{v('faq_cta_desc')}</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={`tel:${config.phone}`} className="btn-primary">📞 Call: {config.phone}</a>
-            <a href={`https://wa.me/91${config.whatsapp.replace(/^0+/,'')}`} target="_blank" rel="noopener"
+            <a href={`tel:${phone}`} className="btn-primary">📞 Call: {phone}</a>
+            <a href={wa()} target="_blank" rel="noopener noreferrer"
               className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition">
               💬 WhatsApp
             </a>
