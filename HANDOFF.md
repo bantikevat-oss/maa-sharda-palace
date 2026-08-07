@@ -9,8 +9,37 @@
 
 ## 2026-08-07 — 100% dynamic admin
 
-**Branch:** `feat/dynamic-admin-100` · **PR:** https://github.com/bantikevat-oss/maa-sharda-palace/pull/1
-**Status:** built + QA'd locally · **NOT yet uploaded to Hostinger**
+**PR:** https://github.com/bantikevat-oss/maa-sharda-palace/pull/1 (merged to `main`)
+**Status:** 🟢 **LIVE on production** — deployed 2026-08-07 ~17:00 IST
+
+### Deploy record (2026-08-07)
+Host: `pukhta` (Hostinger `u937373134`, `82.180.166.85`) →
+`domains/maashardapalaceujjain.com/public_html/`
+
+```bash
+# from website/websites/hotel-maa-sharda-palace
+npm run build
+rsync -az --stats \
+  --exclude 'images/' --exclude 'api/site-config.json' \
+  --exclude 'api/posts/' --exclude 'api/rooms.json' \
+  dist/ pukhta:domains/maashardapalaceujjain.com/public_html/
+```
+
+- Pre-deploy backup: `~/backups/msp/msp-prehotfix-20260807-165504.tar.gz`
+- 37 files uploaded; `images/` (94 files) and live data untouched.
+- Cleanup (confirmed with Aman): the publicly downloadable 96 MB
+  `public_html/dist_upload_latest.zip` was **moved** to
+  `~/backups/msp/dist_upload_latest-2026-06-06.zip` (out of the web root), and the
+  13 unreferenced 19-June asset files were deleted. Both are inside the backup tar.
+- Post-deploy verified: home + 8 pages render, 0 broken images, 0 JS errors,
+  admin login + page editor + media library (78 photos) work, `verify-file.php`
+  write test passes, `/dist_upload_latest.zip` no longer serves the archive.
+
+**Prod has no `api/site-config.json`** — the site runs entirely on the schema
+defaults, which were seeded to match the previously-deployed bundle exactly
+(phone 9109103571, Superior/Superior Deluxe/Executive/Executive Deluxe rooms,
+₹3,000–₹6,000, check-in 12:00 PM). The file is created the first time someone
+saves in the admin, and only stores keys that differ from the defaults.
 
 ### What changed
 The whole site is now driven from one declarative content model, `src/content/schema.js`.
