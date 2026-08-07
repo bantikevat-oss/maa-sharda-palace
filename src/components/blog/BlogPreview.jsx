@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useBlogList } from '../../hooks/useBlog'
+import { useSite } from '../../hooks/useSite'
 import GradientText from '../ui/GradientText'
 import { staggerContainer, fadeUp } from '../../animations'
 
 export default function BlogPreview() {
   const { posts, loading } = useBlogList()
+  const { v } = useSite()
   const latest = posts.slice(0, 3)
   if (loading || !latest.length) return null
 
@@ -15,13 +17,13 @@ export default function BlogPreview() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4">
           <div>
-            <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-2">Our Blog</p>
+            <p className="text-accent text-sm font-semibold uppercase tracking-widest mb-2">{v('home_blog_eyebrow')}</p>
             <h2 className="text-4xl font-bold text-primary">
-              Travel <GradientText>Insights</GradientText>
+              <GradientText>{v('home_blog_title')}</GradientText>
             </h2>
           </div>
           <Link to="/blog" className="text-primary font-semibold border-b-2 border-accent pb-0.5 hover:text-accent transition-colors text-sm">
-            View All Posts →
+            {v('home_blog_cta')}
           </Link>
         </motion.div>
 

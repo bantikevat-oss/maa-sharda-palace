@@ -39,5 +39,25 @@ export default function GTMInjector() {
     document.head.appendChild(s)
   }, [config?.fbPixelId])
 
+  // Search-engine ownership verification meta tags (set in Admin → SEO)
+  useEffect(() => {
+    const tags = [
+      ['google-site-verification', config?.verify_google],
+      ['msvalidate.01', config?.verify_bing],
+      ['p:domain_verify', config?.verify_pinterest],
+      ['facebook-domain-verification', config?.verify_facebook],
+    ]
+    tags.forEach(([name, content]) => {
+      let el = document.head.querySelector(`meta[name="${name}"]`)
+      if (!content) { if (el) el.remove(); return }
+      if (!el) {
+        el = document.createElement('meta')
+        el.setAttribute('name', name)
+        document.head.appendChild(el)
+      }
+      el.setAttribute('content', content)
+    })
+  }, [config?.verify_google, config?.verify_bing, config?.verify_pinterest, config?.verify_facebook])
+
   return null
 }

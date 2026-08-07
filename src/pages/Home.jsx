@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
-import { useAdmin } from '../contexts/AdminContext'
+import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { useSite } from '../hooks/useSite'
 import { useSEO } from '../hooks/useSEO'
 import Hero from '../components/Hero'
 import TrustBar from '../components/TrustBar'
@@ -7,46 +9,51 @@ import Rooms from '../components/Rooms'
 import WhyChooseUs from '../components/WhyChooseUs'
 import Testimonials from '../components/Testimonials'
 import BlogPreview from '../components/blog/BlogPreview'
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer } from '../animations'
 
 export default function Home() {
-  const { config } = useAdmin()
+  const site = useSite()
+  const { v, list, on } = site
+
   useSEO({
-    title: config.metaTitle,
-    description: config.metaDescription,
-    keywords: config.metaKeywords,
-    image: config.img_hero_bg,
+    title: v('metaTitle'),
+    description: v('metaDescription'),
+    keywords: v('metaKeywords'),
+    ogImage: v('img_hero_bg'),
   })
 
-  // LocalBusiness JSON-LD schema for SEO
+  const businessName = v('businessName')
+  const phone = v('phone')
+  const email = v('email')
+  const address = v('address')
+  const metaDescription = v('metaDescription')
+  const heroImg = v('img_hero_bg')
+  const amenityNames = list('home_amenities').map(a => a.label).join('|')
+
+  // LocalBusiness JSON-LD — amenities come straight from the admin list
   useEffect(() => {
     const schema = {
       '@context': 'https://schema.org',
       '@type': 'LodgingBusiness',
-      name: config.businessName,
-      telephone: config.phone,
-      email: config.email,
+      name: businessName,
+      telephone: phone,
+      email,
       url: 'https://maashardapalaceujjain.com',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: config.address,
+        streetAddress: address,
         addressLocality: 'Ujjain',
         addressRegion: 'Madhya Pradesh',
         postalCode: '456006',
         addressCountry: 'IN',
       },
       geo: { '@type': 'GeoCoordinates', latitude: '23.18', longitude: '75.79' },
-      image: config.img_hero_bg,
-      description: config.metaDescription,
+      image: heroImg,
+      description: metaDescription,
       priceRange: '₹₹',
-      amenityFeature: [
-        { '@type': 'LocationFeatureSpecification', name: 'Indoor Swimming Pool', value: true },
-        { '@type': 'LocationFeatureSpecification', name: 'Free WiFi', value: true },
-        { '@type': 'LocationFeatureSpecification', name: 'Free Parking', value: true },
-        { '@type': 'LocationFeatureSpecification', name: 'Banquet Hall', value: true },
-      ],
+      amenityFeature: amenityNames.split('|').filter(Boolean).map(name => ({
+        '@type': 'LocationFeatureSpecification', name, value: true,
+      })),
     }
     const script = document.createElement('script')
     script.type = 'application/ld+json'
@@ -54,33 +61,29 @@ export default function Home() {
     script.text = JSON.stringify(schema)
     document.head.appendChild(script)
     return () => { const el = document.getElementById('local-business-schema'); if (el) el.remove() }
-  }, [config.businessName, config.phone, config.email, config.address, config.metaDescription, config.img_hero_bg])
+  }, [businessName, phone, email, address, metaDescription, heroImg, amenityNames])
 
   return (
     <main>
       <Hero />
       <TrustBar />
       <Rooms />
-      <AmenitiesStrip config={config} />
+      <AmenitiesStrip site={site} />
       <WhyChooseUs />
       <Testimonials />
-      <FAQPreview config={config} />
-      <BlogPreview />
+      <FAQPreview site={site} />
+      {on('show_home_blog') && <BlogPreview />}
     </main>
   )
 }
 
-function AmenitiesStrip({ config }) {
-  const amenities = [
-    { icon: '❄️', label: 'AC Rooms', link: null },
-    { icon: '🎪', label: 'Banquet Halls', link: '/amenities/banquet' },
-    { icon: '🏊', label: 'Indoor Pool', link: '/amenities/pool' },
-    { icon: '🍽️', label: 'Restaurant (Coming Soon)', link: null },
-    { icon: '💪', label: 'Gym', link: '/amenities' },
-    { icon: '🅿️', label: 'Free Parking', link: null },
-    { icon: '📶', label: 'Free WiFi', link: null },
-    { icon: '🛎️', label: '24/7 Room Service', link: null },
-  ]
+function AmenitiesStrip({ site }) {
+  const { list, on } = site
+  if (!on('show_home_amenities')) return null
+
+  const amenities = list('home_amenities')
+  if (!amenities.length) return null
+
   return (
     <section className="py-12 bg-primary text-white">
       <div className="max-w-7xl mx-auto px-4">
@@ -108,40 +111,37 @@ function AmenitiesStrip({ config }) {
   )
 }
 
-function FAQPreview({ config }) {
-  const items = (config.faq_items || []).slice(0, 4)
+function FAQPreview({ site }) {
+  const { v, list, on } = site
+  if (!on('show_home_faq')) return null
+
+  const items = list('faq_items').slice(0, 4)
   if (!items.length) return null
+
   return (
     <section className="py-16 bg-white">
       <div className="max-w-3xl mx-auto px-4">
-        <motion.div {...fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <p className="text-accent text-sm font-semibold uppercase tracking-widest text-center mb-2">FAQ</p>
-          <h2 className="section-title mb-8">Frequently Asked Questions</h2>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <p className="text-accent text-sm font-semibold uppercase tracking-widest text-center mb-2">{v('home_faq_eyebrow')}</p>
+          <h2 className="section-title mb-8">{v('home_faq_title')}</h2>
         </motion.div>
         <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-4">
           {items.map((item, i) => (
-            <FAQItem key={i} item={item} />
+            <motion.details key={i} variants={fadeUp} className="group bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 cursor-pointer">
+              <summary className="flex justify-between items-center p-5 font-semibold text-primary list-none select-none">
+                <span>{item.q}</span>
+                <span className="text-accent text-xl group-open:rotate-45 transition-transform duration-200">+</span>
+              </summary>
+              <div className="px-5 pb-5 text-gray-600 text-sm leading-relaxed">{item.a}</div>
+            </motion.details>
           ))}
         </motion.div>
         <div className="text-center mt-8">
           <Link to="/faq" className="text-primary font-semibold border-b-2 border-accent pb-0.5 hover:text-accent transition-colors text-sm">
-            View All FAQs →
+            {v('home_faq_cta')}
           </Link>
         </div>
       </div>
     </section>
   )
 }
-
-function FAQItem({ item }) {
-  return (
-    <motion.details variants={fadeUp} className="group bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 cursor-pointer">
-      <summary className="flex justify-between items-center p-5 font-semibold text-primary list-none select-none">
-        <span>{item.q}</span>
-        <span className="text-accent text-xl group-open:rotate-45 transition-transform duration-200">+</span>
-      </summary>
-      <div className="px-5 pb-5 text-gray-600 text-sm leading-relaxed">{item.a}</div>
-    </motion.details>
-  )
-}
-

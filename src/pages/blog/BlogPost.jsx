@@ -35,7 +35,7 @@ export default function BlogPost() {
     title: post ? `${post.title} | ${config.businessName}` : config.businessName,
     description: post?.excerpt || '',
     keywords: post?.tags?.join(', ') || '',
-    image: post?.featuredImage || config.img_hero_bg,
+    ogImage: post?.featuredImage || config.img_hero_bg,
   })
 
   if (loading) return (
