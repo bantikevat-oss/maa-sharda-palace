@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . '/_write-guard.php';
 /**
  * Search-engine site-verification files.
  *
