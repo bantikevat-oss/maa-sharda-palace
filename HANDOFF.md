@@ -1,5 +1,34 @@
 # HANDOFF — Hotel Maa Sharda Palace
 
+<!-- NEXT-SESSION-START -->
+## ▶️ NEXT SESSION — AUTO-RUN THIS
+
+> ⚠️ **Bootstrap block** — 2026-08-30 ko sab projects me daala gaya jab ye convention bani.
+> Ye abhi is project ke liye likha NAHI gaya hai. Is project ka agla `/session-end` isko
+> asli, project-specific plan se **replace** kar dega.
+
+**Read first:** `LANDMINES.md` (agar is folder me hai) → baaki `HANDOFF.md`
+
+**Context:** Is project pe aakhri kaam neeche "Last Session" me hai. Live state ke liye HANDOFF ka upar wala hissa padho.
+
+**Do this:**
+1. HANDOFF ki **🔴 URGENT** list se sabse upar wala kaam uthao. Koi 🔴 nahi to 🟡.
+2. Kaam shuru karne se pehle **jo bhi HANDOFF claim karta hai use live verify karo** — dates purani ho sakti hain.
+3. Kaam karo, phir `/session-end` chalao taki ye block asli plan se replace ho jaye.
+
+**Ask Aman before:** koi bhi deploy · koi bhi delete · paisa ya ads-account pe write · client ko kuch bhejna
+
+**Remember:** `Decisions (permanent)` section ko kabhi override mat karo bina Aman se poochhe.
+<!-- NEXT-SESSION-END -->
+
+## 2026-10-30 — real admin login · DEPLOYED ~22:53 IST 🟢 (`3ed1713`)
+- Replaces the 2026-10-13 `.writes-enabled` lock. Login is checked by `api/auth.php`; writes need `X-Admin-Token`.
+- Store: `~/domains/maashardapalaceujjain.com/.admin-auth.json` (above web root, 0600). **Username `admin`, new password** in Aman's Mac `website/websites/_admin-credentials/PROD-maashardapalaceujjain.com-ADMIN-PASSWORD.txt`. `msp@admin2024` is dead.
+- 🔴 **Hotel client ko naya password dena hai** (Aman) — tab tak wo login nahi kar payenge (10-13 se save waise bhi band tha).
+- Rotate: `ssh pukhta 'php ~/bin/set-admin-password.php --file=$HOME/domains/maashardapalaceujjain.com/.admin-auth.json --username=admin' < pw.txt`
+- Backup `~/backups/msp/prod-20261030-225215.tar.gz` · rsync excludes unchanged (images/, api/site-config.json, api/posts/, api/rooms.json) · verified from the box: home 200, unauth writes 401, minted token accepted (400 on empty body), hash matches.
+- 🟡 Live post `5-places-you-must-visit-in-ujjain` + `src/content/schema.js` mention "Bhasma Aarti" (incl. booking via the temple portal) — against the house rule; not touched, Aman to decide.
+
 **Live:** https://maashardapalaceujjain.com (Hostinger shared, PHP + static React)
 **Repo:** https://github.com/bantikevat-oss/maa-sharda-palace
 **Local:** `website/websites/hotel-maa-sharda-palace` · dev on port 5202 (`npm run dev`)
