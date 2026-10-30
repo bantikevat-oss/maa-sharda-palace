@@ -1,0 +1,5 @@
+# Dotfiles (auth store, login throttle, temp writes) are never served,
+# even if one ever lands inside the web root.
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>

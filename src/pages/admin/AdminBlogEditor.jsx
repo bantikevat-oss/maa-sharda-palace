@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useBlogPost, useBlogList } from '../../hooks/useBlog'
+import { adminFetch } from '../../lib/adminAuth'
 
 function slugify(text) {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
@@ -64,7 +65,7 @@ export default function AdminBlogEditor() {
       const reader = new FileReader()
       reader.onload = async (ev) => {
         const base64 = ev.target.result.split(',')[1]
-        const res = await fetch('/api/upload-image.php', {
+        const res = await adminFetch('/api/upload-image.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ filename: 'blog-' + Date.now() + '.' + file.name.split('.').pop(), base64 }),
@@ -89,7 +90,7 @@ export default function AdminBlogEditor() {
       publishedAt: existingPost?.publishedAt || new Date().toISOString().split('T')[0],
     }
     try {
-      const res = await fetch('/api/save-post.php', {
+      const res = await adminFetch('/api/save-post.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

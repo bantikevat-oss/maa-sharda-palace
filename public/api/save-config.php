@@ -20,7 +20,8 @@ if (!$data || !isset($data['config'])) {
     exit;
 }
 
-$config = $data['config'];
+// the login lives in the auth store; never let a password back into this public file
+$config = admin_strip_secrets($data['config']);
 
 // Security: strip any PHP tags or executable content from string values
 array_walk_recursive($config, function(&$val) {

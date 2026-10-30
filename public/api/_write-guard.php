@@ -1,15 +1,11 @@
 <?php
-// Server-side lock for every admin write endpoint (added 2026-10-13 after the
-// Hostinger account compromise). The admin password only lives in the JS bundle,
-// so it protects nothing on the server: without this file anyone on the internet
-// could rewrite site-config.json (phone numbers included), posts and images.
-// Writes stay OFF unless an operator creates api/.writes-enabled on the server by
-// hand for the duration of an editing session, then removes it again. The marker
-// is never part of the build, so a fresh deploy is always read-only.
-if (!file_exists(__DIR__ . '/.writes-enabled')) {
+// Gate for every admin write endpoint. Until 2026-10-30 this was a marker-file
+// lock (writes OFF unless api/.writes-enabled existed) because the admin password
+// only lived in the JS bundle. Writes now need a valid admin token from auth.php,
+// sent as X-Admin-Token — see _auth-lib.php.
+if (isset($_SERVER['SCRIPT_FILENAME']) && realpath($_SERVER['SCRIPT_FILENAME']) === realpath(__FILE__)) {
     http_response_code(403);
-    header('Content-Type: application/json');
-    header('Cache-Control: no-store');
-    echo json_encode(['error' => 'Editing is temporarily disabled. Please contact ByteFlow Technologies to make changes.']);
     exit;
 }
+require_once __DIR__ . '/_auth-lib.php';
+require_admin();

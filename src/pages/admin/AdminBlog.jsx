@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useBlogList } from '../../hooks/useBlog'
+import { adminFetch } from '../../lib/adminAuth'
 
 export default function AdminBlog() {
   const { posts, loading, refresh } = useBlogList()
@@ -10,7 +11,7 @@ export default function AdminBlog() {
     if (!confirm('Delete this post permanently?')) return
     setDeleting(slug)
     try {
-      await fetch('/api/delete-post.php', {
+      await adminFetch('/api/delete-post.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ slug }),
@@ -25,7 +26,7 @@ export default function AdminBlog() {
   const togglePublish = async (post) => {
     try {
       const updated = { ...post, published: !post.published }
-      await fetch('/api/save-post.php', {
+      await adminFetch('/api/save-post.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updated),

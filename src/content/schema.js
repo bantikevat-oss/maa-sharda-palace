@@ -2000,8 +2000,6 @@ export const SCHEMA_DEFAULTS = buildDefaults()
 
 /** Keys that are not part of the visual content model but still live in config. */
 export const SYSTEM_DEFAULTS = {
-  adminUsername: 'admin',
-  adminPassword: 'msp@admin2024',
   gtmId: '',
   ga4Id: '',
   fbPixelId: '',

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { allFields } from '../../content/schema'
 import { useAdmin } from '../../contexts/AdminContext'
+import { adminFetch } from '../../lib/adminAuth'
 
 /**
  * Photo manager — upload once here, then pick the image from any
@@ -62,7 +63,7 @@ export default function AdminMedia() {
           r.onerror = rej
           r.readAsDataURL(file)
         })
-        const resp = await fetch('/api/upload-image.php', {
+        const resp = await adminFetch('/api/upload-image.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ filename: file.name.replace(/[^a-zA-Z0-9._-]/g, '_'), base64 }),

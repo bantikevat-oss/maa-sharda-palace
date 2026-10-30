@@ -8,14 +8,18 @@ export default function AdminLogin() {
   const [password, setPassword] = useState('')
   const [showPwd, setShowPwd] = useState(false)
   const [error, setError] = useState('')
+  const [busy, setBusy] = useState(false)
   const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    if (login(username, password)) {
+    setBusy(true)
+    const r = await login(username, password)
+    setBusy(false)
+    if (r.ok) {
       navigate('/admin')
     } else {
-      setError('Incorrect username or password. Please try again.')
+      setError(r.error || 'Incorrect username or password. Please try again.')
     }
   }
 
@@ -52,6 +56,7 @@ export default function AdminLogin() {
                 autoComplete="current-password"
               />
               <button type="button" onClick={() => setShowPwd(v => !v)}
+                aria-label={showPwd ? 'Hide password' : 'Show password'}
                 className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors">
                 {showPwd ? (
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,9 +71,9 @@ export default function AdminLogin() {
               </button>
             </div>
           </div>
-          {error && <p className="text-red-500 text-sm">{error}</p>}
-          <button type="submit" className="w-full bg-primary text-white py-3 rounded-xl font-semibold hover:opacity-90 transition">
-            Login →
+          {error && <p className="text-red-500 text-sm" role="alert">{error}</p>}
+          <button type="submit" disabled={busy} className="w-full bg-primary text-white py-3 rounded-xl font-semibold hover:opacity-90 transition disabled:opacity-60">
+            {busy ? 'Checking…' : 'Login →'}
           </button>
         </form>
       </div>

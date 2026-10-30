@@ -1,12 +1,13 @@
 import { useState } from 'react'
-import { useAdmin, SITE_DEFAULTS } from '../../contexts/AdminContext'
+import { useAdmin } from '../../contexts/AdminContext'
 import PasswordField from '../../components/ui/PasswordField'
 
 export default function AdminSettings() {
-  const { config, updateConfig } = useAdmin()
+  const { changeCredentials } = useAdmin()
 
   // Username change state
   const [newUsername, setNewUsername] = useState('')
+  const [unPassword, setUnPassword] = useState('')
   const [unSaved, setUnSaved] = useState(false)
   const [unError, setUnError] = useState('')
 
@@ -20,32 +21,39 @@ export default function AdminSettings() {
   const changeUsername = async (e) => {
     e.preventDefault()
     setUnError('')
-    if (!newUsername.trim() || newUsername.length < 3) {
+    if (!newUsername.trim() || newUsername.trim().length < 3) {
       setUnError('Username must be at least 3 characters.')
       return
     }
-    await updateConfig({ adminUsername: newUsername.trim() })
+    try {
+      await changeCredentials(unPassword, { newUsername: newUsername.trim() })
+    } catch (err) {
+      setUnError(err.message)
+      return
+    }
     setUnSaved(true)
     setNewUsername('')
+    setUnPassword('')
     setTimeout(() => setUnSaved(false), 3000)
   }
 
   const changePassword = async (e) => {
     e.preventDefault()
     setPwError('')
-    if (oldPassword !== (config.adminPassword || SITE_DEFAULTS.adminPassword)) {
-      setPwError('Current password is incorrect.')
-      return
-    }
-    if (newPassword.length < 6) {
-      setPwError('New password must be at least 6 characters.')
+    if (newPassword.length < 10) {
+      setPwError('New password must be at least 10 characters.')
       return
     }
     if (newPassword !== confirmPassword) {
       setPwError('New passwords do not match.')
       return
     }
-    await updateConfig({ adminPassword: newPassword })
+    try {
+      await changeCredentials(oldPassword, { newPassword })
+    } catch (err) {
+      setPwError(err.message)
+      return
+    }
     setPwSaved(true)
     setOldPassword('')
     setNewPassword('')
@@ -61,7 +69,7 @@ export default function AdminSettings() {
       {/* Change Username */}
       <div className="bg-white rounded-2xl p-6 shadow-sm max-w-md mb-5">
         <h2 className="font-bold text-gray-800 mb-1 pb-3 border-b">Change Admin Username</h2>
-        <p className="text-xs text-gray-400 mb-4 mt-2">Current username: <span className="font-semibold text-gray-600">{config.adminUsername || SITE_DEFAULTS.adminUsername}</span></p>
+        <p className="text-xs text-gray-400 mb-4 mt-2">Confirm with your current password.</p>
         <form onSubmit={changeUsername} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">New Username</label>
@@ -69,6 +77,8 @@ export default function AdminSettings() {
               className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="Enter new username" autoComplete="off" />
           </div>
+          <PasswordField label="Current Password" value={unPassword} autoComplete="current-password"
+            onChange={e => { setUnPassword(e.target.value); setUnError('') }} />
           {unError && <p className="text-red-500 text-sm">{unError}</p>}
           {unSaved && <p className="text-green-600 text-sm font-medium">✅ Username updated successfully!</p>}
           <button type="submit" className="w-full bg-primary text-white py-2.5 rounded-xl font-semibold hover:opacity-90 transition text-sm">
@@ -97,7 +107,7 @@ export default function AdminSettings() {
 
       <div className="mt-6 bg-amber-50 border border-amber-200 rounded-2xl p-5 max-w-md">
         <h3 className="font-bold text-amber-800 mb-2">⚠️ Important</h3>
-        <p className="text-sm text-amber-700">Keep your admin credentials secure. Default login: username <code className="bg-amber-100 px-1 rounded">admin</code> / password <code className="bg-amber-100 px-1 rounded">msp@admin2024</code> — please change both after first login.</p>
+        <p className="text-sm text-amber-700">Keep your admin credentials secure. Use a password of at least 10 characters that you do not use on any other website. Changing it signs out every other device.</p>
       </div>
     </div>
   )

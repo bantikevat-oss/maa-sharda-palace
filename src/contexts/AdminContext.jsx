@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react'
 import { SITE_DEFAULTS, migrateConfig } from '../content/schema'
+import { adminFetch, authRequest, clearAdminToken, getAdminToken, storeAdminToken, SESSION_EXPIRED_EVENT } from '../lib/adminAuth'
 
 const AdminContext = createContext(null)
 
@@ -7,7 +8,7 @@ const AdminContext = createContext(null)
 export { SITE_DEFAULTS }
 
 export function AdminProvider({ children, configKey }) {
-  const [isAdmin, setIsAdmin] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(() => !!getAdminToken())
   const [config, setConfig] = useState(SITE_DEFAULTS)
   const [loading, setLoading] = useState(true)
   const [saveState, setSaveState] = useState('idle') // idle | saving | saved | error
@@ -35,24 +36,36 @@ export function AdminProvider({ children, configKey }) {
       })
       .catch(() => { /* offline — localStorage copy stands */ })
       .finally(() => setLoading(false))
-
-    if (sessionStorage.getItem('admin_auth') === 'true') setIsAdmin(true)
   }, [configKey])
 
-  const login = (username, password) => {
-    const user = config?.adminUsername || SITE_DEFAULTS.adminUsername
-    const pass = config?.adminPassword || SITE_DEFAULTS.adminPassword
-    if (username === user && password === pass) {
-      sessionStorage.setItem('admin_auth', 'true')
+  // a write that comes back 401 means the token expired — drop back to the login screen
+  useEffect(() => {
+    const onExpired = () => setIsAdmin(false)
+    window.addEventListener(SESSION_EXPIRED_EVENT, onExpired)
+    return () => window.removeEventListener(SESSION_EXPIRED_EVENT, onExpired)
+  }, [])
+
+  // Username + password are checked by api/auth.php on the server, never in the browser.
+  const login = async (username, password) => {
+    try {
+      const r = await authRequest({ action: 'login', username, password })
+      storeAdminToken(r.token, r.expires)
       setIsAdmin(true)
-      return true
+      return { ok: true }
+    } catch (e) {
+      return { ok: false, error: e.message }
     }
-    return false
   }
 
   const logout = () => {
-    sessionStorage.removeItem('admin_auth')
+    clearAdminToken()
     setIsAdmin(false)
+  }
+
+  /** changes: { newPassword?, newUsername? } — always confirmed with the current password. */
+  const changeCredentials = async (currentPassword, changes) => {
+    const r = await authRequest({ action: 'change', token: getAdminToken(), currentPassword, ...changes })
+    storeAdminToken(r.token, r.expires)
   }
 
   /**
@@ -75,7 +88,7 @@ export function AdminProvider({ children, configKey }) {
     try { localStorage.setItem(configKey, JSON.stringify(diff)) } catch { /* quota */ }
 
     try {
-      const res = await fetch('/api/save-config.php', {
+      const res = await adminFetch('/api/save-config.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ config: diff }),
@@ -101,7 +114,7 @@ export function AdminProvider({ children, configKey }) {
   }, [updateConfig])
 
   return (
-    <AdminContext.Provider value={{ isAdmin, config, loading, saveState, login, logout, updateConfig, resetKeys }}>
+    <AdminContext.Provider value={{ isAdmin, config, loading, saveState, login, logout, changeCredentials, updateConfig, resetKeys }}>
       {children}
     </AdminContext.Provider>
   )

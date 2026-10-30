@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import MediaPicker from './MediaPicker'
 import { blankItem } from '../../../content/schema'
+import { adminFetch } from '../../../lib/adminAuth'
 
 /* ── shared bits ─────────────────────────────────────────── */
 
@@ -114,7 +115,7 @@ function ImageInput({ field, value, onChange }) {
         r.onerror = rej
         r.readAsDataURL(file)
       })
-      const resp = await fetch('/api/upload-image.php', {
+      const resp = await adminFetch('/api/upload-image.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ filename: file.name.replace(/[^a-zA-Z0-9._-]/g, '_'), base64 }),

@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { adminFetch } from '../../../lib/adminAuth'
 
 /**
  * Shared media library.
@@ -39,7 +40,7 @@ export default function MediaPicker({ open, onClose, onPick, currentUrl }) {
           reader.readAsDataURL(file)
         })
         const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_')
-        const res = await fetch('/api/upload-image.php', {
+        const res = await adminFetch('/api/upload-image.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ filename: safeName, base64 }),

@@ -60,3 +60,7 @@ yarn-debug.log*
 
 # Local-only build artifacts
 vite.log
+
+# Admin login store (lives above the web root on the server; local dev copy here)
+.admin-auth.json
+.admin-login-attempts.json

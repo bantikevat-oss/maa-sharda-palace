@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { useAdmin } from '../../contexts/AdminContext'
 import { CONTENT_MODEL, SITE_DEFAULTS } from '../../content/schema'
+import { adminFetch } from '../../lib/adminAuth'
 
 const eq = (a, b) => JSON.stringify(a) === JSON.stringify(b)
 const inputCls = 'w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition'
@@ -145,7 +146,7 @@ function VerificationFiles() {
   const [manualBody, setManualBody] = useState('')
 
   const load = useCallback(() => {
-    fetch('/api/verify-file.php', { cache: 'no-store' })
+    adminFetch('/api/verify-file.php', { cache: 'no-store' })
       .then(r => (r.ok ? r.json() : { files: [] }))
       .then(d => setFiles(Array.isArray(d.files) ? d.files : []))
       .catch(() => setFiles([]))
@@ -156,7 +157,7 @@ function VerificationFiles() {
   const send = async (payload) => {
     setBusy(true); setMsg(null)
     try {
-      const res = await fetch('/api/verify-file.php', {
+      const res = await adminFetch('/api/verify-file.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
